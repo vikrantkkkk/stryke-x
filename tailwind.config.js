@@ -1,15 +1,29 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"DM Sans"', 'sans-serif'],
+        sans: ['"DM Sans"', "sans-serif"],
+      },
+      animation: {
+        // Reduced duration for smoother movement
+        marquee: "marquee 50s linear infinite",
+        // Added pause on hover variation
+        "marquee-hover": "marquee 50s linear infinite paused",
+      },
+      keyframes: {
+        marquee: {
+          // Adjusted translation for smoother infinite loop
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      // Optional: Add easing for more natural movement
+      transitionTimingFunction: {
+        marquee: "linear",
       },
     },
   },
   plugins: [],
-}
+};

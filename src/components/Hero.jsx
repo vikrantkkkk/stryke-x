@@ -2,8 +2,49 @@ import React from "react";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import light from "../assets/png/light1.png";
 import video from "../assets/png/video.png";
+import a from "../assets/svg/a.svg";
+import b from "../assets/png/b.png";
+import c from "../assets/png/c.png";
+import d from "../assets/png/d.png";
+import e from "../assets/svg/b.svg";
+import f from "../assets/svg/c.svg";
+import g from "../assets/svg/d.svg";
+import h from "../assets/png/h.png";
+import i from "../assets/svg/e.svg";
+import j from "../assets/svg/f.svg";
+import k from "../assets/png/k.png";
+import l from "../assets/svg/g.svg";
+import m from "../assets/svg/h.svg";
+import n from "../assets/svg/i.svg";
+import o from "../assets/svg/j.svg";
+import p from "../assets/svg/aa.svg";
+import sebiLogo from "../assets/svg/sebi.svg";
+import leftcard from "../assets/png/leftcard.png";
+import rightcard from "../assets/png/rightcard.png";
+import TradingStatsCard from "./TradingStatsCard";
 
 const Hero = () => {
+  const logos = [
+    { icon: a, name: "a" },
+    { icon: b, name: "b" },
+    { icon: c, name: "c" },
+    { icon: p, name: "p" },
+    { icon: d, name: "d" },
+    { icon: e, name: "e" },
+    { icon: f, name: "f" },
+    { icon: g, name: "g" },
+    { icon: h, name: "h" },
+    { icon: i, name: "i" },
+    { icon: j, name: "j" },
+    { icon: k, name: "k" },
+    { icon: l, name: "l" },
+    { icon: m, name: "m" },
+    { icon: n, name: "n" },
+    { icon: o, name: "o" },
+  ];
+
+  const logos1 = [...logos, ...logos, ...logos];
+
   return (
     <section
       id="home"
@@ -14,7 +55,7 @@ const Hero = () => {
         <img
           src={light}
           alt=""
-          className="w-full h-full object-cover object-center mix-blend-screen"
+          className="w-full h-full object-cover object-center mix-blend-screen z-0"
         />
       </div>
 
@@ -73,6 +114,34 @@ const Hero = () => {
           </div>
         </AnimateFromInside>
       </div>
+      {/* Trusted Text */}
+      <p className="text-[#FFFFFF80]/[0.5] font-normal text-[20px] leading-[30px] w-full mt-10 z-20">
+        Trusted by <span className="font-bold">Professionals</span> Working At
+        Top Companies Like
+      </p>
+
+      {/* Logo Marquee */}
+      <div className="w-full overflow-hidden mt-6 group z-20">
+        <div className="flex items-center gap-10 justify-center animate-marquee group-hover:[animation-play-state:paused]">
+          {logos1.map((logo, index) => (
+            <div
+              key={index}
+              className="flex justify-center items-center shrink-0"
+            >
+              <img
+                src={logo.icon}
+                alt={logo.name}
+                className="h-[40px] object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <TradingStatsCard
+        sebiLogo={sebiLogo}
+        leftcard={leftcard}
+        rightcard={rightcard}
+      />
     </section>
   );
 };
