@@ -4,7 +4,7 @@ import { AnimateFromInside } from "../common/ScrollFadeIn";
 export default function TradingStatsCard({ sebiLogo, leftcard, rightcard }) {
   return (
     <AnimateFromInside>
-      <div className="w-[797px] rounded-[24px] flex justify-center mt-16 bg-[#15182c]  z-10 relative overflow-hidden">
+      <div className="w-[797px] rounded-[24px] flex justify-center mt-14 bg-[#0F1330]  z-10 relative overflow-hidden">
         <div
           className="flex flex-row items-center justify-between text-white rounded-2xl px-6 py-4 gap-8 shadow-md max-w-4xl w-full"
           style={{
