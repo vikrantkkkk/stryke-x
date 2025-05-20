@@ -6,6 +6,8 @@ import ExclusiveFeatures from "../components/ExclusiveFeatures.jsx";
 import StrykeXAdvantage from "../components/StrykeXAdvantage.jsx";
 import Works from "../components/Works.jsx";
 import Pricing from "../components/Pricing.jsx";
+import Faq from "../components/Faq.jsx";
+import LightningFast from "../components/LightningFast.jsx";
 
 const LandingPage = () => {
   return (
@@ -16,6 +18,8 @@ const LandingPage = () => {
       <StrykeXAdvantage />
       <Works />
       <Pricing />
+      <Faq />
+      <LightningFast />
     </MainLayout>
   );
 };

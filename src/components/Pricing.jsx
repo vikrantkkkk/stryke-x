@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import light3 from "../assets/png/light3.png";
 import hoverx from "../assets/svg/hoverx.svg";
+import verified1 from "../assets/svg/verified1.svg";
+import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const Pricing = () => {
   // Sample pricing data
@@ -56,7 +58,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center pb-20 w-full px-6 md:px-40 relative overflow-hidden z-10">
+    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center gap-4 py-16 w-full px-6 md:px-40 relative overflow-hidden z-10">
       {/* Background Image */}
       <img
         src={light3}
@@ -65,14 +67,16 @@ const Pricing = () => {
       />
 
       {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="font-semibold text-3xl md:text-6xl leading-tight mb-4">
-          Pricing
-        </h1>
+      <div className="flex flex-col justify-center items-center gap-4">
+        <AnimateFromInside>
+          <p className="font-semibold text-[32px] md:text-[64px] leading-[100%]  font-degular">
+            Pricing
+          </p>
+        </AnimateFromInside>
         {/* Toggle Buttons */}
         <div className="flex rounded-full overflow-hidden bg-[#FFFFFF1A]/[0.1] gap-2 p-1">
           <button
-            className={`px-12 py-3 transition text-sm font-medium
+            className={`px-12 py-3 transition text-sm font-medium font-degular
               ${
                 activeButton === "StrykeX Pro"
                   ? "bg-gradient-to-r from-[#3FADFF] to-[#184ABE] text-white rounded-full"
@@ -83,7 +87,7 @@ const Pricing = () => {
             StrykeX Pro
           </button>
           <button
-            className={`px-12 py-3 transition text-sm font-medium
+            className={`px-12 py-3 transition text-sm font-medium font-degular
               ${
                 activeButton === "StrykeX Legend"
                   ? "bg-gradient-to-r from-[#3FADFF] to-[#184ABE] text-white rounded-full"
@@ -97,14 +101,19 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="flex justify-center items-center gap-8 w-full">
+      <div className="flex justify-center items-center gap-10 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="relative group border border-white/20 rounded-[16px] p-6 w-[394px] flex flex-col justify-between gap-4 items-start text-left hover:border-gray-700/50 bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all hover:shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
+            className="relative group border hover:scale-105 border-white/20 rounded-[16px] p-6 w-[394px] flex flex-col justify-between gap-4 items-start text-left hover:border-gray-700/50 bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all hover:shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
           >
             {/* Hover Stick */}
-            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] bg-blue-500/50 rounded-b-[16px] hidden group-hover:block"></div>
+            <div
+              className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px] hidden group-hover:block"
+              style={{
+                background: "linear-gradient(90deg, #3370FF 0%, #60A5FA 100%)",
+              }}
+            />
 
             {/* Hover Image (Top Right) */}
             <img
@@ -114,36 +123,36 @@ const Pricing = () => {
             />
 
             {/* Plan Title */}
-            <h2 className="font-bold text-[20px] leading-[28px]">
+            <h2 className="font-bold text-[20px] leading-[28px] font-inter">
               {plan.title}
             </h2>
 
             {/* Pricing */}
             <div className="flex gap-2 items-baseline">
               <div>
-                <span className="font-bold text-[36px] leading-[40px]">
+                <span className="font-bold text-[36px] leading-[40px] font-inter">
                   {plan.price}
                 </span>
-                <span className="font-bold text-[24px] leading-[40px]">
+                <span className="font-bold text-[24px] leading-[40px] font-inter">
                   {plan.duration}
                 </span>
               </div>
-              <p className="text-sm text-gray-400 line-through">
+              <p className="text-sm text-gray-400 line-through font-inter">
                 {plan.oldPrice}
               </p>
             </div>
 
             {/* Features List */}
-            <ul className="text-sm text-gray-300 space-y-3">
+            <ul className="text-sm text-gray-300 space-y-3 font-degular">
               {plan.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center gap-2">
-                  <span className="text-[#00AEEF]">✔</span> {feature}
+                  <img src={verified1} alt={verified1} /> {feature}
                 </li>
               ))}
             </ul>
 
             {/* Subscribe Button */}
-            <button className="bg-[#3370FF] text-white px-6 py-3 rounded-[8px] w-full font-semibold transition mt-2">
+            <button className="font-medium text-[16px] leading-[24px] bg-[#3370FF] w-full rounded-[8px] py-3">
               Subscribe Now
             </button>
           </div>

@@ -5,6 +5,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"DM Sans"', "sans-serif"],
+        degular: ['"Degular Display"', "sans-serif"],
+        poppins: ['"Poppins"', "sans-serif"],
+        inter: ['"Inter"', "sans-serif"],
       },
       animation: {
         // Reduced duration for smoother movement

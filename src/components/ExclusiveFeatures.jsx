@@ -9,12 +9,14 @@ import card6 from "../assets/png/card6.png";
 import cursor from "../assets/svg/cursor.svg";
 import strykexwhite from "../assets/svg/strykexwhite.svg";
 import verified from "../assets/svg/verified.svg";
-import nifty from "../assets/png/nifty.png";
-import cnbcdark from "../assets/png/cnbcdark.png";
-import hindustandark from "../assets/png/hindustandark.png";
-import moneycontrol from "../assets/png/moneycontrol.png";
-import tedx from "../assets/png/tedx.png";
-import theprint from "../assets/png/theprint.png";
+import nifty from "../assets/svg/1.svg";
+import cnbcdark from "../assets/svg/2.svg";
+import hindustandark from "../assets/svg/3.svg";
+import moneycontrol from "../assets/svg/4.svg";
+import tedx from "../assets/svg/5.svg";
+import theprint from "../assets/svg/6.svg";
+import seven from "../assets/svg/7.svg";
+import eight from "../assets/svg/8.svg";
 import ellipse6 from "../assets/png/ellipse6.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -28,6 +30,8 @@ const ExclusiveFeatures = () => {
     { icon: moneycontrol, name: "moneycontrol" },
     { icon: tedx, name: "tedx" },
     { icon: theprint, name: "theprint" },
+    { icon: seven, name: "seven" },
+    { icon: eight, name: "eight" },
   ];
 
   const sliderSettings = {
@@ -77,12 +81,12 @@ const ExclusiveFeatures = () => {
   };
 
   return (
-    <div className="bg-[#01041A] text-white flex flex-col items-center px-40 pb-14 w-full">
+    <div className="bg-[#01041A] text-white flex flex-col items-center px-40 pb-16 gap-4 w-full">
       <div className="relative w-full">
         {/* Text over the image */}
-        <div className="absolute top-10 left-0 w-full h-full flex flex-col items-center justify-center text-center px-4">
+        <div className="absolute top-10 left-0 w-full h-full flex flex-col gap-4 items-center justify-center text-center">
           <AnimateFromInside>
-            <h2 className="font-semibold text-[64px] leading-[140%]">
+            <h2 className="font-semibold text-[64px] leading-[140%] font-degular">
               Exclusive Features
             </h2>
           </AnimateFromInside>
@@ -96,13 +100,17 @@ const ExclusiveFeatures = () => {
         </div>
 
         {/* Image */}
-        <img src={fill} alt="Exclusive Background" className="object-cover" />
+        <img
+          src={fill}
+          alt="Exclusive Background"
+          className="object-cover -z-10"
+        />
       </div>
-      <div className="flex flex-col justify-center items-center gap-4">
-        <div className="flex gap-4 items-center justify-center">
+      <div className="flex flex-col justify-center items-center gap-6">
+        <div className="flex gap-6 items-center justify-center">
           <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] w-[405px] h-[411px]  rounded-[14px]">
             <img src={card1} alt="card1" className="object-cover" />
-            <div className="flex flex-col gap-4 justify-start items-start">
+            <div className="flex flex-col gap-4 justify-start items-start z-10">
               <p className="font-semibold text-[24px] leading-[36px] text-white">
                 Backtesting
               </p>
@@ -115,13 +123,13 @@ const ExclusiveFeatures = () => {
             <img
               src={ellipse6}
               alt={ellipse6}
-              className="absolute bottom-0 left-0 rounded-bl-[14px]"
+              className="absolute bottom-0 left-0 rounded-bl-[14px] z-0"
             />
           </div>
           <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] w-[405px] h-[411px]  rounded-[14px]">
             <img src={card2} alt="card2" className="object-cover" />
-            <div className="flex flex-col gap-4 justify-start items-start">
-              <p className="font-semibold text-[24px] leading-[36px] text-white">
+            <div className="flex flex-col gap-4 justify-start items-start z-10">
+              <p className="font-semibold text-[24px] leading-[36px] text-white font-poppins">
                 Paper Trading
               </p>
 
@@ -134,13 +142,13 @@ const ExclusiveFeatures = () => {
             <img
               src={ellipse6}
               alt={ellipse6}
-              className="absolute bottom-0 left-0 rounded-bl-[14px]"
+              className="absolute bottom-0 left-0 rounded-bl-[14px] z-0"
             />
           </div>
           <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] w-[405px] h-[411px] rounded-[14px]">
             <img src={card3} alt="card3" className="object-cover" />
-            <div className="flex flex-col gap-4 justify-start items-start">
-              <p className="font-semibold text-[24px] leading-[36px] text-white">
+            <div className="flex flex-col gap-4 justify-start items-start z-10">
+              <p className="font-semibold text-[24px] leading-[36px] text-white font-poppins">
                 Forward Testing
               </p>
 
@@ -152,15 +160,15 @@ const ExclusiveFeatures = () => {
             <img
               src={ellipse6}
               alt={ellipse6}
-              className="absolute bottom-0 left-0 rounded-bl-[14px]"
+              className="absolute bottom-0 left-0 rounded-bl-[14px] z-0"
             />
           </div>
         </div>
-        <div className="flex gap-4 items-center justify-center">
+        <div className="flex gap-6 items-center justify-center">
           <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] w-[405px] h-[411px] rounded-[14px]">
             <img src={card4} alt="card4" className="object-cover" />
-            <div className="flex flex-col gap-4 justify-start items-start">
-              <p className="font-semibold text-[24px] leading-[36px] text-white">
+            <div className="flex flex-col gap-4 justify-start items-start z-10">
+              <p className="font-semibold text-[24px] leading-[36px] text-white font-poppins">
                 Funded Accounts
               </p>
 
@@ -172,7 +180,7 @@ const ExclusiveFeatures = () => {
             <img
               src={ellipse6}
               alt={ellipse6}
-              className="absolute bottom-0 left-0 rounded-bl-[14px]"
+              className="absolute bottom-0 left-0 rounded-bl-[14px] z-0"
             />
           </div>
           <div className="relative flex flex-col px-6 pb-6 pt-10 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] w-[824px] h-[411px] rounded-[14px]">
@@ -195,7 +203,7 @@ const ExclusiveFeatures = () => {
                       className="rounded-full w-7 h-7"
                     />
                     <div className="flex flex-col gap-1">
-                      <h2 className="text-[10px] font-semibold leading-[100%]">
+                      <h2 className="text-[10px] font-semibold leading-[100%] font-poppins">
                         Nifty Sniper
                       </h2>
                       <p className="text-[7.5px] font-medium leading-[100%] text-[#FFFFFFE5]/[0.9] text-gray-400 flex items-center">
@@ -263,8 +271,8 @@ const ExclusiveFeatures = () => {
               </div>
               <img src={card6} alt="card6" className="object-cover w-[457px]" />
             </div>
-            <div className="flex flex-col gap-4 justify-start items-start">
-              <p className="font-semibold text-[24px] leading-[36px] text-white">
+            <div className="flex flex-col gap-4 justify-start items-start z-10">
+              <p className="font-semibold text-[24px] leading-[36px] text-white font-poppins">
                 Pre Made Algo Strategies
               </p>
 
@@ -279,18 +287,18 @@ const ExclusiveFeatures = () => {
             <img
               src={ellipse6}
               alt={ellipse6}
-              className="absolute bottom-0 left-0 rounded-bl-[14px]"
+              className="absolute bottom-0 left-0 rounded-bl-[14px] z-0"
             />
           </div>
         </div>
-        <button className="flex justify-center items-center gap-4 bg-white mt-4 text-black text-[20px] leading-[100%] font-semibold rounded-full px-12 py-3">
+        <button className="flex justify-center items-center gap-4 bg-white mt-[28px] text-black text-[20px] leading-[100%] font-semibold rounded-full px-12 py-3">
           Subscribe To{" "}
           <span>
             <img src={strykexwhite} alt={strykexwhite} />
           </span>
         </button>
 
-        <div className="flex flex-col justify-center items-center w-[80vw] mt-14">
+        <div className="flex flex-col gap-5 justify-center items-center w-screen mt-[104px]">
           <div className="font-semibold text-[24px] leading-[100%]">
             Featured in
           </div>
@@ -304,7 +312,7 @@ const ExclusiveFeatures = () => {
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="w-24 h-24 object-contain"
+                    className="h-[70px] object-contain"
                   />
                 </div>
               ))}
