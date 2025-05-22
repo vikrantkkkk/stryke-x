@@ -391,7 +391,7 @@ const Footer = () => {
         <img
           src={light4}
           alt={light4}
-          className="absolute -z-10 w-full h-full  object-cover opacity-70"
+          className="absolute -z-10 w-full h-full  object-cover"
         />
       </div>
     </footer>
