@@ -354,7 +354,7 @@ const Footer = () => {
         </div>
         <div className="flex md:flex-row flex-col-reverse justify-between items-center md:px-32 px-4 gap-4 py-2 w-full">
           <AnimateFromInside>
-            <p className="font-normal text-[16px] leading-4 text-[#FFFFFF] md:py-0 py-2">
+            <p className="font-normal md:text-[16px] text-[14px] leading-4 text-[#FFFFFF] md:py-0 py-2">
               Copyright ©2025 Stockwiz. All rights reserved.
             </p>
           </AnimateFromInside>
