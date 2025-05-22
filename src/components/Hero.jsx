@@ -24,6 +24,8 @@ import p from "../assets/svg/24.svg";
 import sebiLogo from "../assets/svg/sebi.svg";
 import leftcard from "../assets/png/leftcard.png";
 import rightcard from "../assets/png/rightcard.png";
+import leftcard1 from "../assets/png/leftcard1.png";
+import rightcard1 from "../assets/png/rightcard1.png";
 import TradingStatsCard from "./TradingStatsCard";
 
 const Hero = () => {
@@ -181,8 +183,8 @@ const Hero = () => {
 
       <TradingStatsCard
         sebiLogo={sebiLogo}
-        leftcard={leftcard}
-        rightcard={rightcard}
+        leftcard={leftcard1}
+        rightcard={rightcard1}
       />
     </section>
   );
