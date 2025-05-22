@@ -18,7 +18,7 @@ const LightningFast = () => {
           </p>
         </AnimateFromInside>
         <AnimateFromInside>
-          <p className="font-normal text-[16px] leading-[20px] text-[#9A9CA3] text-center">
+          <p className="font-normal text-[16px] md:leading-[20px] leading-[24px] text-[#9A9CA3] text-center">
             Perfect for creators and freelancers seeking Perfect for creators
             and <br /> freelancers seeking freelancers seeking
           </p>
