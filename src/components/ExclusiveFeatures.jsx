@@ -71,7 +71,7 @@ const sliderSettings = {
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        speed: 8000, // slower = smoother
+        speed: 8000,
         autoplaySpeed: 0,
         cssEase: "linear",
       },
