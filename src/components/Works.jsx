@@ -153,7 +153,7 @@ const Works = () => {
               <img
                 src={img}
                 alt={`Step ${index + 1}`}
-                className="object-cover h-[350px]"
+                className="object-cover"
               />
             </div>
           ))}
