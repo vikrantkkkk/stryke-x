@@ -37,51 +37,57 @@ const ExclusiveFeatures = () => {
     { icon: eight, name: "eight" },
   ];
 
-  const sliderSettings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 5000,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 1590,
-        settings: {
-          slidesToShow: 4,
-          infinite: true,
-          speed: 5000,
-          autoplay: true,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-        },
+const sliderSettings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  speed: 10000, // Smoother
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0, // Continuous
+  cssEase: "linear",
+  pauseOnHover: false,
+  responsive: [
+    {
+      breakpoint: 1590,
+      settings: {
+        slidesToShow: 4,
+        speed: 10000,
+        autoplaySpeed: 0,
+        cssEase: "linear",
       },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          speed: 5000,
-        },
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        speed: 12000,
+        autoplaySpeed: 0,
+        cssEase: "linear",
       },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          speed: 8000,
-        },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        speed: 8000, // slower = smoother
+        autoplaySpeed: 0,
+        cssEase: "linear",
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          speed: 8000,
-        },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        speed: 8000, // slowest for very small screens
+        autoplaySpeed: 0,
+        cssEase: "linear",
       },
-    ],
-  };
+    },
+  ],
+};
+
 
   return (
     <div className="bg-[#01041A] text-white flex flex-col items-center md:px-40  pb-16 gap-4 w-full">
