@@ -50,8 +50,8 @@ const FAQItem = ({ item, index, isActive, onToggle }) => {
     <AnimateFromInside>
       <div
         onClick={() => onToggle(index)}
-        className={`w-full bg-white/5 backdrop-blur-sm cursor-pointer md:max-w-4xl rounded-2xl border border-white/10 transition-all duration-500 ease-out hover:bg-white/8 hover:border-white/20 hover:shadow-lg hover:shadow-white/5 ${
-          isActive ? "bg-white/8 border-white/20 shadow-lg shadow-white/5" : ""
+        className={`w-full bg-white/5 backdrop-blur-sm cursor-pointer md:max-w-4xl rounded-2xl transition-all duration-500 ease-out hover:bg-white/8 hover:shadow-lg hover:shadow-white/5 ${
+          isActive ? "bg-white/8 shadow-lg shadow-white/5" : ""
         }`}
       >
         <div className="md:p-6 p-4">
