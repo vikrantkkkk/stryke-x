@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import arrow from "../assets/svg/arrow1.svg";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 
@@ -25,7 +25,7 @@ const faqData = [
     id: 4,
     question: "How can I contact the Stockwiz support team?",
     answer: `You can reach out to us through the following channels:<br/>
-      ✉️ Email: <a href="mailto:help@stockwiz.in" class="text-blue-600 underline">help@stockwiz.in</a><br/>
+      ✉️ Email: <a href="mailto:help@stockwiz.in" class="text-blue-400 hover:text-blue-300 underline transition-colors duration-200">help@stockwiz.in</a><br/>
       📞 Phone: +91 7206533303`,
   },
   {
@@ -36,6 +36,67 @@ const faqData = [
   },
 ];
 
+const FAQItem = ({ item, index, isActive, onToggle }) => {
+  const contentRef = useRef(null);
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(isActive ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isActive]);
+
+  return (
+    <AnimateFromInside>
+      <div
+        onClick={() => onToggle(index)}
+        className={`w-full bg-white/5 backdrop-blur-sm cursor-pointer md:max-w-4xl rounded-2xl border border-white/10 transition-all duration-500 ease-out hover:bg-white/8 hover:border-white/20 hover:shadow-lg hover:shadow-white/5 ${
+          isActive ? "bg-white/8 border-white/20 shadow-lg shadow-white/5" : ""
+        }`}
+      >
+        <div className="md:p-6 p-4">
+          <div className="flex items-start justify-between">
+            <h3 className="font-medium md:text-xl text-base md:leading-8 leading-7 text-white pr-4 flex-grow">
+              {item.question}
+            </h3>
+            
+            <button
+              aria-expanded={isActive}
+              aria-label={isActive ? "Collapse answer" : "Expand answer"}
+              className="flex-shrink-0 p-1 rounded-full transition-all duration-300 ease-out"
+            >
+              <img
+                src={arrow}
+                alt=""
+                className={`w-5 h-5 transition-transform duration-200 ease-out ${
+                  isActive ? "rotate-0" : "rotate-180"
+                }`}
+              />
+            </button>
+          </div>
+
+          <div
+            className="overflow-hidden transition-all duration-500 ease-out"
+            style={{ height: `${contentHeight}px` }}
+          >
+            <div
+              ref={contentRef}
+              className={`pt-4 transition-opacity duration-300 ${
+                isActive ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <p
+                className="font-light md:text-base text-sm md:leading-8 leading-6 text-white/75"
+                dangerouslySetInnerHTML={{ __html: item.answer }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </AnimateFromInside>
+  );
+};
+
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -44,67 +105,34 @@ const Faq = () => {
   };
 
   return (
-    <div className="bg-[#01041A] text-white flex  justify-center items-center md:pt-24 pt-16 pb-16 w-full md:px-40 px-4">
-      <div className="flex flex-col w-full justify-center items-center gap-9">
+    <section className="bg-[#01041A] text-white flex justify-center items-center md:pt-24 pt-16 pb-16 w-full md:px-10 px-4">
+      <div className="flex flex-col w-full max-w-6xl justify-center items-center gap-12">
         <AnimateFromInside>
-          <p className="font-semibold text-[32px] md:text-[64px] leading-[100%] mb-4 font-degular text-center">
-            Frequently Asked Questions
-          </p>
+          <div className="text-center">
+            <h2 className="font-semibold text-3xl md:text-6xl leading-none mb-2 font-degular bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-white/60 md:text-lg text-base mt-4">
+              Find answers to common questions about our webinar
+            </p>
+          </div>
         </AnimateFromInside>
-        <div className="flex-1">
-          <div className="flex flex-col w-full space-y-4">
+        
+        <div className="w-full flex justify-center">
+          <div className="flex flex-col w-full max-w-4xl space-y-4">
             {faqData.map((item, index) => (
-              <AnimateFromInside key={item.id}>
-                <div
-                  onClick={() => toggleFAQ(index)}
-                  className={`w-full bg-[#FFFFFF1A]/[0.1] cursor-pointer md:max-w-[992px] rounded-[16px] md:p-6 p-4  transition-all duration-300 ease-in-out h-auto flex ${
-                    activeIndex === index ? "items-start" : "items-center"
-                  }`}
-                >
-                  <div className="flex flex-col flex-grow">
-                    <h3 className="font-medium md:text-[20px] text-[16px] md:leading-[32px] leading-[28px] mr-4">
-                      {item.question}
-                    </h3>
-
-                    <div
-                      className={`transition-all duration-500 ease-in-out overflow-hidden ${
-                        activeIndex === index
-                          ? "opacity-100 mt-4 h-auto"
-                          : "opacity-0 h-0"
-                      }`}
-                    >
-                      <p
-                        className="font-light md:text-[16px] text-[14px] md:leading-[32px] leading-[24px] text-[#FFFFFF1A]/[0.75]"
-                        dangerouslySetInnerHTML={{ __html: item.answer }}
-                      ></p>
-                    </div>
-                  </div>
-
-                  <button
-                    aria-expanded={activeIndex === index}
-                    className={`flex-shrink-0 ${
-                      activeIndex === index ? "self-start" : "self-center"
-                    }`}
-                  >
-                    <img
-                      src={arrow}
-                      alt="arrow"
-                      style={{
-                        transform:
-                          activeIndex === index
-                            ? "rotate(-0deg)"
-                            : "rotate(180deg)",
-                        transition: "transform 0.3s ease-in-out",
-                      }}
-                    />
-                  </button>
-                </div>
-              </AnimateFromInside>
+              <FAQItem
+                key={item.id}
+                item={item}
+                index={index}
+                isActive={activeIndex === index}
+                onToggle={toggleFAQ}
+              />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

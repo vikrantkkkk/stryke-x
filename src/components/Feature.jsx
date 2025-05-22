@@ -33,7 +33,7 @@ const Feature = () => {
           your trading journey.
         </p>
       </AnimateFromInside>
-      <div className="flex md:flex-row flex-col justify-center md:gap-24 items-stretch w-full md:mt-6  p-2">
+      <div className="flex md:flex-row flex-col justify-center md:gap-24 items-center w-full md:mt-6  p-2">
         <AnimateFromInside>
           {/* Left Card */}
           <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">

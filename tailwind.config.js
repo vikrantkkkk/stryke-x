@@ -12,6 +12,7 @@ export default {
       animation: {
         // Reduced duration for smoother movement
         marquee: "marquee 50s linear infinite",
+        "marquee1": "marquee 8s linear infinite",
         // Added pause on hover variation
         "marquee-hover": "marquee 50s linear infinite paused",
       },

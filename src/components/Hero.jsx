@@ -95,25 +95,27 @@ const Hero = () => {
             </div>
           </AnimateFromInside>
           <AnimateFromInside>
-            <p className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
-              Welcome To The Future Of Trading
-            </p>
-            <div className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
-              <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={word}
-                    initial={{ y: 60, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -60, opacity: 0 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                    className="inline-block bg-[linear-gradient(271.85deg,_#87A1FF_74.47%,_#81F0FF_88.14%)] bg-clip-text text-transparent"
-                  >
-                    {word}
-                  </motion.span>
-                </AnimatePresence>
+            <div className="flex justify-center items-center flex-col">
+              <p className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
+                Welcome To The Future Of Trading
+              </p>
+              <div className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
+                <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={word}
+                      initial={{ y: 60, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -60, opacity: 0 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      className="inline-block bg-[linear-gradient(271.85deg,_#87A1FF_74.47%,_#81F0FF_88.14%)] bg-clip-text text-transparent"
+                    >
+                      {word}
+                    </motion.span>
+                  </AnimatePresence>
 
-                <span className="inline-block">Strategies On Autopilot</span>
+                  <span className="inline-block">Strategies On Autopilot</span>
+                </div>
               </div>
             </div>
           </AnimateFromInside>
@@ -165,7 +167,7 @@ const Hero = () => {
 
       {/* Logo Marquee */}
       <div className="overflow-hidden md:mt-6 group z-20 w-screen">
-        <div className="flex items-center gap-8 sm:gap-10 animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="flex items-center gap-8 sm:gap-10 md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
           {logos1.map((logo, index) => (
             <div
               key={index}

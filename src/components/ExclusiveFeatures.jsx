@@ -70,14 +70,14 @@ const ExclusiveFeatures = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          speed: 5000,
+          speed: 8000,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          speed: 5000,
+          speed: 8000,
         },
       },
     ],

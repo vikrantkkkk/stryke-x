@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import light3 from "../assets/png/light3.png";
 import hoverx from "../assets/svg/hoverx.svg";
 import verified1 from "../assets/svg/verified1.svg";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const Pricing = () => {
-  // Sample pricing data
   const pricingPlans = [
     {
       title: "YEARLY",
@@ -51,48 +50,68 @@ const Pricing = () => {
     },
   ];
 
-  const [activeButton, setActiveButton] = useState("StrykeX Pro"); // Default active button
+  const [activeButton, setActiveButton] = useState("StrykeX Pro");
+  const [highlightLeft, setHighlightLeft] = useState(0);
+  const [highlightWidth, setHighlightWidth] = useState(0);
+  const containerRef = useRef(null);
+  const btnRefs = {
+    "StrykeX Pro": useRef(null),
+    "StrykeX Legend": useRef(null),
+  };
 
   const handleToggle = (buttonName) => {
     setActiveButton(buttonName);
   };
 
+  useEffect(() => {
+    const btn = btnRefs[activeButton].current;
+    const container = containerRef.current;
+    if (btn && container) {
+      const btnRect = btn.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      setHighlightLeft(btnRect.left - containerRect.left);
+      setHighlightWidth(btnRect.width);
+    }
+  }, [activeButton]);
+
   return (
     <div className="bg-[#01041A] text-white flex flex-col justify-center items-center gap-4 md:py-16 pb-16 w-full px-6 md:px-40 relative overflow-hidden z-10">
-      {/* Background Image */}
       <img
         src={light3}
         alt="Background Light"
         className="absolute bottom-0 left-0 w-full md:h-auto h-full opacity-50 z-[-1]"
       />
 
-      {/* Header */}
       <div className="flex flex-col justify-center items-center gap-4">
         <AnimateFromInside>
-          <p className="font-semibold text-[40px] md:text-[60px] leading-[100%]  font-degular">
+          <p className="font-semibold text-[40px] md:text-[60px] leading-[100%] font-degular">
             Pricing
           </p>
         </AnimateFromInside>
-        {/* Toggle Buttons */}
-        <div className="flex rounded-full overflow-hidden bg-[#FFFFFF1A]/[0.1] gap-2 p-1">
+
+        <div
+          ref={containerRef}
+          className="relative flex rounded-full overflow-hidden bg-[#FFFFFF1A]/[0.1] gap-2 p-1 cursor-pointer"
+          style={{ userSelect: "none" }}
+        >
+          <div
+            className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#3FADFF] to-[#184ABE] transition-all duration-300 ease-in-out"
+            style={{ left: highlightLeft, width: highlightWidth }}
+          />
           <button
-            className={`md:px-12 px-4 md:py-3 py-[10px] transition md:text-base text-sm font-medium font-degular
-              ${
-                activeButton === "StrykeX Pro"
-                  ? "bg-gradient-to-r from-[#3FADFF] to-[#184ABE] text-white rounded-full"
-                  : ""
-              }`}
+            ref={btnRefs["StrykeX Pro"]}
+            className={`relative z-10 md:px-12 px-4 md:py-3 py-[10px] md:text-base text-sm font-medium font-degular ${
+              activeButton === "StrykeX Pro" ? "text-white" : "text-white/60"
+            }`}
             onClick={() => handleToggle("StrykeX Pro")}
           >
             StrykeX Pro
           </button>
           <button
-            className={`md:px-12 px-4 md:py-3 py-[10px] transition md:text-base text-sm font-medium font-degular
-              ${
-                activeButton === "StrykeX Legend"
-                  ? "bg-gradient-to-r from-[#3FADFF] to-[#184ABE] text-white rounded-full"
-                  : ""
-              }`}
+            ref={btnRefs["StrykeX Legend"]}
+            className={`relative z-10 md:px-12 px-4 md:py-3 py-[10px] md:text-base text-sm font-medium font-degular ${
+              activeButton === "StrykeX Legend" ? "text-white" : "text-white/60"
+            }`}
             onClick={() => handleToggle("StrykeX Legend")}
           >
             StrykeX Legend
@@ -100,34 +119,28 @@ const Pricing = () => {
         </div>
       </div>
 
-      {/* Pricing Cards */}
       <div className="flex md:flex-row flex-col justify-center items-center gap-6 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="relative group border hover:scale-105 border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left hover:border-gray-700/50 bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all hover:shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
+            className="relative group border border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all duration-300 ease-in-out transform scale-100 hover:scale-105 shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
           >
-            {/* Hover Stick */}
             <div
-              className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px] hidden group-hover:block"
+              className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px]"
               style={{
                 background: "linear-gradient(90deg, #3370FF 0%, #60A5FA 100%)",
               }}
             />
-
-            {/* Hover Image (Top Right) */}
             <img
               src={hoverx}
               alt="Hover Effect"
-              className="absolute top-4 right-2 hidden group-hover:block"
+              className="absolute top-4 right-2"
             />
 
-            {/* Plan Title */}
             <h2 className="font-bold md:text-[20px] text-[17px] md:leading-[28px] leading-[24px] font-inter">
               {plan.title}
             </h2>
 
-            {/* Pricing */}
             <div className="flex gap-2 items-baseline">
               <div>
                 <span className="font-bold md:text-[36px] text-[31px] md:leading-[40px] leading-[35px] font-inter">
@@ -142,16 +155,19 @@ const Pricing = () => {
               </p>
             </div>
 
-            {/* Features List */}
             <ul className="md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]/[0.75] space-y-3 font-degular">
               {plan.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center gap-2">
-                  <img src={verified1} alt={verified1} className="md:h-[16px] h-[14px]" /> {feature}
+                  <img
+                    src={verified1}
+                    alt="verified"
+                    className="md:h-[16px] h-[14px]"
+                  />
+                  {feature}
                 </li>
               ))}
             </ul>
 
-            {/* Subscribe Button */}
             <button className="font-medium text-[16px] leading-[24px] bg-[#3370FF] w-full rounded-[8px] py-3">
               Subscribe Now
             </button>
