@@ -11,23 +11,29 @@ import instagram from "../assets/svg/instagram.svg";
 import youtube from "../assets/svg/youtube.svg";
 import linkedin from "../assets/svg/linkedin.svg";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
-import light4 from "../assets/png/light4.png"
+import light4 from "../assets/png/footerlight.png";
 
 const Footer = () => {
   return (
     <footer className="bg-[#01041A] p-4">
       <div className="flex flex-col justify-center items-center rounded-[24px] bg-[#2323234D]/[0.3] w-full z-20 relative overflow-hidden">
-        <div className="flex md:flex-row rounded-[24px]  flex-col md:justify-between md:items-center items-start  md:px-32  md:py-6 py-4 px-8 w-full relative  md:gap-2 gap-4  before:absolute before:inset-0 before:rounded-full before:border-b-[1px] before:border-transparent before:[border-image-source:linear-gradient(270.82deg,rgba(255,255,255,0.1)_2.68%,#ffffff_33.24%,rgba(255,255,255,0.1)_99.29%)] before:[border-image-slice:1] before:pointer-events-none">
+        <div className="flex md:flex-row rounded-[24px]  flex-col md:justify-between md:items-center items-start  md:px-32  md:py-6 py-6 px-6 w-full relative  md:gap-2 gap-4  before:absolute before:inset-0 before:rounded-full before:border-b-[1px] before:border-transparent before:[border-image-source:linear-gradient(270.82deg,rgba(255,255,255,0.1)_2.68%,#ffffff_33.24%,rgba(255,255,255,0.1)_99.29%)] before:[border-image-slice:1] before:pointer-events-none">
           <AnimateFromInside>
             <div className="flex flex-col justify-start items-start gap-4">
               <div className="flex flex-col justify-start items-start w-full gap-4">
-                <img className="" src={logofooter} alt="logofooter" />
-                <p className="md:block hidden font-light text-[14px] text-start leading-6 text-[#FFFFFF]">
+                <div className="flex md:justify-start justify-center md:items-start items-center w-full">
+                  <img
+                    className="object-cover"
+                    src={logofooter}
+                    alt="logofooter"
+                  />
+                </div>
+                <p className="md:block hidden font-light text-[14px] text-start leading-[22px] text-[#FFFFFF]">
                   Welcome to India's largest SEBI registered <br /> trading &
                   investing platform. We offer <br /> education, advisory &
                   research services.
                 </p>
-                <p className="md:hidden font-light text-[14px] text-center leading-6 text-[#FFFFFF]">
+                <p className="md:hidden font-light text-[12px] md:text-start text-center leading-5 text-[#FFFFFF]">
                   Welcome to India's largest SEBI registered trading & investing
                   platform. We offer education, advisory & research services.
                 </p>
@@ -211,7 +217,7 @@ const Footer = () => {
                     href="https://www.stockwiz.in/investor-charter.html"
                     className="font-normal text-[16px] leading-4 text-[#FFFFFF]/[0.6] cursor-pointer"
                   >
-                    Investor Charter
+                    Investor Charter
                   </a>
                   <a
                     target="_blank"
@@ -382,7 +388,11 @@ const Footer = () => {
             </div>
           </AnimateFromInside>
         </div>
-      <img src={light4} alt={light4} className="absolute -z-10 w-full  object-cover"/>
+        <img
+          src={light4}
+          alt={light4}
+          className="absolute -z-10 w-full h-full  object-cover opacity-70"
+        />
       </div>
     </footer>
   );

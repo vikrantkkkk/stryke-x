@@ -7,15 +7,15 @@ import card9 from "../assets/png/card9.png";
 
 const StrykeXAdvantage = () => {
   return (
-    <div className="bg-[#01041A] text-white flex flex-col gap-4 justify-center px-40 pb-14 items-center w-full">
+    <div className="bg-[#01041A] text-white flex flex-col gap-4 justify-center md:px-40 px-4 pb-16 items-center w-full">
       <AnimateFromInside>
-        <p className="font-semibold text-[40px] md:text-[64px] leading-[100%] text-center text-white font-degular">
+        <p className="font-semibold text-[40px] md:text-[64px] leading-[140%] text-center text-white font-degular">
           The StrykeX Advantage
         </p>
       </AnimateFromInside>
 
       <AnimateFromInside>
-        <p className="font-normal text-[20px] leading-[32px] text-[#FFFFFFBF]/[0.75] text-center max-w-6xl">
+        <p className="font-normal md:text-[20px] text-[14px] md:leading-[32px] leading-[22px] text-[#FFFFFFBF]/[0.75] text-center max-w-6xl">
           Our team of SEBI registered professionals will help you get started
           from the absolute scratch, help you create strategies and providing
           live market assistance. No coding skills or prior algo trading
@@ -23,15 +23,15 @@ const StrykeXAdvantage = () => {
           your trading to greater heights.
         </p>
       </AnimateFromInside>
-      <div className="flex flex-col justify-center items-center gap-6 mt-6">
+      <div className="flex flex-col justify-center items-center gap-6 md:mt-6 mt-4">
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full h-[400px] p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col justify-between h-full">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+            <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
-                <p className="font-semibold text-[28px] md:text-[36px] leading-[42px] md:leading-[52px] font-degular">
+                <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Trading Capital Funding
                 </p>
-                <p className="font-light text-[18px] md:text-[21px] leading-[28px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
                   Get trading capital starting from ₹1 lakh scalable up to ₹1
                   crore with a 50-50 profit split, for lifetime. Subscribe to
                   StrykeX Legend, finish your evaluation process, apply with
@@ -46,18 +46,18 @@ const StrykeXAdvantage = () => {
             <img
               src={card7}
               alt="StrykeX Capital Funding"
-              className="w-[550px] object-cover"
+              className="md:w-[550px] object-cover"
             />
           </div>
         </AnimateFromInside>
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full h-[400px] p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col justify-between h-full">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+            <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
-                <p className="font-semibold text-[28px] md:text-[36px] leading-[42px] md:leading-[52px] font-degular">
+                <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Algo Trading Course
                 </p>
-                <p className="font-light text-[18px] md:text-[21px] leading-[28px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
                   Learn how to build, test and deploy trading strategies in our
                   no code algo trading course designed for beginners,
                   intermediate and expert traders. We teach you everything from
@@ -72,18 +72,18 @@ const StrykeXAdvantage = () => {
             <img
               src={card8}
               alt="StrykeX Capital"
-              className="w-[550px] object-cover"
+              className="md:w-[550px] object-cover"
             />
           </div>
         </AnimateFromInside>
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full h-[400px] p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col justify-between h-full">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+            <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
-                <p className="font-semibold text-[28px] md:text-[36px] leading-[42px] md:leading-[52px] font-degular">
+                <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Live Trading Support
                 </p>
-                <p className="font-light text-[18px] md:text-[21px] leading-[28px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
                   Our team of NISM Certified and SEBI Registered Research
                   Analysts are streaming live with you everyday, from 9:15am
                   till 3:30pm for live market assistance. Explore the work of
@@ -98,7 +98,7 @@ const StrykeXAdvantage = () => {
             <img
               src={card9}
               alt="StrykeX Funding"
-              className="w-[550px] object-cover"
+              className="md:w-[550px] object-cover"
             />
           </div>
         </AnimateFromInside>

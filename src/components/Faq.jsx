@@ -44,25 +44,25 @@ const Faq = () => {
   };
 
   return (
-    <div className="bg-[#01041A] text-white flex  justify-center items-center pt-24 pb-16 w-full px-40">
+    <div className="bg-[#01041A] text-white flex  justify-center items-center md:pt-24 pt-16 pb-16 w-full md:px-40 px-4">
       <div className="flex flex-col w-full justify-center items-center gap-9">
         <AnimateFromInside>
-          <p className="font-semibold text-[32px] md:text-[64px] leading-[100%] mb-4 font-degular">
+          <p className="font-semibold text-[32px] md:text-[64px] leading-[100%] mb-4 font-degular text-center">
             Frequently Asked Questions
           </p>
         </AnimateFromInside>
-        <div className="flex-1 mt-6 md:mt-0">
+        <div className="flex-1">
           <div className="flex flex-col w-full space-y-4">
             {faqData.map((item, index) => (
               <AnimateFromInside key={item.id}>
                 <div
                   onClick={() => toggleFAQ(index)}
-                  className={`w-full bg-[#FFFFFF1A]/[0.1] cursor-pointer md:max-w-[992px] rounded-[16px] p-6  transition-all duration-300 ease-in-out h-auto flex ${
+                  className={`w-full bg-[#FFFFFF1A]/[0.1] cursor-pointer md:max-w-[992px] rounded-[16px] md:p-6 p-4  transition-all duration-300 ease-in-out h-auto flex ${
                     activeIndex === index ? "items-start" : "items-center"
                   }`}
                 >
                   <div className="flex flex-col flex-grow">
-                    <h3 className="font-medium text-[20px] leading-[32px] mr-4">
+                    <h3 className="font-medium md:text-[20px] text-[16px] md:leading-[32px] leading-[28px] mr-4">
                       {item.question}
                     </h3>
 
@@ -74,7 +74,7 @@ const Faq = () => {
                       }`}
                     >
                       <p
-                        className="font-extralight text-[16px] leading-[32px] text-[#FFFFFF1A]/[0.75]"
+                        className="font-light md:text-[16px] text-[14px] md:leading-[32px] leading-[24px] text-[#FFFFFF1A]/[0.75]"
                         dangerouslySetInnerHTML={{ __html: item.answer }}
                       ></p>
                     </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import { motion, AnimatePresence } from "framer-motion";
-import light from "../assets/png/light2.png";
+import light from "../assets/png/light.png";
+import light1 from "../assets/png/light1.png";
+import footerlight1 from "../assets/png/footerlight.png";
 import video from "../assets/png/video.png";
 import a from "../assets/svg/9.svg";
 import b from "../assets/svg/10.svg";
@@ -67,7 +69,12 @@ const Hero = () => {
         <img
           src={light}
           alt=""
-          className="w-full md:h-full h-[85%] object-cover object-center mix-blend-screen z-0"
+          className="w-full md:block hidden md:h-full h-[85%] object-cover object-center mix-blend-screen z-0"
+        />
+        <img
+          src={light1}
+          alt=""
+          className="w-full md:hidden  md:h-full h-[85%] object-cover object-center mix-blend-screen z-0"
         />
       </div>
 

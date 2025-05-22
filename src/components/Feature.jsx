@@ -16,10 +16,12 @@ import featured from "../assets/png/featured.png";
 import featured1 from "../assets/png/featured1.png";
 import GradientButton from "../common/GradientButton";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
+import card14 from "../assets/png/card14.png";
+import card15 from "../assets/png/card15.png";
 
 const Feature = () => {
   return (
-    <div className="bg-[#01041A] text-white flex flex-col gap-4 justify-center md:px-40 px-4 pb-16 items-center w-full">
+    <div className="bg-[#01041A] text-white flex flex-col gap-4 justify-center md:px-40 px-4 pb-16 items-center w-full h-auto">
       <AnimateFromInside>
         <p className="font-semibold md:text-[64px] sm:text-[48px] text-[40px] leading-[100%] text-white font-degular">
           Top Features
@@ -31,13 +33,13 @@ const Feature = () => {
           your trading journey.
         </p>
       </AnimateFromInside>
-      <div className="flex md:flex-row flex-col justify-center md:gap-24 items-stretch w-full mt-6  p-2">
+      <div className="flex md:flex-row flex-col justify-center md:gap-24 items-stretch w-full md:mt-6  p-2">
         <AnimateFromInside>
           {/* Left Card */}
-          <div className="flex flex-col items-start justify-between gap-4 md:w-[370px] w-[345px] rounded-[24px] border-dashed border-[2px] border-[#FFFFFF38]/[0.22] p-6 h-[555px] overflow-hidden">
+          <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
-              <img src={desktop} alt={desktop} />
-              <p className="font-semibold text-[31px] leading-[38px] font-degular">
+              <img src={desktop} alt={desktop} className="md:w-auto w-[36px]" />
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 Explore High Performance
                 <br />
                 <span
@@ -54,7 +56,7 @@ const Feature = () => {
                   Algo Strategies
                 </span>
               </p>
-              <p className="font-medium text-[18px] leading-[26px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
                 Access professionally designed quantitative trading strategies
                 crafted by our in-house research team, optimized for momentum,
                 mean reversion, breakout, and institutional-style trading.  
@@ -67,131 +69,15 @@ const Feature = () => {
         </AnimateFromInside>
         <AnimateFromInside>
           {/* Right Side: Two Cards */}
-          <div className="bg-[#0F1330] flex flex-col gap-3 px-6 pb-6 pt-8 text-white font-sans h-[555px] md:w-[738px] w-[345px] relative rounded-[24px]">
+          <div className="bg-[#0F1330] flex flex-col gap-3 px-6 pb-6 pt-4 text-white font-sans md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px]">
             {/* First Row - Left aligned card */}
-            <div className="bg-[#01041A]/50 flex flex-col gap-4 rounded-2xl p-4 w-full md:w-[394px] relative z-10">
-              {/* Tags */}
-              <div className="absolute -top-6 left-4 flex space-x-2">
-                <span className="font-semibold text-xs bg-[#FFCB15] text-black px-2 py-1 rounded">
-                  Index Options
-                </span>
-                <span className="font-semibold text-xs bg-[#248A28] text-white px-2 py-1 rounded">
-                  Bullish Momentum
-                </span>
-              </div>
+            <img src={card14} alt={card14} className="md:w-[60%] w-[70%] z-10" />
+            <img
+              src={card15}
+              alt={card15}
+              className="md:w-[60%] w-[70%] relative self-end z-10"
+            />
 
-              {/* Header Section */}
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold">
-                    NS
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-bold">Nifty Sniper</h2>
-                    <p className="text-xs text-gray-400 flex items-center">
-                      By Stockwiz Technologies LLP
-                      <img src={verified} alt={verified} className="pl-2" />
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-end">
-                  <p className="font-normal text-[10px] text-[#FFFFFFE5]/75">
-                    Minimum Investment
-                  </p>
-                  <p className="font-bold text-xl text-end">₹15,000</p>
-                </div>
-              </div>
-
-              {/* Strategy Description */}
-              <p className="font-medium text-xs text-[#FFFFFFE5]/75">
-                This algo strategy captures bullish momentum trades through call
-                options using smart money trading strategies.
-              </p>
-
-              {/* Key Stats */}
-              <div className="grid grid-cols-2 gap-2 text-sm">
-                <div className="flex text-xs">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Win Rate:</span>
-                  <span className="text-[#55EF3D]">+78%</span>
-                </div>
-                <div className="flex text-xs justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Avg Profit:</span>
-                  <span className="text-[#55EF3D]">₹15,188</span>
-                </div>
-                <div className="flex text-xs">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">
-                    Reward / Risk:
-                  </span>
-                  <span className="text-white">3:1</span>
-                </div>
-                <div className="flex text-xs justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Avg Loss:</span>
-                  <span className="text-[#FF6B6B]">₹3,705</span>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <button className="relative rounded-lg w-full font-semibold text-sm text-white py-3 bg-gradient-to-r from-blue-400 to-blue-800">
-                Trade Now
-              </button>
-            </div>
-
-            {/* Second Row - Right aligned card */}
-            {/* Backtest Results Card */}
-            <div className="bg-[#01041A]/50 flex flex-col gap-4 rounded-2xl p-4 w-full md:w-[394px] shadow-lg relative self-end mt-4 md:mt-6 z-10">
-              <h3 className="text-lg font-bold">Backtest Results</h3>
-
-              {/* Statistics Grid */}
-              <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-xs">
-                <div className="flex">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">
-                    Winning Probability:
-                  </span>
-                  <span className="text-[#55EF3D]">+78%</span>
-                </div>
-                <div className="flex justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">
-                    Average Profit:
-                  </span>
-                  <span className="text-[#55EF3D]">₹15,188</span>
-                </div>
-                <div className="flex">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">
-                    Win Loss Ratio:
-                  </span>
-                  <span className="text-white">32.5</span>
-                </div>
-                <div className="flex justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">
-                    Average Loss:
-                  </span>
-                  <span className="text-[#FF6B6B]">₹3,374</span>
-                </div>
-                <div className="flex">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Win Streak:</span>
-                  <span className="text-[#55EF3D]">4</span>
-                </div>
-                <div className="flex justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Max Profit:</span>
-                  <span className="text-[#55EF3D]">₹45,787</span>
-                </div>
-                <div className="flex">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Loss Streak:</span>
-                  <span className="text-[#FF6B6B]">4</span>
-                </div>
-                <div className="flex justify-end">
-                  <span className="text-[#FFFFFFE5]/75 mr-1">Max Loss:</span>
-                  <span className="text-[#FF6B6B]">₹3,111</span>
-                </div>
-              </div>
-
-              {/* Risk Info */}
-              <div className="p-3 bg-[#FFFFFF1A]/10 rounded-xl text-center font-semibold text-xs">
-                Risk Per Trade:{" "}
-                <span className="font-semibold text-white">0.75%</span>
-              </div>
-            </div>
             <img
               src={net}
               alt="net"
@@ -220,15 +106,15 @@ const Feature = () => {
             <img
               src={x}
               alt="x"
-              className="absolute object-cover right-0 top-0 rounded-tr-[24px]"
+              className="absolute object-cover right-0 top-0 md:rounded-tr-[24px] md:w-auto w-[30%]"
             />
           </div>
         </AnimateFromInside>
       </div>
-      <div className="flex md:flex-row flex-col-reverse justify-center items-center md:gap-24  w-full mt-6 p-2">
+      <div className="flex md:flex-row flex-col-reverse justify-center items-center md:gap-24  w-full md:mt-6 p-2">
         <AnimateFromInside>
           {/* left Side: Two Cards */}
-          <div className="bg-[#0F1330] flex p-6 text-white  h-[555px] md:w-[738px] w-[345px] relative rounded-[24px]">
+          <div className="bg-[#0F1330] flex p-6 text-white md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px]">
             <div className="flex justify-center items-center">
               <img
                 src={featured}
@@ -266,10 +152,10 @@ const Feature = () => {
         </AnimateFromInside>
         <AnimateFromInside>
           {/* right Card */}
-          <div className="flex flex-col items-start justify-between gap-4 w-[370px] rounded-[24px] border-dashed border-[2px] border-[#FFFFFF38]/[0.22] p-6 h-[555px] overflow-hidden">
+          <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
-              <img src={discovered} alt={discovered} />
-              <p className="font-semibold text-[31px] leading-[38px] tracking-tight font-degular">
+              <img src={discovered} alt={discovered} className="md:w-auto w-[36px]" />
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
                 <span
                   style={{
                     background:
@@ -285,7 +171,7 @@ const Feature = () => {
                 </span>
                 & Non Directional Strategies
               </p>
-              <p className="font-medium text-[18px] leading-[26px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
                 Utilize our comprehensive strategy templates to execute
                 high-probability, multi-leg option trades - covering a full
                 spectrum of directional and non-directional opportunities—with
@@ -298,13 +184,13 @@ const Feature = () => {
           </div>
         </AnimateFromInside>
       </div>
-      <div className="flex justify-center items-center gap-24  w-full mt-6 p-2">
+      <div className="flex md:flex-row flex-col justify-center items-center md:gap-24  w-full md:mt-6 p-2">
         <AnimateFromInside>
           {/* right Card */}
-          <div className="flex flex-col items-start justify-between gap-4 w-[370px] rounded-[24px] border-dashed border-[2px] border-[#FFFFFF38]/[0.22] p-6 h-[555px] overflow-hidden">
+          <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
-              <img src={lightning} alt={lightning} />
-              <p className="font-semibold text-[31px] leading-[38px] tracking-tight font-degular">
+              <img src={lightning} alt={lightning} className="md:w-auto w-[36px]"/>
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
                 <span
                   style={{
                     background:
@@ -321,7 +207,7 @@ const Feature = () => {
                 </span>
                 Trading Engine
               </p>
-              <p className="font-medium text-[18px] leading-[26px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
                 Achieve lightning-fast execution with our proprietary trading
                 engine—fully automated and equipped with customizable exit rules
                 like trailing stop-loss, re-entry, partial profit booking, and
@@ -335,11 +221,11 @@ const Feature = () => {
         </AnimateFromInside>
         <AnimateFromInside>
           {/* left Side: Two Cards */}
-          <div className="bg-[#0F1330] flex p-6 text-white  h-[555px] w-[738px] relative rounded-[24px]">
+          <div className="bg-[#0F1330] flex p-6 text-white  md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px]">
             <img
               src={featured1}
               alt={featured1}
-              className="z-10 object-cover absolute bottom-0 right-0 w-[95%] rounded-br-[24px]"
+              className="z-10 object-cover md:absolute bottom-0 right-0 md:w-[95%] w-auto rounded-br-[24px]"
             />
 
             <img
