@@ -101,7 +101,7 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="flex md:flex-row flex-col justify-center items-center md:gap-10 gap-6 w-full mt-[30px]">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-6 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
