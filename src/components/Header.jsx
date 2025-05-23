@@ -57,7 +57,7 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <AnimateFromInside>
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 md:flex hidden gap-6 items-center">
               {NAV_ITEMS.map((item) => {
@@ -78,7 +78,7 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Desktop Buttons */}
+          {/* Desktop CTA Buttons */}
           <AnimateFromInside>
             <div className="md:flex hidden gap-3 items-center z-10">
               <button className="bg-white text-black text-[14px] font-medium px-4 py-3 rounded-full hover:bg-gray-100 transition">
@@ -90,7 +90,7 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Mobile Menu Toggle with Animated Icon */}
+          {/* Mobile Menu Button with Animation */}
           <div className="md:hidden flex items-center z-10">
             <motion.button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -103,7 +103,7 @@ const Header = () => {
                 closed: {},
               }}
             >
-              {/* Top Bar */}
+              {/* Top bar */}
               <motion.span
                 className="absolute top-[6px] left-0 w-8 h-[2px] bg-white"
                 variants={{
@@ -112,7 +112,7 @@ const Header = () => {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              {/* Middle Bar */}
+              {/* Middle bar */}
               <motion.span
                 className="absolute top-[14px] left-0 w-8 h-[2px] bg-white"
                 variants={{
@@ -121,12 +121,12 @@ const Header = () => {
                 }}
                 transition={{ duration: 0.3 }}
               />
-              {/* Bottom Bar */}
+              {/* Bottom bar */}
               <motion.span
                 className="absolute bottom-[6px] left-0 w-8 h-[2px] bg-white"
                 variants={{
                   closed: { rotate: 0, y: 0 },
-                  open: { rotate: -45, y: -10 },
+                  open: { rotate: -45, y: -8 },
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -135,7 +135,7 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Panel */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
