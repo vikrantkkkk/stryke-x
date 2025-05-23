@@ -26,7 +26,7 @@ const Header = () => {
     setTimeout(() => {
       sound.pause();
       sound.currentTime = 0;
-    }, 300);
+    }, 400);
   };
 
   useEffect(() => {
