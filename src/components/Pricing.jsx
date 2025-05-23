@@ -121,57 +121,60 @@ const Pricing = () => {
 
       <div className="flex md:flex-row flex-col justify-center items-center gap-6 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
-          <div
-            key={index}
-            className="relative group border border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all duration-300 ease-in-out transform scale-100 hover:scale-105 shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
-          >
+          <AnimateFromInside>
             <div
-              className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px]"
-              style={{
-                background: "linear-gradient(90deg, #3370FF 0%, #60A5FA 100%)",
-              }}
-            />
-            <img
-              src={hoverx}
-              alt="Hover Effect"
-              className="absolute top-4 right-2"
-            />
+              key={index}
+              className="relative group border border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all duration-300 ease-in-out transform scale-100 hover:scale-105 shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
+            >
+              <div
+                className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px]"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #3370FF 0%, #60A5FA 100%)",
+                }}
+              />
+              <img
+                src={hoverx}
+                alt="Hover Effect"
+                className="absolute top-4 right-2"
+              />
 
-            <h2 className="font-bold md:text-[20px] text-[17px] md:leading-[28px] leading-[24px] font-inter">
-              {plan.title}
-            </h2>
+              <h2 className="font-bold md:text-[20px] text-[17px] md:leading-[28px] leading-[24px] font-inter">
+                {plan.title}
+              </h2>
 
-            <div className="flex gap-2 items-baseline">
-              <div>
-                <span className="font-bold md:text-[36px] text-[31px] md:leading-[40px] leading-[35px] font-inter">
-                  {plan.price}
-                </span>
-                <span className="font-bold md:text-[24px] text-[20px] md:leading-[40px] leading-[34px] font-inter">
-                  {plan.duration}
-                </span>
+              <div className="flex gap-2 items-baseline">
+                <div>
+                  <span className="font-bold md:text-[36px] text-[31px] md:leading-[40px] leading-[35px] font-inter">
+                    {plan.price}
+                  </span>
+                  <span className="font-bold md:text-[24px] text-[20px] md:leading-[40px] leading-[34px] font-inter">
+                    {plan.duration}
+                  </span>
+                </div>
+                <p className="md:text-sm text-[12px] md:leading-[20px] leading-[17px] text-[#FFFFFFBF]/[0.75] line-through font-inter">
+                  {plan.oldPrice}
+                </p>
               </div>
-              <p className="md:text-sm text-[12px] md:leading-[20px] leading-[17px] text-[#FFFFFFBF]/[0.75] line-through font-inter">
-                {plan.oldPrice}
-              </p>
+
+              <ul className="md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]/[0.75] space-y-3 font-degular">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-2">
+                    <img
+                      src={verified1}
+                      alt="verified"
+                      className="md:h-[16px] h-[14px]"
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <button className="font-medium text-[16px] leading-[24px] bg-[#3370FF] w-full rounded-[8px] py-3">
+                Subscribe Now
+              </button>
             </div>
-
-            <ul className="md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]/[0.75] space-y-3 font-degular">
-              {plan.features.map((feature, idx) => (
-                <li key={idx} className="flex items-center gap-2">
-                  <img
-                    src={verified1}
-                    alt="verified"
-                    className="md:h-[16px] h-[14px]"
-                  />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            <button className="font-medium text-[16px] leading-[24px] bg-[#3370FF] w-full rounded-[8px] py-3">
-              Subscribe Now
-            </button>
-          </div>
+          </AnimateFromInside>
         ))}
       </div>
     </div>

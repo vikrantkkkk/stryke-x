@@ -7,6 +7,7 @@ import algos from "../assets/svg/algos.svg";
 import link from "../assets/svg/link.svg";
 import deploy from "../assets/svg/deploy.svg";
 import cardarrow from "../assets/svg/cardarrow.svg";
+import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const dummyImages = [card11, card12, card13];
 
@@ -92,12 +93,16 @@ const Works = () => {
 
   return (
     <div className="bg-[#01041A] text-white flex flex-col justify-center items-center gap-4 md:py-16 pb-16 md:px-40 px-4 w-full ">
-      <p className="font-semibold md:text-[64px] sm:text-[48px] text-[39px] leading-[100%]  font-degular">
-        How It Works?
-      </p>
-      <p className="md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-[#FFFFFFBF] max-w-4xl mx-auto mb-6">
-        Get started with algo trading in three easy steps.
-      </p>
+      <AnimateFromInside>
+        <p className="font-semibold md:text-[64px] sm:text-[48px] text-[39px] leading-[100%]  font-degular">
+          How It Works?
+        </p>
+      </AnimateFromInside>
+      <AnimateFromInside>
+        <p className="md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-[#FFFFFFBF] max-w-4xl mx-auto mb-6">
+          Get started with algo trading in three easy steps.
+        </p>
+      </AnimateFromInside>
 
       <div className="md:grid hidden grid-cols-[1fr_auto_1fr] gap-6 w-full relative min-h-[1450px]">
         {/* Left Side */}
@@ -162,44 +167,48 @@ const Works = () => {
 
       <div className="flex flex-col md:hidden w-full gap-12">
         {leftContent.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col gap-4 items-center text-center"
-          >
-            <img src={item.icon} alt="" className="h-[32px]" />
-            <p className="text-[20px] font-semibold leading-[100%]">
-              {item.title}
-            </p>
-            <p className="font-light text-[14px] text-[#FFFFFFBF]/[0.75] leading-[22px]">
-              {item.description}
-            </p>
-            <button className="flex justify-center items-center gap-4 bg-white text-black text-[18px] font-semibold rounded-full w-full py-2">
-              Subscribe To <img src={strykexwhite} alt="strykexwhite" />
-            </button>
-            <img
-              src={dummyImages[index]}
-              alt={`Step ${index + 1}`}
-              className="w-full h-auto object-cover rounded-lg mt-4"
-            />
-          </div>
+          <AnimateFromInside>
+            <div
+              key={index}
+              className="flex flex-col gap-4 items-center text-center"
+            >
+              <img src={item.icon} alt="" className="h-[32px]" />
+              <p className="text-[20px] font-semibold leading-[100%]">
+                {item.title}
+              </p>
+              <p className="font-light text-[14px] text-[#FFFFFFBF]/[0.75] leading-[22px]">
+                {item.description}
+              </p>
+              <button className="flex justify-center items-center gap-4 bg-white text-black text-[18px] font-semibold rounded-full w-full py-2">
+                Subscribe To <img src={strykexwhite} alt="strykexwhite" />
+              </button>
+              <img
+                src={dummyImages[index]}
+                alt={`Step ${index + 1}`}
+                className="w-full h-auto object-cover rounded-lg mt-4"
+              />
+            </div>
+          </AnimateFromInside>
         ))}
       </div>
 
       {/* Bottom Cards */}
       <div className="w-full md:mt-[104px] mt-[60px] flex flex-wrap justify-center md:gap-10 gap-[50px]">
         {card.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[282px] w-full md:p-4"
-          >
-            <img src={item.icon} alt={item.icon} className="h-[72px]" />
-            <p className="font-semibold md:text-[32px] text-[26px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
-              {item.title}
-            </p>
-            <p className="font-light text-[20px] leading-[32px] md:text-start text-center text-[#FFFFFFBF]/[0.75]">
-              {item.description}
-            </p>
-          </div>
+          <AnimateFromInside>
+            <div
+              key={index}
+              className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[282px] w-full md:p-4"
+            >
+              <img src={item.icon} alt={item.icon} className="h-[72px]" />
+              <p className="font-semibold md:text-[32px] text-[26px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
+                {item.title}
+              </p>
+              <p className="font-light text-[20px] leading-[32px] md:text-start text-center text-[#FFFFFFBF]/[0.75]">
+                {item.description}
+              </p>
+            </div>
+          </AnimateFromInside>
         ))}
       </div>
     </div>
