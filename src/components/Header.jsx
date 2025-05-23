@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import mainlogo from "../assets/svg/mainlogo.svg";
 
-// Import the sound file
+
 import clickSound from "../assets/mp3/scissors.mp3";
 
 const HEADER_HEIGHT = 80;
@@ -16,20 +16,17 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Create an Audio instance for the sound
   const sound = new Audio(clickSound);
 
-  // Function to play the sound for a specific duration (0.3 seconds to match animation)
   const playSound = () => {
-    sound.currentTime = 0; // Reset sound to start
+    sound.currentTime = 0; 
     sound.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
-    // Stop the sound after 0.3 seconds to match the animation duration
     setTimeout(() => {
       sound.pause();
-      sound.currentTime = 0; // Reset for next play
-    }, 400); // 300ms = 0.3 seconds
+      sound.currentTime = 0;
+    }, 300);
   };
 
   useEffect(() => {
