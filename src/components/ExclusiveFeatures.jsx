@@ -41,11 +41,11 @@ const sliderSettings = {
   dots: false,
   arrows: false,
   infinite: true,
-  speed: 10000, // Smoother
+  speed: 10000, 
   slidesToShow: 5,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 0, // Continuous
+  autoplaySpeed: 0, 
   cssEase: "linear",
   pauseOnHover: false,
   responsive: [
@@ -80,7 +80,7 @@ const sliderSettings = {
       breakpoint: 480,
       settings: {
         slidesToShow: 2,
-        speed: 8000, // slowest for very small screens
+        speed: 8000, 
         autoplaySpeed: 0,
         cssEase: "linear",
       },

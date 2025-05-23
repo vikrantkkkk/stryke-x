@@ -12,14 +12,30 @@ import LightningFast from "../components/LightningFast.jsx";
 const LandingPage = () => {
   return (
     <MainLayout>
-      <Hero />
-      <Feature />
-      <ExclusiveFeatures />
-      <StrykeXAdvantage />
-      <Works />
-      <Pricing />
-      <Faq />
-      <LightningFast />
+      <div id="home">
+        <Hero />
+      </div>
+      <div id="features">
+        <Feature />
+      </div>
+      <div>
+        <ExclusiveFeatures />
+      </div>
+      <div>
+        <StrykeXAdvantage />
+      </div>
+      <div id="algos">
+        <Works />
+      </div>
+      <div id="pricing">
+        <Pricing />
+      </div>
+      <div>
+        <Faq />
+      </div>
+      <div id="fundedaccounts">
+        <LightningFast />
+      </div>
     </MainLayout>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { AnimateFromInside } from "../common/ScrollFadeIn"; // keep your original import
+import { AnimateFromInside } from "../common/ScrollFadeIn";
 import mainlogo from "../assets/svg/mainlogo.svg";
 
 const HEADER_HEIGHT = 80;
@@ -90,39 +90,47 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Mobile Menu Toggle with Framer Motion */}
+          {/* Mobile Menu Toggle with Animated Icon */}
           <div className="md:hidden flex items-center z-10">
-            <button
+            <motion.button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white text-2xl focus:outline-none relative w-8 h-8"
+              className="relative w-8 h-8 focus:outline-none"
               aria-label="Toggle mobile menu"
+              initial={false}
+              animate={mobileMenuOpen ? "open" : "closed"}
+              variants={{
+                open: {},
+                closed: {},
+              }}
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {mobileMenuOpen ? (
-                  <motion.span
-                    key="close"
-                    initial={{ opacity: 0, rotate: -90, scale: 0.6 }}
-                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                    exit={{ opacity: 0, rotate: 90, scale: 0.6 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    ✕
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="hamburger"
-                    initial={{ opacity: 0, rotate: 90, scale: 0.6 }}
-                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                    exit={{ opacity: 0, rotate: -90, scale: 0.6 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    ☰
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </button>
+              {/* Top Bar */}
+              <motion.span
+                className="absolute top-[6px] left-0 w-8 h-[2px] bg-white"
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: 45, y: 8 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              {/* Middle Bar */}
+              <motion.span
+                className="absolute top-[14px] left-0 w-8 h-[2px] bg-white"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              {/* Bottom Bar */}
+              <motion.span
+                className="absolute bottom-[6px] left-0 w-8 h-[2px] bg-white"
+                variants={{
+                  closed: { rotate: 0, y: 0 },
+                  open: { rotate: -45, y: -10 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
           </div>
         </nav>
       </div>
