@@ -29,7 +29,7 @@ const Header = () => {
     setTimeout(() => {
       sound.pause();
       sound.currentTime = 0; // Reset for next play
-    }, 430); // 300ms = 0.3 seconds
+    }, 400); // 300ms = 0.3 seconds
   };
 
   useEffect(() => {
