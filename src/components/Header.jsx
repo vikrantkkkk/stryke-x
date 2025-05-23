@@ -3,6 +3,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import mainlogo from "../assets/svg/mainlogo.svg";
 
+// Import the sound file
+import clickSound from "../assets/mp3/scissors.mp3";
+
 const HEADER_HEIGHT = 80;
 const NAV_ITEMS = ["Home", "Features", "Algos", "Pricing", "Funded Accounts"];
 
@@ -12,6 +15,22 @@ const Header = () => {
   const [activeId, setActiveId] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Create an Audio instance for the sound
+  const sound = new Audio(clickSound);
+
+  // Function to play the sound for a specific duration (0.3 seconds to match animation)
+  const playSound = () => {
+    sound.currentTime = 0; // Reset sound to start
+    sound.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+    // Stop the sound after 0.3 seconds to match the animation duration
+    setTimeout(() => {
+      sound.pause();
+      sound.currentTime = 0; // Reset for next play
+    }, 430); // 300ms = 0.3 seconds
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,10 +109,13 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Mobile Menu Button with Animation */}
+          {/* Mobile Menu Button with Animation and Sound */}
           <div className="md:hidden flex items-center z-10">
             <motion.button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+                playSound(); // Play sound on click
+              }}
               className="relative w-8 h-8 focus:outline-none"
               aria-label="Toggle mobile menu"
               initial={false}
