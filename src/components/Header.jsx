@@ -3,9 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import mainlogo from "../assets/svg/mainlogo.svg";
 
-
-import clickSound from "../assets/mp3/scissors.mp3";
-
 const HEADER_HEIGHT = 80;
 const NAV_ITEMS = ["Home", "Features", "Algos", "Pricing", "Funded Accounts"];
 
@@ -15,19 +12,6 @@ const Header = () => {
   const [activeId, setActiveId] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const sound = new Audio(clickSound);
-
-  const playSound = () => {
-    sound.currentTime = 0; 
-    sound.play().catch((error) => {
-      console.error("Error playing sound:", error);
-    });
-    setTimeout(() => {
-      sound.pause();
-      sound.currentTime = 0;
-    }, 400);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -106,13 +90,10 @@ const Header = () => {
             </div>
           </AnimateFromInside>
 
-          {/* Mobile Menu Button with Animation and Sound */}
+          {/* Mobile Menu Button with Animation */}
           <div className="md:hidden flex items-center z-10">
             <motion.button
-              onClick={() => {
-                setMobileMenuOpen(!mobileMenuOpen);
-                playSound(); // Play sound on click
-              }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="relative w-8 h-8 focus:outline-none"
               aria-label="Toggle mobile menu"
               initial={false}
@@ -127,7 +108,7 @@ const Header = () => {
                 className="absolute top-[6px] left-0 w-8 h-[2px] bg-white"
                 variants={{
                   closed: { rotate: 0, y: 0 },
-                  open: { rotate: 45, y: 8 },
+                  open: { rotate: 45, y: 8.5 },
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -145,7 +126,7 @@ const Header = () => {
                 className="absolute bottom-[6px] left-0 w-8 h-[2px] bg-white"
                 variants={{
                   closed: { rotate: 0, y: 0 },
-                  open: { rotate: -45, y: -8 },
+                  open: { rotate: -45, y: -8.5 },
                 }}
                 transition={{ duration: 0.3 }}
               />
