@@ -257,7 +257,7 @@ const ExclusiveFeatures = () => {
           <div className="w-full">
             <Slider {...sliderSettings} className="w-full">
               {logos.map((logo, index) => (
-                <div
+                <div 
                   key={index}
                   className="flex justify-center items-center px-4"
                 >
