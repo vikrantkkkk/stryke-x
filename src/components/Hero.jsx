@@ -176,7 +176,7 @@ const Hero = () => {
               <img
                 src={logo.icon}
                 alt={logo.name}
-                className="h-[30px] sm:h-[40px] object-contain"
+                className="h-[30px] sm:h-[40px] object-cover"
               />
             </div>
           ))}

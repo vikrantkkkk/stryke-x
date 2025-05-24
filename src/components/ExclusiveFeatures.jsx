@@ -8,10 +8,7 @@ import card3 from "../assets/png/card3.png";
 import card4 from "../assets/png/card4.png";
 import card6 from "../assets/png/card6.png";
 import card14 from "../assets/png/card14.png";
-import cursor from "../assets/svg/cursor.svg";
 import strykexwhite from "../assets/svg/strykexwhite.svg";
-import verified from "../assets/svg/verified.svg";
-import nifty from "../assets/svg/1.svg";
 import cnbcdark from "../assets/svg/2.svg";
 import hindustandark from "../assets/svg/3.svg";
 import moneycontrol from "../assets/svg/4.svg";
@@ -20,9 +17,6 @@ import theprint from "../assets/svg/6.svg";
 import seven from "../assets/svg/7.svg";
 import eight from "../assets/svg/8.svg";
 import ellipse6 from "../assets/png/ellipse6.png";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const ExclusiveFeatures = () => {
   const logos = [
@@ -36,56 +30,7 @@ const ExclusiveFeatures = () => {
     { icon: eight, name: "eight" },
   ];
 
-  const sliderSettings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 10000,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: "linear",
-    pauseOnHover: false,
-    responsive: [
-      {
-        breakpoint: 1590,
-        settings: {
-          slidesToShow: 4,
-          speed: 10000,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          speed: 12000,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          speed: 8000,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
-          speed: 8000,
-          autoplaySpeed: 0,
-          cssEase: "linear",
-        },
-      },
-    ],
-  };
+  const logos1 = [...logos, ...logos, ...logos];
 
   return (
     <div className="bg-[#01041A] text-white flex flex-col items-center md:px-40  pb-16 gap-4 w-full">
@@ -255,20 +200,20 @@ const ExclusiveFeatures = () => {
             </div>
           </AnimateFromInside>
           <div className="w-full">
-            <Slider {...sliderSettings} className="w-full">
-              {logos.map((logo, index) => (
-                <div 
+            <div className="flex items-center gap-8 sm:gap-10 md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
+              {logos1.map((logo, index) => (
+                <div
                   key={index}
-                  className="flex justify-center items-center px-4"
+                  className="flex justify-center items-center shrink-0"
                 >
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="h-[70px] object-contain"
+                    className="h-[70px] object-cover"
                   />
                 </div>
               ))}
-            </Slider>
+            </div>
           </div>
         </div>
       </div>
