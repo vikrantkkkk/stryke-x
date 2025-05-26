@@ -38,27 +38,25 @@ const leftContent = [
 const card = [
   {
     icon: cardarrow,
-    title: "Deploy Algo in Live Markets",
-    description:
-      "Achieve lightning-fast execution with our proprietary trading engine",
+    title: "Backtest Performance",
+    description: "All algos come with detailed backtest reports.",
   },
   {
     icon: cardarrow,
-    title: "Deploy Algo in Live Markets",
+    title: "Fully Automatic Trading",
     description:
-      "Achieve lightning-fast execution with our proprietary trading engine",
+      "Effortlessly deploy your trading bots to trade in the markets for you on autopilot.",
   },
   {
     icon: cardarrow,
-    title: "Deploy Algo in Live Markets",
+    title: "Apply For Trading Capital",
     description:
-      "Achieve lightning-fast execution with our proprietary trading engine",
+      "Prove yourself with your trading performance and get trading capital upto ₹1 crore.",
   },
   {
     icon: cardarrow,
-    title: "Deploy Algo in Live Markets",
-    description:
-      "Achieve lightning-fast execution with our proprietary trading engine",
+    title: "Simplified Trading",
+    description: "Discover, save and execute algos with just one click. ",
   },
 ];
 
@@ -193,12 +191,12 @@ const Works = () => {
       </div>
 
       {/* Bottom Cards */}
-      <div className="w-full md:mt-[104px] mt-[60px] flex flex-wrap justify-center md:gap-10 gap-[50px]">
+      <div className="w-full md:mt-[104px] mt-[60px] flex flex-wrap justify-center md:gap-6 gap-[50px]">
         {card.map((item, index) => (
           <AnimateFromInside>
             <div
               key={index}
-              className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[282px] w-full md:p-4"
+              className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[300px] w-full md:p-4"
             >
               <img src={item.icon} alt={item.icon} className="h-[72px]" />
               <p className="font-semibold md:text-[32px] text-[26px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
