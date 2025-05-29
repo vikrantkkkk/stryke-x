@@ -14,6 +14,7 @@ import ellipse4 from "../assets/png/ellipse4.png";
 import x from "../assets/png/x.png";
 import featured from "../assets/png/featured.png";
 import featured1 from "../assets/png/featured1.png";
+import featured2 from "../assets/png/featured2.png";
 import GradientButton from "../common/GradientButton";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import card14 from "../assets/png/card14.png";
@@ -165,7 +166,7 @@ const Feature = () => {
               />
               <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 <span
-                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
+                  className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -204,7 +205,7 @@ const Feature = () => {
               />
               <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 <span
-                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
+                  className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -233,11 +234,16 @@ const Feature = () => {
         </AnimateFromInside>
         <AnimateFromInside>
           {/* left Side: Two Cards */}
-          <div className="bg-[#0F1330] flex p-6 text-white  md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px] overflow-hidden">
+          <div className="bg-[#0F1330] flex p-6 text-white  md:h-[555px] h-[255px] md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px] overflow-hidden">
             <img
               src={featured1}
               alt={featured1}
-              className="z-10 object-cover md:absolute bottom-0 right-0 md:w-[95%] w-auto rounded-br-[24px]"
+              className="md:block hidden z-10 object-cover md:absolute bottom-0 right-0 md:w-[95%] w-auto rounded-br-[24px]"
+            />
+            <img
+              src={featured2}
+              alt={featured2}
+              className="md:hidden block z-10 object-cover absolute w-[93%] bottom-0 right-0 rounded-br-[24px]"
             />
 
             <img
