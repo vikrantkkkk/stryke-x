@@ -165,8 +165,8 @@ const ExclusiveFeatures = () => {
                   className="md:block hidden object-cover md:w-[60%] w-[50%]"
                 />
                 <div className="md:hidden flex flex-col justify-center gap-4 w-full">
-                  <img src={card17} alt="card6" className="object-contain border-[0.55px] border-[#FFFFFF4D]/[0.3] rounded-[6.64px]" />
-                  <img src={card18} alt="card6" className="object-contain border-[0.55px] border-[#FFFFFF4D]/[0.3] rounded-[6.64px]" />
+                  <img src={card17} alt="card6" className="object-contain" />
+                  <img src={card18} alt="card6" className="object-contain" />
                 </div>
               </div>
               <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
