@@ -39,11 +39,11 @@ const Feature = () => {
           <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
               <img src={desktop} alt={desktop} className="md:w-auto w-[36px]" />
-              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular tracking-normal">
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 Explore High Performance
                 <br />
                 <span
-                  className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
+                  className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -163,9 +163,9 @@ const Feature = () => {
                 alt={discovered}
                 className="md:w-auto w-[36px]"
               />
-              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 <span
-                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
+                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -202,9 +202,9 @@ const Feature = () => {
                 alt={lightning}
                 className="md:w-auto w-[36px]"
               />
-              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
+              <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular">
                 <span
-                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
+                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] font-degular"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
