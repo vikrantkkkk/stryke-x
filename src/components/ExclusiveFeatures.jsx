@@ -165,16 +165,8 @@ const ExclusiveFeatures = () => {
                   className="md:block hidden object-cover md:w-[60%] w-[50%]"
                 />
                 <div className="md:hidden flex flex-col justify-center gap-4 w-full">
-                  <img
-                    src={card17}
-                    alt="card6"
-                    className="object-cover"
-                  />
-                  <img
-                    src={card18}
-                    alt="card6"
-                    className="object-cover"
-                  />
+                  <img src={card17} alt="card6" className="object-cover" />
+                  <img src={card18} alt="card6" className="object-cover" />
                 </div>
               </div>
               <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
@@ -213,8 +205,8 @@ const ExclusiveFeatures = () => {
               Featured in
             </div>
           </AnimateFromInside>
-          <div className="w-full">
-            <div className="flex items-center gap-8 sm:gap-10 md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
+          <div className="overflow-hidden  group z-20 w-screen">
+            <div className="flex items-center gap-9 h-[70px] md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
               {logos1.map((logo, index) => (
                 <div
                   key={index}
@@ -223,7 +215,7 @@ const ExclusiveFeatures = () => {
                   <img
                     src={logo.icon}
                     alt={logo.name}
-                    className="h-[70px] object-cover"
+                    className="object-cover"
                   />
                 </div>
               ))}

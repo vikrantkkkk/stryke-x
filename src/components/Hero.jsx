@@ -167,7 +167,7 @@ const Hero = () => {
 
       {/* Logo Marquee */}
       <div className="overflow-hidden md:mt-6 group z-20 w-screen">
-        <div className="flex items-center gap-8 sm:gap-10 md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
+        <div className="flex items-center gap-20 h-[62px] md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
           {logos1.map((logo, index) => (
             <div
               key={index}
@@ -176,7 +176,7 @@ const Hero = () => {
               <img
                 src={logo.icon}
                 alt={logo.name}
-                className="h-[30px] sm:h-[40px] object-cover"
+                className="object-cover"
               />
             </div>
           ))}
