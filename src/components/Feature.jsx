@@ -28,7 +28,7 @@ const Feature = () => {
         </p>
       </AnimateFromInside>
       <AnimateFromInside>
-        <p className="font-normal md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-center text-[#FFFFFFBF]/[0.75]">
+        <p className="font-normal md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-center text-[#FFFFFFBF]/[0.75] font-roboto">
           Unleash the power of algorithmic systematic trading to supercharge
           your trading journey.
         </p>
@@ -43,6 +43,7 @@ const Feature = () => {
                 Explore High Performance
                 <br />
                 <span
+                  className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -50,13 +51,12 @@ const Feature = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     textFillColor: "transparent",
-                    fontWeight: "bold",
                   }}
                 >
                   Algo Strategies
                 </span>
               </p>
-              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px]  text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
                 Access professionally designed quantitative trading strategies
                 crafted by our in-house research team, optimized for momentum,
                 mean reversion, breakout, and institutional-style trading.  
@@ -71,7 +71,11 @@ const Feature = () => {
           {/* Right Side: Two Cards */}
           <div className="bg-[#0F1330] flex flex-col gap-3 px-6 pb-6 pt-4 text-white font-sans md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px]">
             {/* First Row - Left aligned card */}
-            <img src={card14} alt={card14} className="md:w-[60%] w-[70%] z-10" />
+            <img
+              src={card14}
+              alt={card14}
+              className="md:w-[60%] w-[70%] z-10"
+            />
             <img
               src={card15}
               alt={card15}
@@ -154,9 +158,14 @@ const Feature = () => {
           {/* right Card */}
           <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
-              <img src={discovered} alt={discovered} className="md:w-auto w-[36px]" />
+              <img
+                src={discovered}
+                alt={discovered}
+                className="md:w-auto w-[36px]"
+              />
               <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
                 <span
+                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -164,14 +173,13 @@ const Feature = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     textFillColor: "transparent",
-                    fontWeight: "bold",
                   }}
                 >
                   Discover Directional{" "}
                 </span>
                 & Non Directional Strategies
               </p>
-              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
                 Utilize our comprehensive strategy templates to execute
                 high-probability, multi-leg option trades - covering a full
                 spectrum of directional and non-directional opportunities—with
@@ -189,9 +197,14 @@ const Feature = () => {
           {/* right Card */}
           <div className="flex flex-col items-start md:justify-between justify-center gap-4 md:w-[370px] w-[345px] rounded-t-[24px] md:rounded-[24px] border-dashed md:border-[2px] border-x-[2px] border-t-[2px] border-[#FFFFFF38]/[0.22] p-6 md:h-[555px] h-auto overflow-hidden">
             <div className="flex flex-col items-start justify-start gap-4">
-              <img src={lightning} alt={lightning} className="md:w-auto w-[36px]"/>
+              <img
+                src={lightning}
+                alt={lightning}
+                className="md:w-auto w-[36px]"
+              />
               <p className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight font-degular">
                 <span
+                className="font-semibold md:text-[31px] text-[24px] md:leading-[38px] leading-[32px] tracking-tight"
                   style={{
                     background:
                       "linear-gradient(95.84deg, #0058FF -12.34%, #FFFFFF 70.31%)",
@@ -199,7 +212,6 @@ const Feature = () => {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     textFillColor: "transparent",
-                    fontWeight: "bold",
                   }}
                 >
                   Lightning Fast
@@ -207,7 +219,7 @@ const Feature = () => {
                 </span>
                 Trading Engine
               </p>
-              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]/[0.75]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
                 Achieve lightning-fast execution with our proprietary trading
                 engine—fully automated and equipped with customizable exit rules
                 like trailing stop-loss, re-entry, partial profit booking, and
@@ -221,7 +233,7 @@ const Feature = () => {
         </AnimateFromInside>
         <AnimateFromInside>
           {/* left Side: Two Cards */}
-          <div className="bg-[#0F1330] flex p-6 text-white  md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px]">
+          <div className="bg-[#0F1330] flex p-6 text-white  md:h-[555px] h-auto md:w-[738px] w-[345px] relative md:rounded-[24px] rounded-b-[24px] overflow-hidden">
             <img
               src={featured1}
               alt={featured1}

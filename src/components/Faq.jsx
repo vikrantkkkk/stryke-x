@@ -56,7 +56,7 @@ const FAQItem = ({ item, index, isActive, onToggle }) => {
       >
         <div className="md:p-6 p-4">
           <div className="flex items-start justify-between">
-            <h3 className="font-medium md:text-xl text-base md:leading-8 leading-7 text-white pr-4 flex-grow">
+            <h3 className="md:font-medium font-semibold md:text-[24px] text-base md:leading-8 leading-7 text-white pr-4 flex-grow">
               {item.question}
             </h3>
             
@@ -86,7 +86,7 @@ const FAQItem = ({ item, index, isActive, onToggle }) => {
               }`}
             >
               <p
-                className="font-light md:text-base text-sm md:leading-8 leading-6 text-white/75"
+                className="font-light md:text-[20px] text-sm md:leading-8 leading-6 text-[#FFFFFFBF]"
                 dangerouslySetInnerHTML={{ __html: item.answer }}
               />
             </div>
@@ -109,11 +109,8 @@ const Faq = () => {
       <div className="flex flex-col w-full max-w-6xl justify-center items-center gap-12">
         <AnimateFromInside>
           <div className="text-center">
-            <h2 className="font-semibold text-3xl md:text-6xl leading-none mb-2 font-degular bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+            <p className="font-semibold text-[40px] md:text-[60px] leading-[140%] font-degular bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
               Frequently Asked Questions
-            </h2>
-            <p className="text-white/60 md:text-lg text-base mt-4">
-              Find answers to common questions about our webinar
             </p>
           </div>
         </AnimateFromInside>

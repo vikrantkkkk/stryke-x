@@ -8,11 +8,12 @@ export default {
         degular: ['"Degular Display"', "sans-serif"],
         poppins: ['"Poppins"', "sans-serif"],
         inter: ['"Inter"', "sans-serif"],
+        roboto: ['"Roboto"', "sans-serif"],
       },
       animation: {
         // Reduced duration for smoother movement
         marquee: "marquee 50s linear infinite",
-        "marquee1": "marquee 8s linear infinite",
+        marquee1: "marquee 8s linear infinite",
         // Added pause on hover variation
         "marquee-hover": "marquee 50s linear infinite paused",
       },

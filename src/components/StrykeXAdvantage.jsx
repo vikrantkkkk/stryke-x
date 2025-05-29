@@ -4,6 +4,9 @@ import GradientButton from "../common/GradientButton";
 import card7 from "../assets/png/card7.png";
 import card8 from "../assets/png/card8.png";
 import card9 from "../assets/png/card9.png";
+import camera from "../assets/svg/camera.svg";
+import course from "../assets/svg/course.svg";
+import live from "../assets/svg/live.svg";
 
 const StrykeXAdvantage = () => {
   return (
@@ -25,13 +28,14 @@ const StrykeXAdvantage = () => {
       </AnimateFromInside>
       <div className="flex flex-col justify-center items-center gap-6 md:mt-6 mt-4">
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full  h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
             <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
+                <img src={camera} alt={camera} className="md:block hidden w-[52px]"/>
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Trading Capital Funding
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px]  text-[#FFFFFFBF] max-w-xl">
                   Get trading capital starting from ₹1 lakh scalable up to ₹1
                   crore with a 50-50 profit split, for lifetime. Subscribe to
                   StrykeX Legend, finish your evaluation process, apply with
@@ -40,7 +44,7 @@ const StrykeXAdvantage = () => {
                 </p>
               </div>
               <div>
-                <GradientButton className="" />
+                <GradientButton className="md:w-[191px]" />
               </div>
             </div>
             <img
@@ -51,13 +55,14 @@ const StrykeXAdvantage = () => {
           </div>
         </AnimateFromInside>
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
             <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
+                  <img src={course} alt={course} className="md:block hidden w-[52px]"/>
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Algo Trading Course
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] text-[#FFFFFFBF] max-w-xl">
                   Learn how to build, test and deploy trading strategies in our
                   no code algo trading course designed for beginners,
                   intermediate and expert traders. We teach you everything from
@@ -66,7 +71,7 @@ const StrykeXAdvantage = () => {
                 </p>
               </div>
               <div>
-                <GradientButton className="" />
+               <GradientButton className="md:w-[191px]" />
               </div>
             </div>
             <img
@@ -77,13 +82,14 @@ const StrykeXAdvantage = () => {
           </div>
         </AnimateFromInside>
         <AnimateFromInside>
-          <div className="bg-[#FFFFFF0D]/[0.05] w-full md:h-[400px] h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
+          <div className="bg-[#FFFFFF0D]/[0.05] w-full h-auto p-6 md:p-10 rounded-[20px] flex flex-col md:flex-row justify-between items-center md:gap-8 gap-4">
             <div className="flex flex-col justify-between h-full gap-4">
               <div className="flex flex-col gap-4">
+                  <img src={live} alt={live} className="md:block hidden w-[52px]"/>
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Live Trading Support
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] mt-2 text-[#ffffffcc] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] text-[#FFFFFFBF] max-w-xl">
                   Our team of NISM Certified and SEBI Registered Research
                   Analysts are streaming live with you everyday, from 9:15am
                   till 3:30pm for live market assistance. Explore the work of
@@ -92,7 +98,7 @@ const StrykeXAdvantage = () => {
                 </p>
               </div>
               <div>
-                <GradientButton className="" />
+               <GradientButton className="md:w-[191px]" />
               </div>
             </div>
             <img

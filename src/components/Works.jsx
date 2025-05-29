@@ -7,6 +7,10 @@ import algos from "../assets/svg/algos.svg";
 import link from "../assets/svg/link.svg";
 import deploy from "../assets/svg/deploy.svg";
 import cardarrow from "../assets/svg/cardarrow.svg";
+import arrow2 from "../assets/svg/arrow2.svg";
+import arrow3 from "../assets/svg/arrow3.svg";
+import arrow4 from "../assets/svg/arrow4.svg";
+import arrow5 from "../assets/svg/arrow5.svg";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const dummyImages = [card11, card12, card13];
@@ -37,24 +41,24 @@ const leftContent = [
 
 const card = [
   {
-    icon: cardarrow,
+    icon: arrow2,
     title: "Backtest Performance",
     description: "All algos come with detailed backtest reports.",
   },
   {
-    icon: cardarrow,
+    icon: arrow3,
     title: "Fully Automatic Trading",
     description:
       "Effortlessly deploy your trading bots to trade in the markets for you on autopilot.",
   },
   {
-    icon: cardarrow,
+    icon: arrow4,
     title: "Apply For Trading Capital",
     description:
       "Prove yourself with your trading performance and get trading capital upto ₹1 crore.",
   },
   {
-    icon: cardarrow,
+    icon: arrow5,
     title: "Simplified Trading",
     description: "Discover, save and execute algos with just one click. ",
   },
@@ -97,7 +101,7 @@ const Works = () => {
         </p>
       </AnimateFromInside>
       <AnimateFromInside>
-        <p className="md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-[#FFFFFFBF] max-w-4xl mx-auto mb-6">
+        <p className="md:text-[20px] sm:text-[18px] text-[14px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF] max-w-4xl mx-auto mb-6 font-roboto">
           Get started with algo trading in three easy steps.
         </p>
       </AnimateFromInside>
@@ -199,7 +203,7 @@ const Works = () => {
               className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[300px] w-full md:p-4"
             >
               <img src={item.icon} alt={item.icon} className="h-[72px]" />
-              <p className="font-semibold md:text-[32px] text-[26px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
+              <p className="font-semibold md:text-[32px] text-[28px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
                 {item.title}
               </p>
               <p className="font-light text-[20px] leading-[32px] md:text-start text-center text-[#FFFFFFBF]/[0.75]">

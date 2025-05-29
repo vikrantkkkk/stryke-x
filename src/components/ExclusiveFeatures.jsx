@@ -8,6 +8,8 @@ import card3 from "../assets/png/card3.png";
 import card4 from "../assets/png/card4.png";
 import card6 from "../assets/png/card6.png";
 import card14 from "../assets/png/card14.png";
+import card17 from "../assets/png/card17.png";
+import card18 from "../assets/png/card18.png";
 import strykexwhite from "../assets/svg/strykexwhite.svg";
 import cnbcdark from "../assets/svg/2.svg";
 import hindustandark from "../assets/svg/3.svg";
@@ -43,7 +45,7 @@ const ExclusiveFeatures = () => {
             </h2>
           </AnimateFromInside>
           <AnimateFromInside>
-            <p className="font-normal md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-[#FFFFFFBF]/[0.75] md:px-0 px-4">
+            <p className="font-normal md:text-[20px] sm:text-[18px] text-[14px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] md:px-0 px-4 font-roboto">
               Unleash the power of artificial intelligence, data backed trading
               strategies and <br className="md:block hidden" /> lightning fast
               executions to level up your trading game.
@@ -68,12 +70,12 @@ const ExclusiveFeatures = () => {
           <AnimateFromInside>
             <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] md:w-[405px] w-[345px] md:h-[411px] h-auto  rounded-[14px]">
               <img src={card1} alt="card1" className="object-cover" />
-              <div className="flex flex-col gap-4 justify-start items-start z-10">
-                <p className="font-semibold md:text-[24px] text-[20px] leading-[36px] text-white">
+              <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
+                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
                   Backtesting
                 </p>
 
-                <p className="font-light text-[16px] leading-[28px] text-white/75">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
                   Backtest your strategies across all market segments with 7+
                   years of data. Test your strategy before live trading.
                 </p>
@@ -88,12 +90,12 @@ const ExclusiveFeatures = () => {
           <AnimateFromInside>
             <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] md:w-[405px] w-[345px] md:h-[411px] h-auto rounded-[14px]">
               <img src={card2} alt="card2" className="object-cover" />
-              <div className="flex flex-col gap-4 justify-start items-start z-10">
-                <p className="font-semibold md:text-[24px] text-[20px] leading-[36px] text-white font-poppins">
+              <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
+                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
                   Paper Trading
                 </p>
 
-                <p className="font-light text-[16px] md:leading-[28px] leading-[24px] text-white/75">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
                   Test strategies in live markets with{" "}
                   <br className="md:block hidden" /> virtual capital. Evaluate
                   performance
@@ -110,12 +112,12 @@ const ExclusiveFeatures = () => {
           <AnimateFromInside>
             <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] md:w-[405px] w-[345px] md:h-[411px] h-auto rounded-[14px]">
               <img src={card3} alt="card3" className="object-cover" />
-              <div className="flex flex-col gap-4 justify-start items-start z-10">
-                <p className="font-semibold md:text-[24px] text-[20px] leading-[36px] text-white font-poppins">
+              <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
+                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
                   Forward Testing
                 </p>
 
-                <p className="font-light text-[16px] md:leading-[28px] leading-[24px] text-white/75">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
                   Deploy fully automated algo strategies in real time. Build
                   your trading edge with emotionless trading.
                 </p>
@@ -132,12 +134,12 @@ const ExclusiveFeatures = () => {
           <AnimateFromInside>
             <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] md:w-[405px] w-[345px] md:h-[411px] h-auto rounded-[14px]">
               <img src={card4} alt="card4" className="object-cover" />
-              <div className="flex flex-col gap-4 justify-start items-start z-10">
-                <p className="font-semibold md:text-[24px] text-[20px] leading-[36px] text-white font-poppins">
+              <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
+                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
                   Funded Accounts
                 </p>
 
-                <p className="font-light text-[16px] md:leading-[28px] leading-[24px] text-white/75">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
                   Get up to ₹1 crore to trade. Pass our test, earn 50%
                   profits—we take the <br /> risk.
                 </p>
@@ -155,20 +157,32 @@ const ExclusiveFeatures = () => {
                 <img
                   src={card14}
                   alt={card14}
-                  className="md:w-[40%] w-[50%] z-10"
+                  className="md:w-[40%] w-[70%] z-10"
                 />
                 <img
                   src={card6}
                   alt="card6"
-                  className="object-cover md:w-[60%] w-[50%]"
+                  className="md:block hidden object-cover md:w-[60%] w-[50%]"
                 />
+                <div className="md:hidden flex flex-col justify-center gap-4 w-full">
+                  <img
+                    src={card17}
+                    alt="card6"
+                    className="object-cover"
+                  />
+                  <img
+                    src={card18}
+                    alt="card6"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-              <div className="flex flex-col gap-4 justify-start items-start z-10">
-                <p className="font-semibold md:text-[24px] text-[20px] leading-[36px] text-white font-poppins">
+              <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
+                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
                   Pre Made Algo Strategies
                 </p>
 
-                <p className="font-light text-[16px] md:leading-[28px] leading-[24px] text-white/75">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
                   Explore a comprehensive set of pre curated algorithmic trading
                   strategies based <br className="md:block hidden" /> on
                   momentum, mean reversion and trap trading

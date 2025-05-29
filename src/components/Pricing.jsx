@@ -84,7 +84,7 @@ const Pricing = () => {
 
       <div className="flex flex-col justify-center items-center gap-4">
         <AnimateFromInside>
-          <p className="font-semibold text-[40px] md:text-[60px] leading-[100%] font-degular">
+          <p className="font-semibold text-[40px] md:text-[60px] md:leading-[100%] leading-[140%] font-degular">
             Pricing
           </p>
         </AnimateFromInside>
@@ -157,9 +157,12 @@ const Pricing = () => {
                 </p>
               </div>
 
-              <ul className="md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]/[0.75] space-y-3 font-degular">
+              <ul className=" space-y-3">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-2">
+                  <li
+                    key={idx}
+                    className="flex items-center gap-2 font-normal md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]"
+                  >
                     <img
                       src={verified1}
                       alt="verified"

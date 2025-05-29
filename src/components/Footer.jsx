@@ -5,7 +5,7 @@ import whatsapp1 from "../assets/svg/whatsapp1.svg";
 import hour from "../assets/svg/hour.svg";
 import call from "../assets/svg/call.svg";
 import email from "../assets/svg/email.svg";
-import facebook from "../assets/svg/facebook.svg";
+import facebook from "../assets/svg/facebook1.svg";
 import twitter from "../assets/svg/twitter.svg";
 import instagram from "../assets/svg/instagram.svg";
 import youtube from "../assets/svg/youtube.svg";

@@ -96,11 +96,11 @@ const Hero = () => {
           </AnimateFromInside>
           <AnimateFromInside>
             <div className="flex justify-center items-center flex-col">
-              <p className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
+              <p className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left font-degular">
                 Welcome To The Future Of Trading
               </p>
               <div className="font-semibold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[64px] leading-[120%] text-center sm:text-left">
-                <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2">
+                <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-2 font-degular">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={word}
@@ -121,7 +121,7 @@ const Hero = () => {
           </AnimateFromInside>
 
           <AnimateFromInside>
-            <p className="font-medium text-[14px] sm:text-lg md:text-xl md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] tracking-normal">
+            <p className="font-medium text-[14px] sm:text-lg md:text-[22px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] tracking-normal">
               Unleash the power of fully automatic systematic trading, to change
               your trading <br className="hidden sm:block" />
               game forever.
@@ -147,7 +147,7 @@ const Hero = () => {
               />
             </div>
             <div className="flex flex-col items-center justify-center gap-4 w-full text-center relative md:bottom-20 bottom-4">
-              <p className="font-normal text-[13px] sm:text-base md:text-lg md:leading-5 leading-[17px] bg-[#18181B] rounded-full px-3 sm:px-4 py-1 sm:py-2">
+              <p className="font-normal text-[13px] sm:text-base md:text-[16px] md:leading-5 leading-[17px] bg-[#18181B] rounded-full px-3 sm:px-4 py-1 sm:py-2 font-poppins">
                 <span className="text-[#EAB308]">★★★★</span> Trusted By 25,000+
                 Traders
               </p>
