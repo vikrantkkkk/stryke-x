@@ -171,6 +171,17 @@ const Header = () => {
                     className="text-white text-left text-[18px] font-medium"
                   >
                     {item}
+                    {item === "Funded Accounts" && (
+                      <span
+                        className="ml-2 text-[10px] px-2 py-[2px] rounded-full text-white font-medium"
+                        style={{
+                          background:
+                            "linear-gradient(95.55deg, #3FADFF -32.6%, #336CDC 57.15%, #47B4B4 148.75%)",
+                        }}
+                      >
+                        Coming Soon
+                      </span>
+                    )}
                   </button>
                 );
               })}
