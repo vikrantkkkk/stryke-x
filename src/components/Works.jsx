@@ -53,14 +53,14 @@ const card = [
   },
   {
     icon: arrow4,
-    title: "Apply For Trading Capital",
+    title: "Create Custom Strategies",
     description:
-      "Prove yourself with your trading performance and get trading capital upto ₹1 crore.",
+      "Explore the world of data driven trading using our vast suite of algo trading tools. Use price action, indicators, volume and time based techniques.",
   },
   {
     icon: arrow5,
     title: "Simplified Trading",
-    description: "Discover, save and execute algos with just one click. ",
+    description: "Discover, save and execute algos with just one click.",
   },
 ];
 
@@ -169,11 +169,8 @@ const Works = () => {
 
       <div className="flex flex-col md:hidden w-full gap-12">
         {leftContent.map((item, index) => (
-          <AnimateFromInside>
-            <div
-              key={index}
-              className="flex flex-col gap-4 items-center text-center"
-            >
+          <AnimateFromInside key={index}>
+            <div className="flex flex-col gap-4 items-center text-center">
               <img src={item.icon} alt="" className="h-[32px]" />
               <p className="text-[20px] font-semibold leading-[100%]">
                 {item.title}
@@ -195,18 +192,17 @@ const Works = () => {
       </div>
 
       {/* Bottom Cards */}
-      <div className="w-full md:mt-[104px] mt-[60px] flex flex-wrap justify-center md:gap-6 gap-[50px]">
+      <div className="w-full md:mt-[104px] mt-[60px] flex flex-wrap justify-center md:gap-10 gap-[50px]">
         {card.map((item, index) => (
-          <AnimateFromInside>
+          <AnimateFromInside key={index}>
             <div
-              key={index}
-              className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[300px] w-full md:p-4"
+              className="flex flex-col md:justify-start justify-center md:items-start items-center md:gap-5 gap-4 md:w-[300px] w-full"
             >
               <img src={item.icon} alt={item.icon} className="h-[72px]" />
-              <p className="font-semibold md:text-[32px] text-[28px] md:leading-[48px] leading-[40px] md:text-start text-center font-degular">
+              <p className="font-semibold md:text-[32px] text-[28px] md:leading-[42px] leading-[40px] md:text-start text-center font-degular">
                 {item.title}
               </p>
-              <p className="font-light text-[20px] leading-[32px] md:text-start text-center text-[#FFFFFFBF]/[0.75]">
+              <p className="font-light text-[20px] leading-[32px] md:text-start text-center text-[#FFFFFFBF]">
                 {item.description}
               </p>
             </div>

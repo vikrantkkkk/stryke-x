@@ -121,9 +121,9 @@ const Pricing = () => {
 
       <div className="flex md:flex-row flex-col justify-center items-center gap-6 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
-          <AnimateFromInside>
+          <AnimateFromInside key={index}>
             <div
-              key={index}
+              
               className="relative group border border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all duration-300 ease-in-out transform scale-100 hover:scale-105 shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
             >
               <div

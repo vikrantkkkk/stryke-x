@@ -33,9 +33,7 @@ const LandingPage = () => {
       <div>
         <Faq />
       </div>
-      <div id="fundedaccounts">
-        <LightningFast />
-      </div>
+      <LightningFast />
     </MainLayout>
   );
 };

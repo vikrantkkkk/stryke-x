@@ -85,9 +85,16 @@ const Hero = () => {
         <div className="flex flex-col justify-center items-center gap-4">
           <AnimateFromInside>
             <div className="inline-flex items-center justify-center gap-2 bg-[#00000033]/[0.2] py-2 pl-2 pr-4 rounded-full">
-              <span className="bg-[#3370FF80]/[0.5] text-white text-xs px-2 py-1 rounded-full border border-white">
+              <span
+                className="text-white text-xs px-[10px] py-[6px] rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(95.55deg, #3FADFF -32.6%, #336CDC 57.15%, #47B4B4 148.75%)",
+                }}
+              >
                 New Launch
               </span>
+
               <p className="font-bold text-[13px] leading-6">
                 AI{" "}
                 <span className="font-normal">Based Algo Trading Platform</span>
@@ -160,24 +167,39 @@ const Hero = () => {
       </div>
 
       {/* Trusted by Text */}
-      <p className="text-[#FFFFFF80]/[0.5] font-normal text-[14px] sm:text-[18px] md:text-[20px] md:leading-[30px] leading-[25px] w-full z-20">
+      <p className="text-[#FFFFFF80]/[0.5] font-normal md:text-[20px] text-[12px]  md:leading-[30px] leading-[25px] w-full z-20">
         Trusted by <span className="font-bold">Professionals</span> Working At
-        <br className="md:hidden block" /> Top Companies Like
+        Top Companies Like
       </p>
 
       {/* Logo Marquee */}
-      <div className="overflow-hidden md:mt-6 group z-20 w-screen">
+      <div className="relative overflow-hidden md:mt-6 group z-20 w-screen bg-[#01041A]">
+        {/* LEFT FADE */}
+        <div
+          className="pointer-events-none absolute md:block hidden top-0 left-0 h-full w-96 z-30"
+          style={{
+            background:
+              "linear-gradient(to right, #01041A 0%, rgba(1, 4, 26, 0) 100%)",
+          }}
+        />
+
+        {/* RIGHT FADE */}
+        <div
+          className="pointer-events-none absolute md:block  hidden top-0 right-0 h-full w-96 z-30"
+          style={{
+            background:
+              "linear-gradient(to left, #01041A 0%, rgba(1, 4, 26, 0) 100%)",
+          }}
+        />
+
+        {/* MARQUEE CONTENT */}
         <div className="flex items-center gap-20 h-[62px] md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
           {logos1.map((logo, index) => (
             <div
               key={index}
               className="flex justify-center items-center shrink-0"
             >
-              <img
-                src={logo.icon}
-                alt={logo.name}
-                className="object-cover"
-              />
+              <img src={logo.icon} alt={logo.name} className="object-cover" />
             </div>
           ))}
         </div>

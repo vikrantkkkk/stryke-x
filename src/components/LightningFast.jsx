@@ -7,23 +7,29 @@ const LightningFast = () => {
   return (
     <div className="bg-[#01041A] text-white flex  justify-center items-center md:pt-16 md:pb-28 pb-20 pt-8 w-full md:px-40 px-4">
       <div className="flex flex-col gap-4 justify-center items-center  z-10 rounded-[32px] w-full relative">
-        <AnimateFromInside>
-          <p className="font-semibold md:text-[64px] text-[40px] md:leading-[82px] leading-[50px] font-degular">
-            Lightning Fast
-          </p>
-        </AnimateFromInside>
-        <AnimateFromInside>
-          <p className="font-semibold md:text-[64px] text-[40px] md:leading-[82px] leading-[50px] font-degular">
-            Trading Engine
-          </p>
-        </AnimateFromInside>
+        <div>
+          <AnimateFromInside>
+            <p className="font-semibold md:text-[64px] text-[30px] md:leading-[76px] leading-[40px] font-degular text-center">
+              Welcome To The
+              <br className="md:hidden block" />
+              <span className="md:inline hidden"> Future</span>
+            </p>
+          </AnimateFromInside>
+          <AnimateFromInside>
+            <p className="font-semibold md:text-[64px] text-[30px] md:leading-[76px] leading-[40px] font-degular text-center">
+            <span className="md:hidden inline"> Future</span>   Of Stock <br className="md:hidden block"/> Trading.
+            </p>
+          </AnimateFromInside>
+        </div>
         <AnimateFromInside>
           <p className="font-normal text-[16px] md:leading-[20px] leading-[24px] text-[#9A9CA3] text-center">
-            Perfect for creators and freelancers seeking Perfect for creators
-            and <br /> freelancers seeking freelancers seeking
+            Unleash the power of fully automated systematic trading built on
+            tested and <br /> proven strategies to maximize your{" "}
+            <br className="md:hidden block" />
+            returns - all on autopilot.
           </p>
         </AnimateFromInside>
-        <button className="bg-white text-black text-[16px] font-semibold rounded-full px-6 py-3 mt-4">
+        <button className="bg-white text-black text-[16px] font-semibold rounded-full px-6 py-3 md:mt-4 mt-2">
           Get Started
         </button>
         <div className="absolute -z-10 w-full flex justify-center items-center">

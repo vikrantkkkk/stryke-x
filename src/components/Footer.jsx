@@ -65,7 +65,7 @@ const Footer = () => {
                     Number:
                     <span className="font-medium text-[16px] leading-5 text-[#FFFFFF]">
                       {" "}
-                      +91-7206533303
+                      +91-8949800532
                     </span>
                   </p>
                   <p className="font-normal text-[14px] leading-4 text-[#FFFFFF]/[0.6]">
@@ -289,8 +289,8 @@ const Footer = () => {
                     <div className="flex gap-2 mt-2">
                       <img className="" src={call} alt="call" />
                       <p className="font-medium text-[14px] leading-5 text-[#FFFFFF]/[0.8] ">
-                        <a target="_blanck" href="tel:+91-7206533303">
-                          +91 - 7206533303
+                        <a target="_blanck" href="tel:+91-8949800532">
+                          +91 - 8949800532
                         </a>{" "}
                         <span className="border-l border-[#FFFFFF4D] mx-2"></span>
                         <a target="_blanck" href="tel:+91-9664221723">
@@ -316,20 +316,20 @@ const Footer = () => {
                       <img className="" src={whatsapp1} alt="whatsapp1" />
                       <a
                         target="_blank"
-                        href="https://wa.me/7206533303"
+                        href="https://wa.me/8000030231"
                         className="font-medium text-[14px] leading-5 text-[#FFFFFF]/[0.8]"
                       >
-                        +91 - 7206533303
+                        +91 - 8000030231
                       </a>
                     </div>
                     <div className="flex gap-2 mt-2">
                       <img className="" src={whatsapp1} alt="whatsapp1" />
                       <a
                         target="_blank"
-                        href="https://wa.me/9664221723"
+                        href="https://wa.me/7850934748"
                         className="font-medium text-[14px] leading-5 text-[#FFFFFF]/[0.8] cursor-pointer"
                       >
-                        +91 - 9664221723
+                        +91 - 7850934748
                       </a>
                     </div>
                   </div>

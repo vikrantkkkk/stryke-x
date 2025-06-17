@@ -46,13 +46,26 @@ const Header = () => {
 
   return (
     <header className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-full md:px-40 px-4">
+      <span
+        className="md:block hidden text-white font-inter text-xs px-[10px] py-[6px] rounded-full absolute  left-[58.5%] top-[100%] transform -translate-x-1/2 -translate-y-1/2 z-10"
+        style={{
+          background:
+            "linear-gradient(95.55deg, #3FADFF -32.6%, #336CDC 57.15%, #47B4B4 148.75%)",
+        }}
+      >
+        Coming soon
+      </span>
       <div className="bg-white/5 backdrop-blur-[30px] rounded-[20px] md:px-6 px-4 md:py-3 py-2">
         <nav className="relative flex items-center justify-between">
           {/* Logo */}
           <AnimateFromInside>
             <div className="flex items-center z-10">
               <a href="/" className="flex items-center gap-2">
-                <img src={mainlogo} alt="Main Logo" className="md:h-[35px] h-[23px]" />
+                <img
+                  src={mainlogo}
+                  alt="Main Logo"
+                  className="md:h-[35px] h-[23px]"
+                />
               </a>
             </div>
           </AnimateFromInside>
@@ -68,7 +81,9 @@ const Header = () => {
                     key={id}
                     onClick={() => scrollToSection(id)}
                     className={`text-[18px] leading-[100%] font-normal transition ${
-                      isActive ? "text-white font-extrabold" : "text-white/70 hover:text-white"
+                      isActive
+                        ? "text-white font-extrabold"
+                        : "text-white/70 hover:text-white"
                     }`}
                   >
                     {item}

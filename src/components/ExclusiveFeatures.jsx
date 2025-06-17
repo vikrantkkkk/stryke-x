@@ -135,13 +135,13 @@ const ExclusiveFeatures = () => {
             <div className="relative flex flex-col p-6 justify-between items-start gap-4 bg-[#FFFFFF0D]/[0.05] md:w-[405px] w-[345px] md:h-[411px] h-auto rounded-[14px]">
               <img src={card4} alt="card4" className="object-cover" />
               <div className="flex flex-col md:gap-4 gap-0 justify-start items-start z-10">
-                <p className="font-semibold md:text-[36px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
-                  Funded Accounts
+                <p className="font-semibold md:text-[35px] text-[20px] md:leading-[52px] leading-[44px] text-white font-degular">
+                  Build Your Strategies
                 </p>
 
                 <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
-                  Get up to ₹1 crore to trade. Pass our test, earn 50%
-                  profits—we take the <br /> risk.
+                  Build your own algo strategies with 500+ unique
+                  parameters—price, volume, indicators & more.
                 </p>
               </div>
               <img
