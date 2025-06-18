@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 import mainlogo from "../assets/svg/mainlogo.svg";
+import { useNavigate } from "react-router-dom";
 
 const HEADER_HEIGHT = 80;
 const NAV_ITEMS = ["Home", "Features", "Algos", "Pricing", "Funded Accounts"];
@@ -12,6 +13,8 @@ const Header = () => {
   const [activeId, setActiveId] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,10 +99,10 @@ const Header = () => {
           {/* Desktop CTA Buttons */}
           <AnimateFromInside>
             <div className="md:flex hidden gap-3 items-center z-10">
-              <button className="bg-white text-black text-[14px] font-medium px-4 py-3 rounded-full hover:bg-gray-100 transition">
-                Get Started
+              <button onClick={() => navigate("/signin")} className="bg-white text-black text-[14px] leading-[100%] font-medium px-4 py-3 rounded-full hover:bg-gray-100 transition">
+                SignIn /Up
               </button>
-              <button className="border border-white/60 text-white text-[14px] font-medium px-4 py-3 rounded-full hover:bg-white hover:text-black transition flex items-center gap-1">
+              <button className="border border-white/60 text-white text-[14px] leading-[100%] font-medium px-4 py-3 rounded-full hover:bg-white hover:text-black transition flex items-center gap-1">
                 Watch Tutorial <span className="text-xs ml-1">▶</span>
               </button>
             </div>

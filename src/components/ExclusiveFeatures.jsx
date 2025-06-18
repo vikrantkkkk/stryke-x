@@ -199,14 +199,23 @@ const ExclusiveFeatures = () => {
           </button>
         </AnimateFromInside>
 
-        <div className="flex flex-col md:gap-5 gap-4 justify-center items-center w-screen md:mt-[104px] mt-[48px]">
+        <div
+          className="flex flex-col md:gap-5 gap-4 justify-center items-center w-screen md:mt-[104px] mt-[48px] py-6"
+          style={{
+            background:
+              "linear-gradient(91.25deg, rgba(63, 173, 255, 0.14) 10.6%, rgba(51, 108, 220, 0.14) 50.75%, rgba(71, 180, 180, 0.14) 91.72%)",
+          }}
+        >
           <AnimateFromInside>
-            <div className="font-semibold text-[24px] leading-[100%]">
-              Featured in
+            <div className="font-semibold text-[24px]">
+              <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
+                Featured
+              </span>{" "}
+              In
             </div>
           </AnimateFromInside>
           <div className="overflow-hidden  group z-20 w-screen">
-            <div className="flex items-center gap-9 h-[70px] md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
+            <div className="flex items-center gap-9 h-auto md:animate-marquee animate-marquee1 group-hover:[animation-play-state:paused]">
               {logos1.map((logo, index) => (
                 <div
                   key={index}

@@ -115,7 +115,7 @@ const Hero = () => {
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: -60, opacity: 0 }}
                       transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="inline-block bg-[linear-gradient(271.85deg,_#87A1FF_74.47%,_#81F0FF_88.14%)] bg-clip-text text-transparent"
+                      className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent"
                     >
                       {word}
                     </motion.span>

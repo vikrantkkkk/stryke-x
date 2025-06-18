@@ -6,20 +6,20 @@ import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const Pricing = () => {
   const pricingPlans = [
-    {
-      title: "YEARLY",
-      price: "₹12,999",
-      duration: "/Year",
-      oldPrice: "₹20,749/Year",
-      features: [
-        "4 x LIVE Algo Deployments",
-        "3,000 Backtest Credits",
-        "10 x Premium Algo Strategies",
-        "12 x Non Directional Templates",
-        "Algo Trading Course",
-        "24/7 customer support",
-      ],
-    },
+    // {
+    //   title: "YEARLY",
+    //   price: "₹12,999",
+    //   duration: "/Year",
+    //   oldPrice: "₹20,749/Year",
+    //   features: [
+    //     "4 x LIVE Algo Deployments",
+    //     "3,000 Backtest Credits",
+    //     "10 x Premium Algo Strategies",
+    //     "12 x Non Directional Templates",
+    //     "Algo Trading Course",
+    //     "24/7 customer support",
+    //   ],
+    // },
     {
       title: "MONTHLY",
       price: "₹1,499",
@@ -89,7 +89,7 @@ const Pricing = () => {
           </p>
         </AnimateFromInside>
 
-        <div
+        {/* <div
           ref={containerRef}
           className="relative flex rounded-full overflow-hidden bg-[#FFFFFF1A]/[0.1] gap-2 p-1 cursor-pointer"
           style={{ userSelect: "none" }}
@@ -116,10 +116,10 @@ const Pricing = () => {
           >
             StrykeX Legend
           </button>
-        </div>
+        </div> */}
       </div>
 
-      <div className="flex md:flex-row flex-col justify-center items-center gap-6 w-full mt-[30px]">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-10 w-full mt-[30px]">
         {pricingPlans.map((plan, index) => (
           <AnimateFromInside key={index}>
             <div
