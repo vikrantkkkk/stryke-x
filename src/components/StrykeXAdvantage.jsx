@@ -18,7 +18,7 @@ const StrykeXAdvantage = () => {
       </AnimateFromInside>
 
       <AnimateFromInside>
-        <p className="font-normal md:text-[20px] text-[14px] md:leading-[32px] leading-[22px] text-[#FFFFFFBF]/[0.75] text-center max-w-6xl">
+        <p className="font-normal md:text-[20px] text-[14px] md:leading-[32px] leading-[22px] tracking-normal  text-[#FFFFFFBF]/[0.75] text-center max-w-6xl">
           Our team of SEBI registered professionals will help you get started
           from the absolute scratch, help you create strategies and providing
           live market assistance. No coding skills or prior algo trading
@@ -39,7 +39,7 @@ const StrykeXAdvantage = () => {
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Custom Strategy Builder
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px]  text-[#FFFFFFBF] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] tracking-normal   text-[#FFFFFFBF] max-w-xl">
                   Create your own custom strategies spanning across 500+ unique
                   parameters in multiple segments such as equity, futures and
                   options. Explore advanced features such as trailing stop loss,
@@ -69,7 +69,7 @@ const StrykeXAdvantage = () => {
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Algo Trading Course
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] text-[#FFFFFFBF] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] tracking-normal  text-[#FFFFFFBF] max-w-xl">
                   Learn how to build, test and deploy trading strategies in our
                   no code algo trading course designed for beginners,
                   intermediate and expert traders. We teach you everything from
@@ -100,7 +100,7 @@ const StrykeXAdvantage = () => {
                 <p className="font-semibold text-[20px] md:text-[36px] leading-[100%] md:leading-[52px] font-degular">
                   Live Trading Support
                 </p>
-                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] text-[#FFFFFFBF] max-w-xl">
+                <p className="font-light text-[14px] md:text-[21px] md:leading-[28px] leading-[22px] tracking-normal  text-[#FFFFFFBF] max-w-xl">
                   Our team of NISM Certified and SEBI Registered Research
                   Analysts are streaming live with you everyday, from 9:15am
                   till 3:30pm for live market assistance. Explore the work of

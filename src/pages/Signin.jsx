@@ -205,13 +205,13 @@ const Signin = () => {
       <div className="flex justify-center items-center w-full h-full">
         <div className="md:hidden flex justify-center items-center  relative w-full h-full">
           <div
-            className="relative rounded-bl-xl rounded-br-xl"
+            className="relative rounded-bl-xl rounded-br-xl h-[375px] overflow-hidden"
             style={{
               background:
                 "linear-gradient(333.37deg, #3370FF -19.48%, #000000 96.37%)",
             }}
           >
-            <img src={vector} alt="vector" className="object-cover" />
+            <img src={vector} alt="vector" className="object-cover"/>
           </div>
 
           {/* Content overlay */}

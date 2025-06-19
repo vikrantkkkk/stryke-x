@@ -45,7 +45,7 @@ const ExclusiveFeatures = () => {
             </h2>
           </AnimateFromInside>
           <AnimateFromInside>
-            <p className="font-normal md:text-[20px] sm:text-[18px] text-[14px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] md:px-0 px-4 font-roboto">
+            <p className="font-normal md:text-[20px] sm:text-[18px] text-[14px] md:leading-[33px] tracking-normal leading-[22px] text-[#FFFFFFBF]/[0.75] md:px-0 px-4 font-roboto">
               Unleash the power of artificial intelligence, data backed trading
               strategies and <br className="md:block hidden" /> lightning fast
               executions to level up your trading game.
@@ -75,7 +75,7 @@ const ExclusiveFeatures = () => {
                   Backtesting
                 </p>
 
-                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] tracking-normal leading-[24px] text-[#FFFFFFBF]">
                   Backtest your strategies across all market segments with 7+
                   years of data. Test your strategy before live trading.
                 </p>
@@ -95,7 +95,7 @@ const ExclusiveFeatures = () => {
                   Paper Trading
                 </p>
 
-                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] tracking-normal  text-[#FFFFFFBF]">
                   Test strategies in live markets with{" "}
                   <br className="md:block hidden" /> virtual capital. Evaluate
                   performance
@@ -117,7 +117,7 @@ const ExclusiveFeatures = () => {
                   Forward Testing
                 </p>
 
-                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] tracking-normal  text-[#FFFFFFBF]">
                   Deploy fully automated algo strategies in real time. Build
                   your trading edge with emotionless trading.
                 </p>
@@ -139,7 +139,7 @@ const ExclusiveFeatures = () => {
                   Build Your Strategies
                 </p>
 
-                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] tracking-normal  text-[#FFFFFFBF]">
                   Build your own algo strategies with 500+ unique
                   parameters—price, volume, indicators & more.
                 </p>
@@ -174,7 +174,7 @@ const ExclusiveFeatures = () => {
                   Pre Made Algo Strategies
                 </p>
 
-                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] text-[#FFFFFFBF]">
+                <p className="font-light md:text-[19px] text-[16px] md:leading-[26px] leading-[24px] tracking-normal  text-[#FFFFFFBF]">
                   Explore a comprehensive set of pre curated algorithmic trading
                   strategies based <br className="md:block hidden" /> on
                   momentum, mean reversion and trap trading

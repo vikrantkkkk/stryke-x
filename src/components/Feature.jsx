@@ -24,7 +24,7 @@ const Feature = () => {
         </p>
       </AnimateFromInside>
       <AnimateFromInside>
-        <p className="font-normal md:text-[24px] sm:text-[18px] text-[14px] md:leading-[30px] leading-[22px] text-center text-[#FFFFFFBF]/[0.75] font-roboto">
+        <p className="font-normal md:text-[24px] sm:text-[18px] text-[14px] md:leading-[33px] tracking-normal leading-[22px] text-center text-[#FFFFFFBF]/[0.75] font-roboto">
           Unleash the power of algorithmic systematic trading to supercharge
           your trading journey.
         </p>
@@ -52,7 +52,7 @@ const Feature = () => {
                   Algo Strategies
                 </span>
               </p>
-              <p className="font-medium md:text-[18px]  text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
+              <p className="font-medium md:text-[18px]  text-[14px] md:leading-[26px] leading-[22px] tracking-normal text-[#FFFFFFBF]">
                 Access professionally designed quantitative trading strategies
                 crafted by our in-house research team, optimized for momentum,
                 mean reversion, breakout, and institutional-style trading.  
@@ -175,7 +175,7 @@ const Feature = () => {
                 </span>
                 & Non Directional Strategies
               </p>
-              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] tracking-normal text-[#FFFFFFBF]">
                 Utilize our comprehensive strategy templates to execute
                 high-probability, multi-leg option trades - covering a full
                 spectrum of directional and non-directional opportunities—with
@@ -215,7 +215,7 @@ const Feature = () => {
                 </span>
                 Trading Engine
               </p>
-              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] text-[#FFFFFFBF]">
+              <p className="font-medium md:text-[18px] text-[14px] md:leading-[26px] leading-[22px] tracking-normal text-[#FFFFFFBF]">
                 Achieve lightning-fast execution with our proprietary trading
                 engine—fully automated and equipped with customizable exit rules
                 like trailing stop-loss, re-entry, partial profit booking, and
