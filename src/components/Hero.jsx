@@ -61,6 +61,20 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleRedirect = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.stockwiz.app&hl=en_IN";
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href =
+        "https://apps.apple.com/us/app/stryke-by-stockwiz/id6503248719";
+    } else {
+      alert("Please visit from an iOS or Android device to download the app.");
+    }
+  };
+
   return (
     <section
       id="home"
@@ -158,7 +172,10 @@ const Hero = () => {
                 <span className="text-[#EAB308]">★★★★</span> Trusted By 25,000+
                 Traders
               </p>
-              <button className="bg-white text-black text-sm sm:text-base md:text-lg font-semibold rounded-full px-4 sm:px-6 py-2 sm:py-3">
+              <button
+                onClick={handleRedirect}
+                className="bg-white text-black text-sm sm:text-base md:text-lg font-semibold rounded-full px-4 sm:px-6 py-2 sm:py-3"
+              >
                 Get Started
               </button>
             </div>
