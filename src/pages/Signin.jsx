@@ -6,11 +6,13 @@ import mailnew from "../assets/svg/mailnew.svg";
 import phonenew from "../assets/svg/phonenew.svg";
 import vector from "../assets/png/vector.png";
 import video from "../assets/png/video.png";
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [step, setStep] = useState("mobile");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (step === "otp" && timer > 0) {
@@ -235,7 +237,7 @@ const Signin = () => {
 
           {/* Content overlay */}
           <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-start gap-6 p-4">
-            <img src={mainlogo} alt="mainlogo" className="h-[21px]" />
+            <img onClick={() => navigate("/")} src={mainlogo} alt="mainlogo" className="h-[21px]" />
             <p className="font-semibold text-[38px] leading-[120%] text-left font-degular text-white mt-5">
               Welcome To The Future Of{" "}
               <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
