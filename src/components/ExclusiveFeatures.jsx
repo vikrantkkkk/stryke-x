@@ -200,7 +200,7 @@ const ExclusiveFeatures = () => {
         </AnimateFromInside>
 
         <div
-          className="flex flex-col md:gap-5 gap-4 justify-center items-center w-screen md:mt-[104px] mt-[48px] py-6"
+          className="flex flex-col md:gap-5 gap-2 justify-center items-center w-screen md:mt-[104px] mt-[48px] md:py-5 py-2"
           style={{
             background:
               "linear-gradient(91.25deg, rgba(63, 173, 255, 0.14) 10.6%, rgba(51, 108, 220, 0.14) 50.75%, rgba(71, 180, 180, 0.14) 91.72%)",
