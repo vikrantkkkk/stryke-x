@@ -11,6 +11,7 @@ const Signin = () => {
   const [step, setStep] = useState("mobile"); // 'mobile' or 'otp'
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
+  
 
   useEffect(() => {
     if (step === "otp" && timer > 0) {
