@@ -8,26 +8,43 @@ import vector from "../assets/png/vector.png";
 import video from "../assets/png/video.png";
 
 const Signin = () => {
-  const [step, setStep] = useState("mobile"); // 'mobile' or 'otp'
+  const [step, setStep] = useState("mobile");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
-  
 
   useEffect(() => {
     if (step === "otp" && timer > 0) {
+      handleOtpChange;
       const interval = setInterval(() => setTimer((t) => t - 1), 1000);
       return () => clearInterval(interval);
     }
   }, [step, timer]);
 
-  const handleOtpChange = (value, index) => {
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+    if (!/^\d*$/.test(value)) return; 
+
     const newOtp = [...otp];
-    newOtp[index] = value.slice(-1); // only 1 char
+    newOtp[index] = value.slice(-1); 
     setOtp(newOtp);
-    // auto-focus to next
-    if (value && index < 5) {
-      const nextInput = document.getElementById(`otp-${index + 1}`);
-      if (nextInput) nextInput.focus();
+
+    // Focus next input
+    if (value && index < otp.length - 1) {
+      const next = document.getElementById(`otp-${index + 1}`);
+      if (next) next.focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace") {
+      if (otp[index] === "") {
+        const prev = document.getElementById(`otp-${index - 1}`);
+        if (prev) prev.focus();
+      } else {
+        const newOtp = [...otp];
+        newOtp[index] = "";
+        setOtp(newOtp);
+      }
     }
   };
 
@@ -135,7 +152,8 @@ const Signin = () => {
                       inputMode="numeric"
                       maxLength={1}
                       value={digit}
-                      onChange={(e) => handleOtpChange(e.target.value, index)}
+                      onChange={(e) => handleOtpChange(e, index)}
+                      onKeyDown={(e) => handleKeyDown(e, index)}
                       className="w-12 h-12 border border-gray-300 rounded-lg text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                     />
                   ))}
@@ -212,7 +230,7 @@ const Signin = () => {
                 "linear-gradient(333.37deg, #3370FF -19.48%, #000000 96.37%)",
             }}
           >
-            <img src={vector} alt="vector" className="object-cover"/>
+            <img src={vector} alt="vector" className="object-cover" />
           </div>
 
           {/* Content overlay */}
@@ -286,7 +304,8 @@ const Signin = () => {
                         inputMode="numeric"
                         maxLength={1}
                         value={digit}
-                        onChange={(e) => handleOtpChange(e.target.value, index)}
+                        onChange={(e) => handleOtpChange(e, index)}
+                        onKeyDown={(e) => handleKeyDown(e, index)}
                         className="w-10 h-12 border border-gray-300 rounded-lg text-center text-xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                       />
                     ))}
