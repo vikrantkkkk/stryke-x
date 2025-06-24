@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import light3 from "../assets/png/light3.png";
 import hoverx from "../assets/svg/hoverx.svg";
+import star from "../assets/svg/star.svg";
 import verified1 from "../assets/svg/verified1.svg";
+import verified3 from "../assets/svg/verified3.svg";
 import { AnimateFromInside } from "../common/ScrollFadeIn";
 
 const Pricing = () => {
@@ -75,17 +77,20 @@ const Pricing = () => {
   }, [activeButton]);
 
   return (
-    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center gap-4 md:py-16 pb-16 w-full px-6 md:px-40 relative overflow-hidden z-10">
+    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center md:gap-4 md:py-16  pb-8 pt-4 w-full px-6 md:px-40 relative overflow-hidden z-10">
       <img
         src={light3}
         alt="Background Light"
-        className="absolute bottom-0 left-0 w-full md:h-auto h-full opacity-50 z-[-1]"
+        className="absolute bottom-0 left-0 md:h-auto h-full -z-10 object-cover"
       />
 
       <div className="flex flex-col justify-center items-center gap-4">
         <AnimateFromInside>
-          <p className="font-semibold text-[40px] md:text-[60px] md:leading-[100%] leading-[140%] font-degular">
-            Pricing
+          <p className="font-semibold text-[40px] md:text-[60px] md:leading-[100%] leading-[140%] font-degular md:mb-0 mb-4">
+            Our{" "}
+            <span className="bg-gradient-to-r from-white via-[#AAB8FF] to-[#8FA4FF] bg-clip-text text-transparent font-degular">
+              Pricing
+            </span>
           </p>
         </AnimateFromInside>
 
@@ -119,63 +124,95 @@ const Pricing = () => {
         </div> */}
       </div>
 
-      <div className="flex md:flex-row flex-col justify-center items-center gap-10 w-full mt-[30px]">
+      <div className="flex md:flex-row flex-col-reverse justify-center items-center md:gap-10 gap-8 w-full mt-[30px] z-10">
         {pricingPlans.map((plan, index) => (
           <AnimateFromInside key={index}>
-            <div
-              
-              className="relative group border border-white/20 rounded-[16px] p-6 md:w-[394px] w-[345px] flex flex-col justify-between gap-4 items-start text-left bg-gradient-to-b from-gray-800/50 to-gray-900/50 backdrop-blur-sm transition-all duration-300 ease-in-out transform scale-100 hover:scale-105 shadow-[0_0_0_2px_rgba(59,130,246,0.5),0_10px_15px_-3px_rgba(59,130,246,0.2),0_4px_6px_-4px_rgba(59,130,246,0.2)]"
-            >
+            <div className="relative group hover:scale-[1.05] hover:backdrop-blur-[7.429px] hover:shadow-[9px_-9px_48.35px_0px_#FFFFFF47] bg-[#00000099] hover:bg-[linear-gradient(140.82deg,rgba(0,0,0,0.6)_26.39%,rgba(10,59,172,0.6)_102.62%)] cursor-pointer rounded-[16px] p-6 md:w-[468px] w-[345px] flex flex-col justify-between gap-[18px] items-start text-left  transition-all duration-500">
+              {/* Border Layer */}
               <div
-                className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-[188px] h-[10px] rounded-b-[16px]"
+                className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
+                  padding: "3px",
+                  borderRadius: "16px",
                   background:
-                    "linear-gradient(90deg, #3370FF 0%, #60A5FA 100%)",
+                    "linear-gradient(221.4deg, #D0DCFF 3.98%, rgba(24, 34, 70, 0) 125.99%)",
+                  WebkitMask:
+                    "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                  WebkitMaskComposite: "xor",
+                  maskComposite: "exclude",
+                  boxSizing: "border-box",
                 }}
-              />
+              ></div>
+
+              {/* Top-right Image */}
               <img
                 src={hoverx}
                 alt="Hover Effect"
-                className="absolute top-4 right-2"
+                className="absolute top-0 right-0 object-cover transition-all duration-500 group-hover:block hidden"
               />
 
-              <h2 className="font-bold md:text-[20px] text-[17px] md:leading-[28px] leading-[24px] font-inter">
+              {/* Title */}
+              <h2 className="font-bold md:text-[20px] text-[17px] md:leading-[29.7px] leading-[24px] font-inter transition-all duration-500">
                 {plan.title}
               </h2>
 
-              <div className="flex gap-2 items-baseline">
+              {/* Price Section */}
+              <div className="flex gap-2 items-baseline transition-all duration-500">
                 <div>
-                  <span className="font-bold md:text-[36px] text-[31px] md:leading-[40px] leading-[35px] font-inter">
+                  <span className="bg-white group-hover:bg-gradient-to-r from-white via-[#AAB8FF] to-[#8FA4FF] bg-clip-text text-transparent font-bold md:text-[36px] text-[31px] md:leading-[42.5px] leading-[35px] font-inter transition-all duration-500">
                     {plan.price}
                   </span>
-                  <span className="font-bold md:text-[24px] text-[20px] md:leading-[40px] leading-[34px] font-inter">
+                  <span className="font-bold md:text-[28px] text-[20px] md:leading-[42.5px] leading-[34px] font-inter transition-all duration-500">
                     {plan.duration}
                   </span>
                 </div>
-                <p className="md:text-sm text-[12px] md:leading-[20px] leading-[17px] text-[#FFFFFFBF]/[0.75] line-through font-inter">
+                <p className="font-normal md:text-[24px] text-[12px] md:leading-[23.5px] leading-[21px] text-[#FFFFFFBF]/[0.75] line-through font-inter transition-all duration-500">
                   {plan.oldPrice}
                 </p>
               </div>
 
-              <ul className=" space-y-3">
+              {/* Features List */}
+              <ul className="space-y-[18px] mt-[18px]">
                 {plan.features.map((feature, idx) => (
                   <li
                     key={idx}
-                    className="flex items-center gap-2 font-normal md:text-sm text-[12px] md:leading-[20px] leading-[20px] text-[#FFFFFFBF]"
+                    className="flex items-center gap-4 font-medium tracking-normal md:text-[20px] text-[12px] md:leading-[28px] leading-[20px] text-[#FFFFFFBF] transition-all duration-500"
                   >
-                    <img
-                      src={verified1}
-                      alt="verified"
-                      className="md:h-[16px] h-[14px]"
-                    />
+                    <div className="relative w-[24px] h-[24px]">
+                      <img
+                        src={verified1}
+                        alt="verified-hover"
+                        className="w-full h-full hidden group-hover:block transition-opacity duration-500"
+                      />
+                      <img
+                        src={verified3}
+                        alt="verified"
+                        className="w-full h-full block group-hover:hidden transition-opacity duration-500"
+                      />
+                    </div>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <button className="font-medium text-[16px] leading-[24px] bg-[#3370FF] w-full rounded-[8px] py-3">
+              {/* Button */}
+              <button className="mt-[10px] font-medium text-[16px] leading-[24px] bg-[#3370FF] group-hover:bg-[linear-gradient(91.44deg,#3F72FF_-4.99%,#0036B2_52.99%,#47B4B4_112.17%)] w-full rounded-[8px] py-3 transition-all duration-500">
                 Subscribe Now
               </button>
+              {plan.title === "QUARTERLY" && (
+                <div
+                  className="flex justify-center items-center gap-1 absolute md:-top-[30px] -top-[28px] right-4 text-white text-[12px] md:text-[14px] font-medium py-1 px-2 rounded-t-[12px] shadow-md z-20"
+                  style={{
+                    background:
+                      "linear-gradient(91.49deg, #3F85FF -8.97%, #002783 108.7%)",
+                  }}
+                >
+                  <span>
+                    <img src={star} alt="star" />
+                  </span>{" "}
+                  Recommended
+                </div>
+              )}
             </div>
           </AnimateFromInside>
         ))}
