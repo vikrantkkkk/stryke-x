@@ -1,234 +1,197 @@
-import dhan from "../assets/svg/dhan.svg";
-import dhanlogo from "../assets/svg/dhanlogo.svg";
-import alreadydhan from "../assets/svg/alreadydhan.svg";
-import sw from "../assets/svg/sw.svg";
-import sw1 from "../assets/svg/sw1.svg";
-import x from "../assets/svg/x.svg";
-import dhan1 from "../assets/svg/dhan1.svg";
-import stocks from "../assets/svg/stocks.svg";
-import options from "../assets/svg/options.svg";
-import commodity from "../assets/svg/commodity.svg";
-import etfs from "../assets/svg/etfs.svg";
-import mutualfunds from "../assets/svg/mutualfunds.svg";
-import ipo from "../assets/svg/ipo.svg";
-import nfo from "../assets/svg/nfo.svg";
-import futures from "../assets/svg/futures.svg";
-import iphone15 from "../assets/png/iphone15.png";
-import dhanpay from "../assets/png/dhanpay.png";
-import activeuser from "../assets/png/activeuser.png";
-import position from "../assets/png/position.png";
-import logoright from "../assets/png/logoright.png";
-import ellipsedhan from "../assets/png/ellipsedhan.png";
-import ellipsedhan1 from "../assets/png/ellipse1dhan.png";
-import dhanallcard from "../assets/png/dhanallcard.png";
-import dhanallcard1 from "../assets/png/dhanallcard1.png";
+import React from "react";
+import halfimage from "../assets/png/video.png";
+import newlogo from "../assets/svg/newlogo.svg";
+import light from "../assets/png/light.png";
+import engine from "../assets/svg/engine.svg";
+import newstrategy from "../assets/svg/newstrategy.svg";
+import newstrategy1 from "../assets/svg/newstrategy1.svg";
+import football from "../assets/svg/football.svg";
 
-const categories = [
-  { icon: stocks, label: "Stocks" },
-  { icon: options, label: "Options" },
-  { icon: futures, label: "Futures" },
-  { icon: commodity, label: "Commodity" },
-  { icon: etfs, label: "ETFs" },
-  { icon: mutualfunds, label: "Mutual Funds" },
-  { icon: ipo, label: "IPO" },
-  { icon: nfo, label: "NFO" },
-];
+import LockIcon from "@mui/icons-material/Lock";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import EmailIcon from "@mui/icons-material/Email";
 
-export default function DhanUI() {
+const Dhan = () => {
   return (
-    <div className="bg-white md:min-h-screen h-auto md:p-6 p-4 text-gray-900 relative z-10 overflow-x-hidden font-inter">
+    <div className="relative bg-[#01041A] text-white w-full min-h-screen font-sans overflow-hidden z-10">
+      {/* Background Light Image */}
+      <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+        <img
+          src={light}
+          alt="background light"
+          className="w-full h-full object-cover mix-blend-screen hidden md:block"
+        />
+      </div>
+
       {/* Header */}
-      <header className="flex justify-between items-center md:mb-16 mb-4 md:px-20">
-        <div className="flex items-center md:space-x-3">
-          <img src={dhan} alt={dhan} className="md:block hidden object-cover"/>
-          <img src={dhanlogo} alt={dhanlogo} className="md:hidden block object-cover"/>
+      <header className="relative z-10 flex justify-between items-center px-6 md:px-20 py-4 bg-white">
+        <div className="flex flex-col">
+          <img src={newlogo} alt="Logo" className="w-[120px] object-contain" />
+          <p className="text-[14px] font-medium text-[#000000BF] mt-1">
+            A Stockwiz Product
+          </p>
         </div>
-
-        <div className="md:flex hidden justify-center items-center space-x-4">
-          <div
-            className="p-[1px] rounded-[8px]"
-            style={{
-              backgroundImage:
-                "linear-gradient(91.57deg, #000000 -15.26%, #46B48D 103.16%)",
-            }}
-          >
-            <button
-              className="font-semibold text-[16px] leading-[100%] flex items-center space-x-2  px-4 py-[10px] h-full hover:bg-green-50 transition bg-white"
-              style={{ borderRadius: "7px" }}
-            >
-              <img src={alreadydhan} alt="Already have an account" className="object-cover"/>
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(92.17deg, #000000 2.52%, #3CFF49 173.31%)",
-                }}
+        <nav className="hidden md:flex gap-8 text-sm font-medium text-black">
+          {["Home", "Dashboard", "My Strategies", "Backtest"].map(
+            (label, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="text-[18px] text-[#000000BF] font-medium"
               >
-                Already Have an Account
-              </span>
-            </button>
-          </div>
-
-          <button
-            className="font-semibold text-[16px] leading-[100%] text-white px-4 py-3 rounded-[8px] flex items-center space-x-2 transition"
-            style={{
-              background:
-                "linear-gradient(91.57deg, #000000 -15.26%, #46B48D 103.16%)",
-            }}
-          >
-            <span>Create a Free Demat Account</span>
-            <img src={sw} alt={sw} className="object-cover"/>
-            <img src={x} alt={x} className="object-cover"/>
-            <img src={dhan1} alt={dhan1} className="object-cover"/>
-          </button>
-        </div>
+                {label}
+              </a>
+            )
+          )}
+        </nav>
       </header>
 
-      {/* Main Section */}
-      <main className="flex md:flex-row flex-col justify-center md:gap-20 gap-10 items-center">
-        {/* Left text and awards */}
-        <section className="md:space-y-8 space-y-4 flex-1 flex justify-start items-start flex-col md:px-20">
-          <p className="font-bold md:text-[49px] text-[28px] md:leading-[64px] leading-[37px] tracking-normal text-black font-inter">
-            Create Free{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(94.17deg, #46B48D 56.97%, #1E4E3D 101.62%)",
-              }}
-            >
-              Dhan x
-            </span>{" "}
-            <span className="inline-flex items-center space-x-1">
-              <img src={sw1} alt="SW Logo" className="md:h-auto h-9 object-cover" />
+      {/* Main Hero Section */}
+      <main className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center pt-10 md:pt-16 gap-10">
+        {/* Left Content */}
+        <div className="flex-1 flex flex-col justify-start items-start gap-10  md:pl-20">
+          <p className="font-semibold text-[28px] sm:text-[40px] md:text-[60px] lg:text-[85px] leading-[120%] text-left font-degular text-white z-10">
+            Unleash the Power of <br />
+            <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
+              Automated Trading
             </span>
-            <br />
-            Account with Us
           </p>
 
-          <p className="font-normal md:text-[17px] text-[10px] md:leading-[24px] leading-[14px] text-[#8E8E8E]">
-            Create your free account and access top-tier research,
-            <br className="md:block hidden" /> strategy{" "}
-            <br className="md:hidden block" /> support, and real-time tools
-            powered by Dhan and <br className="md:block hidden" /> Stockwiz.
+          <p className="font-medium text-[14px] sm:text-lg md:text-[22px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] tracking-normal">
+            Unleash the power of fully automatic systematic trading, to{" "}
+            <br className="hidden sm:block" /> change your trading game forever.
           </p>
 
-          {/* Awards */}
-
-          <img src={dhanallcard} alt={dhanallcard} className="object-cover md:block hidden" />
-          <img src={dhanallcard1} alt={dhanallcard1} className="object-cover md:hidden block w-[353px]" />
-
-          {/* Buttons under awards */}
-          <div className="flex flex-col justify-start items-start space-y-4">
-            {/* Create demat account button */}
-            <button
-              className="flex items-center justify-center gap-2 w-[353px] p-4 rounded-[8px] font-semibold text-[16px] leading-[100%] text-white transition"
-              style={{
-                background:
-                  "linear-gradient(91.57deg, #000000 -15.26%, #46B48D 103.16%)",
-              }}
-            >
-              <span>Create a Free Demat Account</span>
-              <div className="flex items-center space-x-2">
-                <img src={sw} alt="sw" className="object-cover"/>
-                <img src={x} alt="x" className="object-cover"/>
-                <img src={dhan1} alt="dhan logo" className="object-cover"/>
+          <div className="flex flex-wrap gap-4 w-[832px]">
+            {/* 1st */}
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+              <img src={engine} alt="engine" className="object-cover" />
+              <div className="flex flex-col gap-1">
+                <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
+                  Lightning Fast
+                </span>
+                <span className="text-white">Trading Engine</span>
               </div>
-            </button>
-            {/* Already have an account button with gradient border */}
-            <button
-              className="flex items-center justify-center space-x-2 px-4 py-[14px] w-[353px] font-semibold text-[16px] leading-[100%] bg-white hover:bg-green-50 transition rounded-[8px] border"
-              style={{
-                borderColor: "#00000029",
-                borderWidth: "1px",
-              }}
-            >
-              <img src={alreadydhan} alt="Already have an account" className="object-cover"/>
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(92.17deg, #000000 2.52%, #3CFF49 173.31%)",
-                }}
-              >
-                Already Have an Account
-              </span>
-            </button>
-          </div>
-        </section>
+            </div>
 
-        {/* Right mobile mockup with floating boxes */}
-        <section className="space-y-8 flex-1 flex justify-start items-start flex-col px-20">
-          <div className="relative bg-[linear-gradient(91.57deg,_#000000_-15.26%,_#46B48D_103.16%)] rounded-[15px] md:w-[470px] w-[353px] md:h-[570px] h-[408px]">
-            <img
-              src={iphone15}
-              alt="iphone15"
-              className="md:w-[335px] w-[240px] object-cover absolute bottom-0 left-1/2 transform -translate-x-1/2"
-            />
-            <img
-              src={dhanpay}
-              alt="dhanpay"
-              className="object-cover absolute md:-top-7 -top-4  md:-left-40 -left-4 md:w-auto w-[242px]"
-            />
-            <img
-              src={activeuser}
-              alt="activeuser"
-              className="object-cover absolute md:block hidden bottom-16  -left-56"
-            />
-            <img
-              src={position}
-              alt="position"
-              className="object-cover md:hidden block absolute md:top-20 top-64  md:-right-52  -left-6 md:h-[150px] h-[100px]"
-            />
-            <img
-              src={position}
-              alt="position"
-              className="object-cover md:block hidden absolute md:top-20 top-64  md:-right-48  md:h-[150px] h-[100px]"
-            />
-            <img
-              src={logoright}
-              alt="logoright"
-              className="object-cover md:hidden block absolute md:bottom-6 bottom-60 -right-2 md:h-36 h-[80px]"
-            />
-            <img
-              src={logoright}
-              alt="logoright"
-              className="object-cover md:block hidden absolute md:bottom-6 bottom-60 -right-[75px] md:h-36"
-            />
-          </div>
-        </section>
-      </main>
+            {/* 2nd */}
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+              <img
+                src={newstrategy}
+                alt="newstrategy"
+                className="object-cover "
+              />
+              <div className="flex flex-col gap-1">
+                <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
+                  Premium Algo
+                </span>
+                <span className="text-white">Strategies</span>
+              </div>
+            </div>
 
-      <nav className="md:flex hidden flex-wrap justify-center gap-x-6 w-full px-20 mt-16">
-        {categories.map(({ icon, label }) => (
-          <button
-            key={label}
-            className="flex items-center justify-center space-x-2 transition text-[20px] font-normal leading-[31px] border-[1.3px] rounded-[8px] px-4 py-2"
+            {/* 3rd */}
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+              <img
+                src={newstrategy1}
+                alt="newstrategy1"
+                className="object-cover"
+              />
+              <div className="flex flex-col gap-1">
+                <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
+                  Build Your
+                </span>
+                <span className="text-white">Strategies</span>
+              </div>
+            </div>
+
+            {/* 4th */}
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+              <img src={football} alt="football" className="object-cover" />
+              <div className="flex flex-col gap-1">
+                <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
+                  Live Trading
+                </span>
+                <span className="text-white">Support</span>
+              </div>
+            </div>
+          </div>
+          <div
+            className="bg-[#FFFFFF0F] text-white rounded-2xl p-4 space-y-6 shadow-lg w-[832px]"
             style={{
-              borderColor: "#00000029",
-              borderWidth: "1px",
-              backdropFilter: "blur(18.281660079956055px)",
-              WebkitBackdropFilter: "blur(18.281660079956055px)",
-              boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.08)",
+              border: "1px solid",
+              borderImageSource:
+                "linear-gradient(180deg, rgba(0, 0, 0, 0.36) 0%, #FFFFFF 100%)",
+              borderImageSlice: 1,
+              borderRadius: "16px", // manually enforced
             }}
           >
-            <img src={icon} alt={icon} className="object-cover"/>
-            <span>{label}</span>
-          </button>
-        ))}
-      </nav>
+            {/* Header Row */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+              <div className="flex flex-col justify-start items-start gap-3">
+                <div className="flex justify-center items-center gap-2">
+                  <LockIcon style={{ fontSize: 18 }} />
+                  <h2 className="text-base md:text-lg font-medium">
+                    Activate{" "}
+                    <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
+                      StrykeX
+                    </span>{" "}
+                    Algos
+                  </h2>
+                </div>
+                {/* Sub Text */}
+                <p className="text-sm text-white/70">
+                  Click on the below mentioned buttons to activate your plan
+                </p>
+              </div>
+              <div className="flex flex-col justify-start items-start gap-2 text-sm text-white/80">
+                <div className="flex justify-center items-center gap-2">
+                  <HelpOutlineIcon style={{ fontSize: 16 }} />
+                  <span className="font-medium text-white">Need Help?</span>
+                </div>
+                <span className="text-white/60">
+                  Click here to connect with our support team
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row gap-4">
+              <button className="flex-1 flex items-center justify-center gap-2 text-white border border-[#FFFFFF85] text-sm font-semibold py-3 px-4 rounded-md transition bg-[linear-gradient(91.74deg,_#050505_-31%,_#46B48D_111.93%)] hover:opacity-90">
+                Create a Free Dhan Demat Account
+              </button>
 
-      <img
-        src={ellipsedhan}
-        alt={ellipsedhan}
-        className="absolute md:block hidden top-0 right-0 -z-10 h-[500px]"
-      />
+              <button className="flex-1 flex items-center justify-center gap-2 border border-[#FFFFFF] text-sm text-white font-semibold py-3 px-4 rounded-md">
+                {/* <img src={existingDhan} alt="Connect Dhan" className="h-5 w-5" /> */}
+                Connect Existing Dhan Account
+              </button>
+            </div>
 
-      <img
-        src={ellipsedhan1}
-        alt={ellipsedhan1}
-        className="absolute md:block hidden bottom-0 left-0 -z-10 h-[500px]"
-      />
+            {/* Footer Contact Info */}
+          </div>
+          <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-10  text-sm text-white/60 w-full">
+            <div className="flex items-center justify-center gap-2">
+              <PhoneIphoneIcon style={{ fontSize: 16 }} /> +91-7850934748
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <WhatsAppIcon style={{ fontSize: 16 }} /> +91-80000030231
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <EmailIcon style={{ fontSize: 16 }} /> help@stockwiz.in
+            </div>
+          </div>
+        </div>
+
+        {/* Right Image (Mockup) */}
+        <div className="flex-1 flex items-center justify-end">
+          <img
+            src={halfimage}
+            alt="App Preview"
+            className="object-cover  relative left-32"
+          />
+        </div>
+      </main>
     </div>
   );
-}
+};
+
+export default Dhan;

@@ -63,7 +63,7 @@ const Pricing = () => {
   }, [activeButton]);
 
   return (
-    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center md:gap-4 md:pb-16 pb-8 w-full relative overflow-hidden z-10 md:px-40">
+    <div className="bg-[#01041A] text-white flex flex-col justify-center items-center md:gap-4 md:pb-16 pb-10 w-full relative overflow-hidden z-10 md:px-40">
       <img
         src={light3}
         alt="Background Light"
@@ -185,7 +185,7 @@ const Pricing = () => {
                 className={`font-medium text-[16px] leading-[24px] w-full rounded-[8px] py-3 transition-all duration-500 ${
                   plan.title === "QUARTERLY"
                     ? "bg-[linear-gradient(91.44deg,#3F72FF_-4.99%,#0036B2_52.99%,#47B4B4_112.17%)]"
-                    : "bg-[#3370FF] md:group-hover:bg-[linear-gradient(91.44deg,#3F72FF_-4.99%,#0036B2_52.99%,#47B4B4_112.17%)]"
+                    : "bg-[#3370FF] group-hover:bg-[linear-gradient(91.44deg,#3F72FF_-4.99%,#0036B2_52.99%,#47B4B4_112.17%)]"
                 }`}
               >
                 Subscribe Now
