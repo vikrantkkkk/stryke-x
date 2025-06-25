@@ -24,10 +24,10 @@ const Signin = () => {
 
   const handleOtpChange = (e, index) => {
     const value = e.target.value;
-    if (!/^\d*$/.test(value)) return; 
+    if (!/^\d*$/.test(value)) return;
 
     const newOtp = [...otp];
-    newOtp[index] = value.slice(-1); 
+    newOtp[index] = value.slice(-1);
     setOtp(newOtp);
 
     // Focus next input
@@ -48,7 +48,11 @@ const Signin = () => {
         setOtp(newOtp);
       }
     }
-  }; 
+  };
+
+  const handleOpt = () => {
+    navigate("/dhan");
+  };
 
   return (
     <>
@@ -170,7 +174,10 @@ const Signin = () => {
                   </span>
                 </div>
 
-                <button className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]">
+                <button
+                  onClick={handleOpt}
+                  className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
+                >
                   Continue
                 </button>
               </>
@@ -237,7 +244,12 @@ const Signin = () => {
 
           {/* Content overlay */}
           <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-start gap-6 p-4">
-            <img onClick={() => navigate("/")} src={mainlogo} alt="mainlogo" className="h-[21px]" />
+            <img
+              onClick={() => navigate("/")}
+              src={mainlogo}
+              alt="mainlogo"
+              className="h-[21px]"
+            />
             <p className="font-semibold text-[38px] leading-[120%] text-left font-degular text-white mt-5">
               Welcome To The Future Of{" "}
               <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
