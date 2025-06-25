@@ -122,7 +122,7 @@ export default function DhanUI() {
           <div className="flex flex-col justify-start items-start space-y-4">
             {/* Create demat account button */}
             <button
-              className="flex items-center justify-between w-[353px] p-4 rounded-[8px] font-semibold text-[16px] leading-[100%] text-white transition"
+              className="flex items-center justify-center gap-2 w-[353px] p-4 rounded-[8px] font-semibold text-[16px] leading-[100%] text-white transition"
               style={{
                 background:
                   "linear-gradient(91.57deg, #000000 -15.26%, #46B48D 103.16%)",
@@ -137,7 +137,7 @@ export default function DhanUI() {
             </button>
             {/* Already have an account button with gradient border */}
             <button
-              className="flex items-center space-x-2 px-4 py-[14px] w-[353px] font-semibold text-[16px] leading-[100%] bg-white hover:bg-green-50 transition rounded-[8px] border"
+              className="flex items-center justify-center space-x-2 px-4 py-[14px] w-[353px] font-semibold text-[16px] leading-[100%] bg-white hover:bg-green-50 transition rounded-[8px] border"
               style={{
                 borderColor: "#00000029",
                 borderWidth: "1px",
