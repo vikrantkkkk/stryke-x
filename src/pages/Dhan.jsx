@@ -116,7 +116,7 @@ export default function DhanUI() {
           {/* Awards */}
 
           <img src={dhanallcard} alt={dhanallcard} className="object-cover md:block hidden" />
-          <img src={dhanallcard1} alt={dhanallcard1} className="object-cover md:hidden block" />
+          <img src={dhanallcard1} alt={dhanallcard1} className="object-cover md:hidden block w-[353px]" />
 
           {/* Buttons under awards */}
           <div className="flex flex-col justify-start items-start space-y-4">
