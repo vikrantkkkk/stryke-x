@@ -36,12 +36,12 @@ const categories = [
 
 export default function DhanUI() {
   return (
-    <div className="bg-white md:min-h-screen h-auto md:p-6 p-4 font-sans text-gray-900 relative z-10 overflow-x-hidden">
+    <div className="bg-white md:min-h-screen h-auto md:p-6 p-4 text-gray-900 relative z-10 overflow-x-hidden font-inter">
       {/* Header */}
       <header className="flex justify-between items-center md:mb-16 mb-4 md:px-20">
         <div className="flex items-center md:space-x-3">
-          <img src={dhan} alt={dhan} className="md:block hidden"/>
-          <img src={dhanlogo} alt={dhanlogo} className="md:hidden block"/>
+          <img src={dhan} alt={dhan} className="md:block hidden object-cover"/>
+          <img src={dhanlogo} alt={dhanlogo} className="md:hidden block object-cover"/>
         </div>
 
         <div className="md:flex hidden justify-center items-center space-x-4">
@@ -56,7 +56,7 @@ export default function DhanUI() {
               className="font-semibold text-[16px] leading-[100%] flex items-center space-x-2  px-4 py-[10px] h-full hover:bg-green-50 transition bg-white"
               style={{ borderRadius: "7px" }}
             >
-              <img src={alreadydhan} alt="Already have an account" />
+              <img src={alreadydhan} alt="Already have an account" className="object-cover"/>
               <span
                 className="bg-clip-text text-transparent"
                 style={{
@@ -77,9 +77,9 @@ export default function DhanUI() {
             }}
           >
             <span>Create a Free Demat Account</span>
-            <img src={sw} alt={sw} />
-            <img src={x} alt={x} />
-            <img src={dhan1} alt={dhan1} />
+            <img src={sw} alt={sw} className="object-cover"/>
+            <img src={x} alt={x} className="object-cover"/>
+            <img src={dhan1} alt={dhan1} className="object-cover"/>
           </button>
         </div>
       </header>
@@ -100,7 +100,7 @@ export default function DhanUI() {
               Dhan x
             </span>{" "}
             <span className="inline-flex items-center space-x-1">
-              <img src={sw1} alt="SW Logo" className="md:h-auto h-9" />
+              <img src={sw1} alt="SW Logo" className="md:h-auto h-9 object-cover" />
             </span>
             <br />
             Account with Us
@@ -130,9 +130,9 @@ export default function DhanUI() {
             >
               <span>Create a Free Demat Account</span>
               <div className="flex items-center space-x-2">
-                <img src={sw} alt="sw" />
-                <img src={x} alt="x" />
-                <img src={dhan1} alt="dhan logo" />
+                <img src={sw} alt="sw" className="object-cover"/>
+                <img src={x} alt="x" className="object-cover"/>
+                <img src={dhan1} alt="dhan logo" className="object-cover"/>
               </div>
             </button>
             {/* Already have an account button with gradient border */}
@@ -143,7 +143,7 @@ export default function DhanUI() {
                 borderWidth: "1px",
               }}
             >
-              <img src={alreadydhan} alt="Already have an account" />
+              <img src={alreadydhan} alt="Already have an account" className="object-cover"/>
               <span
                 className="bg-clip-text text-transparent"
                 style={{
@@ -203,7 +203,7 @@ export default function DhanUI() {
         {categories.map(({ icon, label }) => (
           <button
             key={label}
-            className="flex items-center justify-center space-x-2 transition text-sm font-medium border-[1.3px] rounded-[8px] px-4 py-2 bg-white"
+            className="flex items-center justify-center space-x-2 transition text-[20px] font-normal leading-[31px] border-[1.3px] rounded-[8px] px-4 py-2"
             style={{
               borderColor: "#00000029",
               borderWidth: "1px",
@@ -212,7 +212,7 @@ export default function DhanUI() {
               boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.08)",
             }}
           >
-            <img src={icon} alt={icon} />
+            <img src={icon} alt={icon} className="object-cover"/>
             <span>{label}</span>
           </button>
         ))}
