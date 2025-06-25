@@ -334,7 +334,7 @@ const Signin = () => {
 
                   <button
                     className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
-                    onClick={() => alert("OTP Submitted")}
+                    onClick={handleOpt}
                   >
                     Continue
                   </button>
