@@ -82,7 +82,14 @@ const Header = () => {
                 return (
                   <button
                     key={id}
-                    onClick={() => scrollToSection(id)}
+                    onClick={() => {
+                      if (item === "Algos") {
+                        window.location.href =
+                          "https://adorable-puffpuff-5ef849.netlify.app/";
+                      } else {
+                        scrollToSection(id);
+                      }
+                    }}
                     className={`text-[18px] leading-[100%] font-normal transition ${
                       isActive
                         ? "text-white font-extrabold"
@@ -173,7 +180,14 @@ const Header = () => {
                 return (
                   <button
                     key={id}
-                    onClick={() => scrollToSection(id)}
+                    onClick={() => {
+                      if (item === "Algos") {
+                        window.location.href =
+                          "https://adorable-puffpuff-5ef849.netlify.app/";
+                      } else {
+                        scrollToSection(id);
+                      }
+                    }}
                     className="text-white text-left text-[18px] font-medium"
                   >
                     {item}
