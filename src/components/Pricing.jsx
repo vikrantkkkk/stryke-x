@@ -130,7 +130,7 @@ const Pricing = () => {
                     className={`bg-white ${
                       plan.title === "QUARTERLY"
                         ? "bg-gradient-to-r from-white via-[#AAB8FF] to-[#8FA4FF] md:text-[36px] text-[28px] md:leading-[42.5px] leading-[31px]"
-                        : "md:group-hover:bg-gradient-to-r from-white via-[#AAB8FF] to-[#8FA4FF]"
+                        : "group-hover:bg-gradient-to-r from-white via-[#AAB8FF] to-[#8FA4FF]"
                     } bg-clip-text text-transparent font-bold md:text-[36px] text-[24px] md:leading-[42.5px] leading-[29px] font-inter`}
                   >
                     {plan.price}
