@@ -1,17 +1,17 @@
 import React from "react";
-import halfimage from "../assets/png/video.png";
+import halfimage from "../assets/png/video1.png";
 import newlogo from "../assets/svg/newlogo.svg";
-import light from "../assets/png/light.png";
+import light from "../assets/png/dhanlight.png";
 import engine from "../assets/svg/engine.svg";
 import newstrategy from "../assets/svg/newstrategy.svg";
 import newstrategy1 from "../assets/svg/newstrategy1.svg";
 import football from "../assets/svg/football.svg";
-
-import LockIcon from "@mui/icons-material/Lock";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import EmailIcon from "@mui/icons-material/Email";
+import lock from "../assets/svg/lock.svg";
+import phoneicon from "../assets/svg/phoneicon.svg";
+import whatsappicon from "../assets/svg/whatsappicon.svg";
+import emailicon from "../assets/svg/emailicon.svg";
+import xicon from "../assets/svg/xicon.svg";
+import dhanicon from "../assets/svg/dhanicon.svg";
 
 const Dhan = () => {
   return (
@@ -21,19 +21,23 @@ const Dhan = () => {
         <img
           src={light}
           alt="background light"
-          className="w-full h-full object-cover mix-blend-screen hidden md:block"
+          className="w-full object-cover -z-10 md:h-auto h-[50%]"
         />
       </div>
 
       {/* Header */}
-      <header className="relative z-10 flex justify-between items-center px-6 md:px-20 py-4 bg-white">
-        <div className="flex flex-col">
-          <img src={newlogo} alt="Logo" className="w-[120px] object-contain" />
-          <p className="text-[14px] font-medium text-[#000000BF] mt-1">
+      <header className="relative z-10 flex justify-between items-center px-6 md:px-20 md:py-1 py-3 bg-white">
+        <div className="flex flex-col justify-start items-start">
+          <img
+            src={newlogo}
+            alt="Logo"
+            className="md:w-[120px] md:h-auto h-[30px] object-contain"
+          />
+          <p className="text-[14px] font-medium text-[#000000BF] mt-1 font-degular">
             A Stockwiz Product
           </p>
         </div>
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-black">
+        <nav className="hidden md:flex gap-8 text-[21px] leading-[75px] font-medium text-black">
           {["Home", "Dashboard", "My Strategies", "Backtest"].map(
             (label, idx) => (
               <a
@@ -49,25 +53,31 @@ const Dhan = () => {
       </header>
 
       {/* Main Hero Section */}
-      <main className="relative z-10 flex flex-col-reverse md:flex-row justify-between items-center pt-10 md:pt-16 gap-10">
+      <main className="relative z-10 flex flex-col md:flex-row justify-between items-center pt-4 md:pb-0 pb-6 md:pt-16 md:gap-10 gap-4">
         {/* Left Content */}
-        <div className="flex-1 flex flex-col justify-start items-start gap-10  md:pl-20">
-          <p className="font-semibold text-[28px] sm:text-[40px] md:text-[60px] lg:text-[85px] leading-[120%] text-left font-degular text-white z-10">
-            Unleash the Power of <br />
+        <div className="md:flex-1 w-full flex flex-col justify-start items-start md:gap-10 gap-4  md:pl-20 px-4">
+          <p className="font-medium text-[40px]  md:text-[60px]  md:leading-[120%] leading-[44px] text-left font-degular text-white z-10">
+            Unleash <br className="block md:hidden" /> the Power of <br />
             <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
               Automated Trading
             </span>
           </p>
 
-          <p className="font-medium text-[14px] sm:text-lg md:text-[22px] md:leading-[33px] leading-[22px] text-[#FFFFFFBF]/[0.75] tracking-normal">
-            Unleash the power of fully automatic systematic trading, to{" "}
-            <br className="hidden sm:block" /> change your trading game forever.
+          <p className="font-normal text-[14px] md:text-[24px] md:leading-[38px] leading-[22px] text-[#EAEAEA] tracking-normal font-inter">
+            Unleash the power of fully automatic{" "}
+            <br className="block md:hidden" /> systematic trading, to{" "}
+            <br className="hidden sm:block" /> change your trading
+            <br className="block md:hidden" /> game forever.
           </p>
 
-          <div className="flex flex-wrap gap-4 w-[832px]">
+          <div className="flex flex-wrap md:justify-start justify-center gap-4 md:w-[832px] w-full font-degular">
             {/* 1st */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
-              <img src={engine} alt="engine" className="object-cover" />
+            <div className="bg-[#FFFFFF0F] font-semibold  flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4  rounded-[11px] md:text-sm text-xs  text-white">
+              <img
+                src={engine}
+                alt="engine"
+                className="object-cover h-[30px]"
+              />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
                   Lightning Fast
@@ -77,11 +87,11 @@ const Dhan = () => {
             </div>
 
             {/* 2nd */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
               <img
                 src={newstrategy}
                 alt="newstrategy"
-                className="object-cover "
+                className="object-cover h-[30px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -92,11 +102,11 @@ const Dhan = () => {
             </div>
 
             {/* 3rd */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
               <img
                 src={newstrategy1}
                 alt="newstrategy1"
-                className="object-cover"
+                className="object-cover h-[30px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -107,8 +117,12 @@ const Dhan = () => {
             </div>
 
             {/* 4th */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
-              <img src={football} alt="football" className="object-cover" />
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
+              <img
+                src={football}
+                alt="football"
+                className="object-cover h-[30px]"
+              />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
                   Live Trading
@@ -117,22 +131,50 @@ const Dhan = () => {
               </div>
             </div>
           </div>
-          <div
-            className="bg-[#FFFFFF0F] text-white rounded-2xl p-4 space-y-6 shadow-lg w-[832px]"
-            style={{
-              border: "1px solid",
-              borderImageSource:
-                "linear-gradient(180deg, rgba(0, 0, 0, 0.36) 0%, #FFFFFF 100%)",
-              borderImageSlice: 1,
-              borderRadius: "16px", // manually enforced
-            }}
-          >
-            {/* Header Row */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-              <div className="flex flex-col justify-start items-start gap-3">
-                <div className="flex justify-center items-center gap-2">
-                  <LockIcon style={{ fontSize: 18 }} />
-                  <h2 className="text-base md:text-lg font-medium">
+          <div className="relative text-white p-4 flex flex-col rounded-2xl gap-4 shadow-lg md:w-[832px] w-full overflow-hidden bg-[#FFFFFF0F]">
+            {/* Border Gradient Layer */}
+            <div
+              className="absolute inset-0 rounded-2xl font-inter"
+              style={{
+                padding: "1px",
+                background:
+                  "linear-gradient(180deg, rgba(0, 0, 0, 0.36) 0%, #FFFFFF 100%)",
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                WebkitMaskComposite: "xor",
+                maskComposite: "exclude",
+              }}
+            ></div>
+
+            {/* Content */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div className="md:flex hidden  gap-2">
+                <img
+                  src={lock}
+                  alt="football"
+                  className="object-cover h-7 w-7"
+                />
+                <div className="flex flex-col justify-start items-start gap-1">
+                  <h2 className="font-semibold text-[24px] leading-[123%]">
+                    Activate{" "}
+                    <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
+                      StrykeX
+                    </span>{" "}
+                    Algos
+                  </h2>
+                  <p className="font-normal text-[#FFFFFFBF] text-[12px] md:leading-[138%] leading-[123%]">
+                    Click on the below mentioned buttons to activate your plan
+                  </p>
+                </div>
+              </div>
+              <div className="md:hidden flex flex-col gap-2">
+                <div className="flex md:justify-end items-center md:gap-1 gap-2">
+                  <img
+                    src={lock}
+                    alt="football"
+                    className="object-cover h-7 w-7"
+                  />
+                  <h2 className="md:text-[24px] text-[20px] font-medium">
                     Activate{" "}
                     <span className="inline-block bg-[linear-gradient(280.72deg,_#87A1FF_40.8%,_#81F0FF_87.18%)] bg-clip-text text-transparent">
                       StrykeX
@@ -140,54 +182,79 @@ const Dhan = () => {
                     Algos
                   </h2>
                 </div>
-                {/* Sub Text */}
-                <p className="text-sm text-white/70">
+                <span className="font-normal text-[#FFFFFFBF] text-[12px] md:leading-[138%] leading-[123%]">
                   Click on the below mentioned buttons to activate your plan
-                </p>
+                </span>
               </div>
-              <div className="flex flex-col justify-start items-start gap-2 text-sm text-white/80">
-                <div className="flex justify-center items-center gap-2">
-                  <HelpOutlineIcon style={{ fontSize: 16 }} />
-                  <span className="font-medium text-white">Need Help?</span>
+              <div className="md:flex hidden flex-col gap-2">
+                <div className="flex md:justify-end items-center gap-2">
+                  <img
+                    src={football}
+                    alt="football"
+                    className="object-cover h-5 w-5"
+                  />
+                  <span className="font-medium text-[17px] leading-[123%] text-white underline">
+                    {" "}
+                    Need Help?
+                  </span>
                 </div>
-                <span className="text-white/60">
+                <span className="font-medium text-[#FFFFFFBF] text-[12px] md:leading-[138%] leading-[123%]">
                   Click here to connect with our support team
                 </span>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-4">
-              <button className="flex-1 flex items-center justify-center gap-2 text-white border border-[#FFFFFF85] text-sm font-semibold py-3 px-4 rounded-md transition bg-[linear-gradient(91.74deg,_#050505_-31%,_#46B48D_111.93%)] hover:opacity-90">
-                Create a Free Dhan Demat Account
-              </button>
 
-              <button className="flex-1 flex items-center justify-center gap-2 border border-[#FFFFFF] text-sm text-white font-semibold py-3 px-4 rounded-md">
-                {/* <img src={existingDhan} alt="Connect Dhan" className="h-5 w-5" /> */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <button className="font-semibold md:text-[16px] text-[14px] leading-[100%] rounded-[10px] flex-1 flex items-center justify-center gap-2 text-white border border-[#FFFFFF85] py-3 px-4 transition bg-[linear-gradient(91.74deg,_#050505_-31%,_#46B48D_111.93%)] hover:opacity-90">
+                <img src={xicon} alt="xicon" className="object-cover " /> Create
+                a Free Dhan Demat Account
+              </button>
+              <button className="font-semibold md:text-[16px] text-[14px] leading-[100%] flex-1 flex items-center justify-center gap-2 border border-[#FFFFFF] text-white py-3 px-4 rounded-[10px]">
+                <img src={dhanicon} alt="dhanicon" className="object-cover " />{" "}
                 Connect Existing Dhan Account
               </button>
             </div>
-
-            {/* Footer Contact Info */}
+            <div className="md:hidden block flex-col gap-2">
+              <div className="flex md:justify-end items-center md:gap-1 gap-2">
+                <img
+                  src={football}
+                  alt="football"
+                  className="object-cover h-5 w-5"
+                />
+                <span className="font-medium text-white underline">
+                  {" "}
+                  Need Help?
+                </span>
+              </div>
+              <span className="font-medium text-[#FFFFFFBF] text-[12px] md:leading-[138%] leading-[123%]">
+                Click here to connect with our support team
+              </span>
+            </div>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-10  text-sm text-white/60 w-full">
-            <div className="flex items-center justify-center gap-2">
-              <PhoneIphoneIcon style={{ fontSize: 16 }} /> +91-7850934748
+
+          <div className="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-10 text-sm text-white/60 w-full font-inter">
+            <div className="font-normal text-[14px] leading-[150%] flex items-center justify-center gap-2">
+              <img src={phoneicon} alt="phoneicon" className="object-cover" />
+              +91-7850934748
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <WhatsAppIcon style={{ fontSize: 16 }} /> +91-80000030231
+            <div className="font-normal text-[14px] leading-[150%] flex items-center justify-center gap-2">
+              <img
+                src={whatsappicon}
+                alt="whatsappicon"
+                className="object-cover"
+              />
+              +91-80000030231
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <EmailIcon style={{ fontSize: 16 }} /> help@stockwiz.in
+            <div className="font-normal text-[14px] leading-[150%] flex items-center justify-center gap-2">
+              <img src={emailicon} alt="emailicon" className="object-cover" />
+              help@stockwiz.in
             </div>
           </div>
         </div>
 
         {/* Right Image (Mockup) */}
-        <div className="flex-1 flex items-center justify-end">
-          <img
-            src={halfimage}
-            alt="App Preview"
-            className="object-cover  relative left-32"
-          />
+        <div className="md:flex-1 w-full flex items-center justify-end relative md:left-10 left-4">
+          <img src={halfimage} alt="App Preview" className="object-cover" />
         </div>
       </main>
     </div>
