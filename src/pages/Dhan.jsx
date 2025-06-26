@@ -70,13 +70,13 @@ const Dhan = () => {
             <br className="block md:hidden" /> game forever.
           </p>
 
-          <div className="flex flex-wrap md:justify-start justify-center gap-4 md:w-[832px] w-full font-degular">
+          <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center md:justify-start gap-3 md:gap-4 md:w-[832px] w-full font-degular">
             {/* 1st */}
-            <div className="bg-[#FFFFFF0F] font-semibold  flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4  rounded-[11px] md:text-sm text-xs  text-white">
+            <div className="bg-[#FFFFFF0F] font-semibold flex items-center justify-start gap-4 backdrop-blur-md w-full md:w-[196px] p-4 rounded-[11px] text-sm  text-white">
               <img
                 src={engine}
                 alt="engine"
-                className="object-cover h-[30px]"
+                className="object-cover h-[35px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -87,11 +87,11 @@ const Dhan = () => {
             </div>
 
             {/* 2nd */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-full md:w-[196px] p-4 rounded-[11px] text-sm  font-medium text-white">
               <img
                 src={newstrategy}
                 alt="newstrategy"
-                className="object-cover h-[30px]"
+                className="object-cover h-[35px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -102,11 +102,11 @@ const Dhan = () => {
             </div>
 
             {/* 3rd */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-full md:w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
               <img
                 src={newstrategy1}
                 alt="newstrategy1"
-                className="object-cover h-[30px]"
+                className="object-cover h-[35px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -117,11 +117,11 @@ const Dhan = () => {
             </div>
 
             {/* 4th */}
-            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md md:w-[196px] w-[170px] p-4 rounded-[11px] md:text-sm text-xs font-medium text-white">
+            <div className="bg-[#FFFFFF0F] flex items-center justify-start gap-4 backdrop-blur-md w-full md:w-[196px] p-4 rounded-[11px] text-sm font-medium text-white">
               <img
                 src={football}
                 alt="football"
-                className="object-cover h-[30px]"
+                className="object-cover h-[35px]"
               />
               <div className="flex flex-col gap-1">
                 <span className="bg-[linear-gradient(97.91deg,_#0058FF_-36.09%,_#FFFFFF_39.46%)] bg-clip-text text-transparent">
@@ -131,6 +131,7 @@ const Dhan = () => {
               </div>
             </div>
           </div>
+
           <div className="relative text-white p-4 flex flex-col rounded-2xl gap-4 shadow-lg md:w-[832px] w-full overflow-hidden bg-[#FFFFFF0F]">
             {/* Border Gradient Layer */}
             <div
