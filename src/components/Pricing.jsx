@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import light3 from "../assets/png/light3.png";
+import light3 from "../assets/png/light4.png";
 import hoverx from "../assets/svg/hoverx.svg";
 import star from "../assets/svg/star.svg";
 import verified1 from "../assets/svg/verified1.svg";
@@ -67,7 +67,7 @@ const Pricing = () => {
       <img
         src={light3}
         alt="Background Light"
-        className="absolute bottom-0 left-0 w-full h-full object-cover -z-10"
+        className="absolute bottom-0 left-0 w-full h-full md:object-fill object-cover -z-10"
       />
 
       <div className="flex flex-col justify-center items-center gap-4  md:pt-16 pt-8">
