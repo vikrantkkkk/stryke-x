@@ -31,8 +31,8 @@ const Signin = () => {
     }
   }, [step, timer]);
 
+  // Web OTP API for autofill
   useEffect(() => {
-    // Web OTP API for autofill
     if (step === "otp" && "OTPCredential" in window) {
       const ac = new AbortController();
       navigator.credentials
@@ -42,14 +42,13 @@ const Signin = () => {
         })
         .then((otp) => {
           if (otp?.code) {
-            const otpArray = otp.code.split("");
+            const otpArray = otp.code.split("").slice(0, 6);
             setOtp(otpArray);
             setSnackbar({
               open: true,
               message: "OTP filled automatically",
               severity: "success",
             });
-            // Auto-verify after autofill
             verifyOtp(otpArray.join(""));
           }
         })
@@ -60,6 +59,27 @@ const Signin = () => {
       return () => ac.abort();
     }
   }, [step]);
+
+  // Handle OTP paste from clipboard
+  const handleOtpPaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData("text/plain");
+    const cleaned = pastedData.replace(/\D/g, ""); // Remove non-digits
+    const otpArray = cleaned.split("").slice(0, 6);
+    
+    if (otpArray.length === 6) {
+      setOtp(otpArray);
+      otpInputRefs.current[5]?.focus();
+      verifyOtp(otpArray.join(""));
+    }
+  };
+
+  // Auto-verify when OTP is complete
+  useEffect(() => {
+    if (otp.join("").length === 6 && step === "otp") {
+      verifyOtp(otp.join(""));
+    }
+  }, [otp, step]);
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -76,11 +96,6 @@ const Signin = () => {
     // Focus next input
     if (value && index < otp.length - 1) {
       otpInputRefs.current[index + 1]?.focus();
-    }
-
-    // Auto-verify when all digits are entered
-    if (newOtp.every((digit) => digit !== "") && index === otp.length - 1) {
-      verifyOtp(newOtp.join(""));
     }
   };
 
@@ -322,7 +337,11 @@ const Signin = () => {
                   6-DIGIT
                 </p>
 
-                <div className="flex justify-between gap-2 mb-4">
+                {/* OTP Container with Paste Support */}
+                <div 
+                  className="flex justify-between gap-2 mb-4"
+                  onPaste={handleOtpPaste}
+                >
                   {otp.map((digit, index) => (
                     <input
                       key={index}
@@ -510,7 +529,11 @@ const Signin = () => {
                     6-DIGIT
                   </p>
 
-                  <div className="flex justify-between gap-2 mb-4">
+                  {/* OTP Container with Paste Support */}
+                  <div 
+                    className="flex justify-between gap-2 mb-4"
+                    onPaste={handleOtpPaste}
+                  >
                     {otp.map((digit, index) => (
                       <input
                         key={index}
