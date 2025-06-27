@@ -32,34 +32,66 @@ const Signin = () => {
   }, [step, timer]);
 
   useEffect(() => {
-    // Web OTP API for autofill
+    // Enhanced Web OTP API for autofill
     if (step === "otp" && "OTPCredential" in window) {
       const ac = new AbortController();
+      
+      // Add autocomplete to first input for better browser support
+      if (otpInputRefs.current[0]) {
+        otpInputRefs.current[0].setAttribute('autocomplete', 'one-time-code');
+      }
+      
       navigator.credentials
         .get({
           otp: { transport: ["sms"] },
           signal: ac.signal,
         })
-        .then((otp) => {
-          if (otp?.code) {
-            const otpArray = otp.code.split("");
-            setOtp(otpArray);
-            setSnackbar({
-              open: true,
-              message: "OTP filled automatically",
-              severity: "success",
-            });
-            // Auto-verify after autofill
-            verifyOtp(otpArray.join(""));
+        .then((credential) => {
+          if (credential?.code) {
+            let otpCode = credential.code;
+            
+            // Handle different OTP formats - extract 6 digits
+            const match = otpCode.match(/\d{6}/);
+            if (match) {
+              const otpArray = match[0].split("");
+              setOtp(otpArray);
+              setSnackbar({
+                open: true,
+                message: "OTP filled automatically",
+                severity: "success",
+              });
+              // Auto-verify after autofill
+              setTimeout(() => verifyOtp(otpArray.join("")), 100);
+            }
           }
         })
         .catch((err) => {
-          console.error("OTP autofill error:", err);
+          if (err.name !== 'AbortError') {
+            console.error("OTP autofill error:", err);
+          }
         });
 
       return () => ac.abort();
     }
   }, [step]);
+
+  // Add paste handler for OTP inputs
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text');
+    const otpMatch = pastedData.match(/\d{6}/);
+    
+    if (otpMatch) {
+      const otpArray = otpMatch[0].split('');
+      setOtp(otpArray);
+      setSnackbar({
+        open: true,
+        message: "OTP pasted successfully",
+        severity: "success",
+      });
+      setTimeout(() => verifyOtp(otpArray.join("")), 100);
+    }
+  };
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -315,14 +347,14 @@ const Signin = () => {
                   Enter OTP
                 </h2>
                 <p className="text-[18px] text-[#969696] mb-6">
-                  We’ve sent it to +91 {mobile}
+                  We've sent it to +91 {mobile}
                 </p>
 
                 <p className="text-[14px] text-[#000000] font-semibold leading-[20px] mb-2">
                   6-DIGIT
                 </p>
 
-                <div className="flex justify-between gap-2 mb-4">
+                <div className="flex justify-between gap-2 mb-4" onPaste={handlePaste}>
                   {otp.map((digit, index) => (
                     <input
                       key={index}
@@ -334,6 +366,7 @@ const Signin = () => {
                       onChange={(e) => handleOtpChange(e, index)}
                       onKeyDown={(e) => handleKeyDown(e, index)}
                       ref={(el) => (otpInputRefs.current[index] = el)}
+                      autoComplete={index === 0 ? "one-time-code" : "off"}
                       className="w-12 h-12 border border-gray-300 rounded-lg text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                     />
                   ))}
@@ -341,7 +374,7 @@ const Signin = () => {
 
                 <div className="flex justify-between text-sm mb-6">
                   <span className="text-[14px] text-[#000000] font-normal leading-[20px]">
-                    Didn’t get it?{" "}
+                    Didn't get it?{" "}
                     {timer === 0 ? (
                       <button
                         onClick={resendOtp}
@@ -503,14 +536,14 @@ const Signin = () => {
                     Enter OTP
                   </h2>
                   <p className="text-[13px] text-[#969696] mb-4">
-                    We’ve sent it to +91 {mobile}
+                    We've sent it to +91 {mobile}
                   </p>
 
                   <p className="text-[12px] text-[#000000] font-semibold leading-[20px] mb-2">
                     6-DIGIT
                   </p>
 
-                  <div className="flex justify-between gap-2 mb-4">
+                  <div className="flex justify-between gap-2 mb-4" onPaste={handlePaste}>
                     {otp.map((digit, index) => (
                       <input
                         key={index}
@@ -522,6 +555,7 @@ const Signin = () => {
                         onChange={(e) => handleOtpChange(e, index)}
                         onKeyDown={(e) => handleKeyDown(e, index)}
                         ref={(el) => (otpInputRefs.current[index] = el)}
+                        autoComplete={index === 0 ? "one-time-code" : "off"}
                         className="w-10 h-12 border border-gray-300 rounded-lg text-center text-xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                       />
                     ))}
@@ -529,7 +563,7 @@ const Signin = () => {
 
                   <div className="flex justify-between text-[12px] mb-4">
                     <span className="text-black">
-                      Didn’t get it?{" "}
+                      Didn't get it?{" "}
                       {timer === 0 ? (
                         <button
                           onClick={resendOtp}
