@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
+import React, { useState, useEffect, useRef } from "react";
+import { TextField, Snackbar, Alert } from "@mui/material";
 import mainlogo from "../assets/svg/mainlogo.svg";
 import whatsappnew from "../assets/svg/whatsappnew.svg";
 import mailnew from "../assets/svg/mailnew.svg";
@@ -12,15 +12,58 @@ const Signin = () => {
   const [step, setStep] = useState("mobile");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
+  const [mobile, setMobile] = useState("");
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "info",
+  });
+  const otpInputRefs = useRef([]);
   const navigate = useNavigate();
+
+  // Regex for Indian mobile number
+  const mobileRegex = /^(?:\+91)?[6-9]\d{9}$/;
 
   useEffect(() => {
     if (step === "otp" && timer > 0) {
-      handleOtpChange;
       const interval = setInterval(() => setTimer((t) => t - 1), 1000);
       return () => clearInterval(interval);
     }
   }, [step, timer]);
+
+  useEffect(() => {
+    // Web OTP API for autofill
+    if (step === "otp" && "OTPCredential" in window) {
+      const ac = new AbortController();
+      navigator.credentials
+        .get({
+          otp: { transport: ["sms"] },
+          signal: ac.signal,
+        })
+        .then((otp) => {
+          if (otp?.code) {
+            const otpArray = otp.code.split("");
+            setOtp(otpArray);
+            setSnackbar({
+              open: true,
+              message: "OTP filled automatically",
+              severity: "success",
+            });
+            // Auto-verify after autofill
+            verifyOtp(otpArray.join(""));
+          }
+        })
+        .catch((err) => {
+          console.error("OTP autofill error:", err);
+        });
+
+      return () => ac.abort();
+    }
+  }, [step]);
+
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
 
   const handleOtpChange = (e, index) => {
     const value = e.target.value;
@@ -32,16 +75,21 @@ const Signin = () => {
 
     // Focus next input
     if (value && index < otp.length - 1) {
-      const next = document.getElementById(`otp-${index + 1}`);
-      if (next) next.focus();
+      otpInputRefs.current[index + 1]?.focus();
+    }
+
+    // Auto-verify when all digits are entered
+    if (newOtp.every((digit) => digit !== "") && index === otp.length - 1) {
+      verifyOtp(newOtp.join(""));
     }
   };
 
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace") {
       if (otp[index] === "") {
-        const prev = document.getElementById(`otp-${index - 1}`);
-        if (prev) prev.focus();
+        if (index > 0) {
+          otpInputRefs.current[index - 1]?.focus();
+        }
       } else {
         const newOtp = [...otp];
         newOtp[index] = "";
@@ -50,12 +98,135 @@ const Signin = () => {
     }
   };
 
-  const handleOpt = () => {
-    navigate("/dhan");
+  const sendOtp = async () => {
+    // Validate mobile number with regex
+    if (!mobileRegex.test(mobile)) {
+      setSnackbar({
+        open: true,
+        message: "Please enter a valid mobile number",
+        severity: "error",
+      });
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        "https://devapi.stockwiz.in/api/v2/auth/send-otp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "api-key":
+              "KsVJNMSeLQjzsxtWvU5NjtaxsMUBLADb0w90jPEMpTv0PHrqX9qBaIXPUBQz8q2o",
+          },
+          body: JSON.stringify({ mobile_number: mobile }),
+        }
+      );
+
+      const response = await res.json();
+
+      if (response?.status) {
+        setStep("otp");
+        setTimer(60);
+        setOtp(["", "", "", "", "", ""]);
+        setSnackbar({
+          open: true,
+          message: response?.message || "OTP sent successfully",
+          severity: "success",
+        });
+      } else {
+        setSnackbar({
+          open: true,
+          message: response.message || "Failed to send OTP",
+          severity: "error",
+        });
+      }
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: "Network error while sending OTP",
+        severity: "error",
+      });
+      console.error(error);
+    }
+  };
+
+  const resendOtp = async () => {
+    if (timer > 0) return;
+    await sendOtp();
+  };
+
+  const verifyOtp = async (enteredOtp = otp.join("")) => {
+    if (enteredOtp.length !== 6) {
+      setSnackbar({
+        open: true,
+        message: "Please enter the complete 6-digit OTP",
+        severity: "error",
+      });
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        "https://devapi.stockwiz.in/api/v2/auth/verify-otp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "api-key":
+              "KsVJNMSeLQjzsxtWvU5NjtaxsMUBLADb0w90jPEMpTv0PHrqX9qBaIXPUBQz8q2o",
+          },
+          body: JSON.stringify({
+            mobile_number: mobile,
+            otp: enteredOtp,
+          }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data?.status) {
+        setSnackbar({
+          open: true,
+          message: data?.message || "OTP verified successfully",
+          severity: "success",
+        });
+        navigate("/dhan");
+      } else {
+        setSnackbar({
+          open: true,
+          message: data?.message || "OTP verification failed",
+          severity: "error",
+        });
+      }
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: "Network error during OTP verification",
+        severity: "error",
+      });
+      console.error("OTP Verification Error:", error);
+    }
   };
 
   return (
     <>
+      {/* Snackbar Notification */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+
       {/* desktop */}
       <div className="md:flex hidden w-full min-h-screen max-h-screen overflow-hidden p-6 font-inter">
         {/* Left Section */}
@@ -103,8 +274,10 @@ const Signin = () => {
                   label="Mobile Number"
                   variant="outlined"
                   fullWidth
-                  placeholder="+91"
+                  placeholder="+91XXXXXXXXXX"
                   type="tel"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
                   InputLabelProps={{
                     style: { color: "#4B5563" },
                   }}
@@ -130,7 +303,7 @@ const Signin = () => {
                 />
 
                 <button
-                  onClick={() => setStep("otp")}
+                  onClick={sendOtp}
                   className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
                 >
                   Get Started
@@ -142,7 +315,7 @@ const Signin = () => {
                   Enter OTP
                 </h2>
                 <p className="text-[18px] text-[#969696] mb-6">
-                  We’ve sent it to +91 9416055569
+                  We’ve sent it to +91 {mobile}
                 </p>
 
                 <p className="text-[14px] text-[#000000] font-semibold leading-[20px] mb-2">
@@ -160,6 +333,7 @@ const Signin = () => {
                       value={digit}
                       onChange={(e) => handleOtpChange(e, index)}
                       onKeyDown={(e) => handleKeyDown(e, index)}
+                      ref={(el) => (otpInputRefs.current[index] = el)}
                       className="w-12 h-12 border border-gray-300 rounded-lg text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                     />
                   ))}
@@ -167,15 +341,25 @@ const Signin = () => {
 
                 <div className="flex justify-between text-sm mb-6">
                   <span className="text-[14px] text-[#000000] font-normal leading-[20px]">
-                    Didn’t get it?
+                    Didn’t get it?{" "}
+                    {timer === 0 ? (
+                      <button
+                        onClick={resendOtp}
+                        className="text-[#367AFF] font-medium"
+                      >
+                        Resend OTP
+                      </button>
+                    ) : (
+                      "Resend OTP"
+                    )}
                   </span>
                   <span className="text-[14px] text-[#000000] font-medium leading-[20px]">
-                    Resend OTP in {timer}s
+                    {timer > 0 ? `Resend OTP in ${timer}s` : ""}
                   </span>
                 </div>
 
                 <button
-                  onClick={handleOpt}
+                  onClick={() => verifyOtp()}
                   className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
                 >
                   Continue
@@ -200,38 +384,56 @@ const Signin = () => {
 
           {/* Footer Info */}
           <div className="absolute bottom-0 flex flex-wrap justify-center gap-4 items-center text-xs text-gray-500 mb-4">
-            <div className="flex items-center gap-1">
+            {/* Phone */}
+            <a
+              href="tel:+916377959992"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
-                {" "}
-                <img src={phonenew} alt={phonenew} />
+                <img src={phonenew} alt="phone" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 +91-6377959992
               </span>
-            </div>
-            <div className="flex items-center gap-1">
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:Tushar@gmail.com"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
-                {" "}
-                <img src={mailnew} alt={mailnew} />
+                <img src={mailnew} alt="mail" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 Tushar@gmail.com
               </span>
-            </div>
-            <div className="flex items-center gap-1">
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/916377959992"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
-                <img src={whatsappnew} alt={whatsappnew} />
+                <img src={whatsappnew} alt="whatsapp" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 +91-6377959992
               </span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
       {/* mobile */}
       <div className="flex justify-center items-center w-full h-full">
-        <div className="md:hidden flex justify-center items-center  relative w-full h-full">
+        <div className="md:hidden flex justify-center items-center relative w-full h-full">
           <div
             className="relative rounded-bl-xl rounded-br-xl h-[375px] overflow-hidden"
             style={{
@@ -272,8 +474,10 @@ const Signin = () => {
                     label="Mobile Number"
                     variant="outlined"
                     fullWidth
-                    placeholder="+91"
+                    placeholder="+91XXXXXXXXXX"
                     type="tel"
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
                     InputLabelProps={{ style: { color: "#4B5563" } }}
                     InputProps={{ style: { borderRadius: "8px" } }}
                     sx={{
@@ -287,10 +491,7 @@ const Signin = () => {
                   />
 
                   <button
-                    onClick={() => {
-                      setStep("otp");
-                      setTimer(60);
-                    }}
+                    onClick={sendOtp}
                     className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[14px]"
                   >
                     Get Started
@@ -302,7 +503,7 @@ const Signin = () => {
                     Enter OTP
                   </h2>
                   <p className="text-[13px] text-[#969696] mb-4">
-                    We’ve sent it to +91 9416055569
+                    We’ve sent it to +91 {mobile}
                   </p>
 
                   <p className="text-[12px] text-[#000000] font-semibold leading-[20px] mb-2">
@@ -320,21 +521,34 @@ const Signin = () => {
                         value={digit}
                         onChange={(e) => handleOtpChange(e, index)}
                         onKeyDown={(e) => handleKeyDown(e, index)}
+                        ref={(el) => (otpInputRefs.current[index] = el)}
                         className="w-10 h-12 border border-gray-300 rounded-lg text-center text-xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                       />
                     ))}
                   </div>
 
                   <div className="flex justify-between text-[12px] mb-4">
-                    <span className="text-black">Didn’t get it?</span>
+                    <span className="text-black">
+                      Didn’t get it?{" "}
+                      {timer === 0 ? (
+                        <button
+                          onClick={resendOtp}
+                          className="text-[#367AFF] font-medium"
+                        >
+                          Resend OTP
+                        </button>
+                      ) : (
+                        "Resend OTP"
+                      )}
+                    </span>
                     <span className="font-medium text-black">
-                      Resend OTP in {timer}s
+                      {timer > 0 ? `Resend OTP in ${timer}s` : ""}
                     </span>
                   </div>
 
                   <button
                     className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
-                    onClick={handleOpt}
+                    onClick={() => verifyOtp()}
                   >
                     Continue
                   </button>
@@ -361,20 +575,40 @@ const Signin = () => {
                 </a>
               </p>
 
-              <div className="flex flex-col justify-center items-center  gap-2 mt-6 text-sm text-[#000000]">
+              <div className="flex flex-col justify-center items-center gap-2 mt-6 text-sm text-[#000000]">
                 <div className="flex flex-col justify-start items-start gap-4">
-                  <div className="flex items-center gap-2">
+                  {/* Phone */}
+                  <a
+                    href="tel:+916377959992"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={phonenew} alt="phone" />
                     <span>+91-6377959992</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </a>
+
+                  {/* Email */}
+                  <a
+                    href="mailto:Tushar@gmail.com"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={mailnew} alt="mail" />
                     <span>Tushar@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a
+                    href="https://wa.me/916377959992"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={whatsappnew} alt="whatsapp" />
                     <span>+91-6377959992</span>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
