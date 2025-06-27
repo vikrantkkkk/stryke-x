@@ -21,7 +21,7 @@ const Signin = () => {
   const otpInputRefs = useRef([]);
   const navigate = useNavigate();
 
-  // Regex for Indian mobile number: optional +91 followed by 10 digits starting with 6,7,8, or 9
+  // Regex for Indian mobile number
   const mobileRegex = /^(?:\+91)?[6-9]\d{9}$/;
 
   useEffect(() => {
@@ -35,8 +35,6 @@ const Signin = () => {
     // Web OTP API for autofill
     if (step === "otp" && "OTPCredential" in window) {
       const ac = new AbortController();
-      // Focus the first OTP input to trigger autofill
-      otpInputRefs.current[0]?.focus();
       navigator.credentials
         .get({
           otp: { transport: ["sms"] },
@@ -44,7 +42,7 @@ const Signin = () => {
         })
         .then((otp) => {
           if (otp?.code) {
-            const otpArray = otp.code.split("").slice(0, 6); // Ensure only 6 digits
+            const otpArray = otp.code.split("");
             setOtp(otpArray);
             setSnackbar({
               open: true,
@@ -57,11 +55,6 @@ const Signin = () => {
         })
         .catch((err) => {
           console.error("OTP autofill error:", err);
-          setSnackbar({
-            open: true,
-            message: "Failed to autofill OTP. Please enter manually.",
-            severity: "warning",
-          });
         });
 
       return () => ac.abort();
@@ -105,32 +98,12 @@ const Signin = () => {
     }
   };
 
-  const handlePaste = (e, index) => {
-    e.preventDefault();
-    const pastedData = e.clipboardData.getData("text").replace(/\D/g, "");
-    if (pastedData.length > 0) {
-      const newOtp = [...otp];
-      for (let i = 0; i < pastedData.length && index + i < 6; i++) {
-        newOtp[index + i] = pastedData[i];
-      }
-      setOtp(newOtp);
-      // Focus the last filled input or the next empty one
-      const nextIndex = Math.min(index + pastedData.length, 5);
-      otpInputRefs.current[nextIndex]?.focus();
-      // Auto-verify if all digits are filled
-      if (newOtp.every((digit) => digit !== "")) {
-        verifyOtp(newOtp.join(""));
-      }
-    }
-  };
-
   const sendOtp = async () => {
     // Validate mobile number with regex
     if (!mobileRegex.test(mobile)) {
       setSnackbar({
         open: true,
-        message:
-          "Please enter a valid mobile number",
+        message: "Please enter a valid mobile number",
         severity: "error",
       });
       return;
@@ -158,7 +131,7 @@ const Signin = () => {
         setOtp(["", "", "", "", "", ""]);
         setSnackbar({
           open: true,
-          message: "OTP sent successfully",
+          message: response?.message || "OTP sent successfully",
           severity: "success",
         });
       } else {
@@ -179,8 +152,8 @@ const Signin = () => {
   };
 
   const resendOtp = async () => {
-    if (timer > 0) return; // Prevent resend until timer expires
-    await sendOtp(); // Reuse sendOtp function
+    if (timer > 0) return;
+    await sendOtp();
   };
 
   const verifyOtp = async (enteredOtp = otp.join("")) => {
@@ -215,7 +188,7 @@ const Signin = () => {
       if (data?.status) {
         setSnackbar({
           open: true,
-          message: "OTP verified successfully",
+          message: data?.message || "OTP verified successfully",
           severity: "success",
         });
         navigate("/dhan");
@@ -238,6 +211,7 @@ const Signin = () => {
 
   return (
     <>
+      {/* Snackbar Notification */}
       <Snackbar
         open={snackbar.open}
         autoHideDuration={6000}
@@ -359,9 +333,7 @@ const Signin = () => {
                       value={digit}
                       onChange={(e) => handleOtpChange(e, index)}
                       onKeyDown={(e) => handleKeyDown(e, index)}
-                      onPaste={(e) => handlePaste(e, index)}
                       ref={(el) => (otpInputRefs.current[index] = el)}
-                      autoComplete="one-time-code"
                       className="w-12 h-12 border border-gray-300 rounded-lg text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                     />
                   ))}
@@ -370,17 +342,16 @@ const Signin = () => {
                 <div className="flex justify-between text-sm mb-6">
                   <span className="text-[14px] text-[#000000] font-normal leading-[20px]">
                     Didn’t get it?{" "}
-                    <button
-                      onClick={resendOtp}
-                      disabled={timer > 0}
-                      className={`font-medium ${
-                        timer === 0
-                          ? "text-[#367AFF] hover:underline"
-                          : "text-gray-400 cursor-not-allowed"
-                      }`}
-                    >
-                      Resend OTP
-                    </button>
+                    {timer === 0 ? (
+                      <button
+                        onClick={resendOtp}
+                        className="text-[#367AFF] font-medium"
+                      >
+                        Resend OTP
+                      </button>
+                    ) : (
+                      "Resend OTP"
+                    )}
                   </span>
                   <span className="text-[14px] text-[#000000] font-medium leading-[20px]">
                     {timer > 0 ? `Resend OTP in ${timer}s` : ""}
@@ -413,30 +384,50 @@ const Signin = () => {
 
           {/* Footer Info */}
           <div className="absolute bottom-0 flex flex-wrap justify-center gap-4 items-center text-xs text-gray-500 mb-4">
-            <div className="flex items-center gap-1">
+            {/* Phone */}
+            <a
+              href="tel:+916377959992"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
                 <img src={phonenew} alt="phone" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 +91-6377959992
               </span>
-            </div>
-            <div className="flex items-center gap-1">
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:Tushar@gmail.com"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
                 <img src={mailnew} alt="mail" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 Tushar@gmail.com
               </span>
-            </div>
-            <div className="flex items-center gap-1">
+            </a>
+
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/916377959992"
+              className="flex items-center gap-1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
                 <img src={whatsappnew} alt="whatsapp" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
                 +91-6377959992
               </span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -530,9 +521,7 @@ const Signin = () => {
                         value={digit}
                         onChange={(e) => handleOtpChange(e, index)}
                         onKeyDown={(e) => handleKeyDown(e, index)}
-                        onPaste={(e) => handlePaste(e, index)}
                         ref={(el) => (otpInputRefs.current[index] = el)}
-                        autoComplete="one-time-code"
                         className="w-10 h-12 border border-gray-300 rounded-lg text-center text-xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
                       />
                     ))}
@@ -541,17 +530,16 @@ const Signin = () => {
                   <div className="flex justify-between text-[12px] mb-4">
                     <span className="text-black">
                       Didn’t get it?{" "}
-                      <button
-                        onClick={resendOtp}
-                        disabled={timer > 0}
-                        className={`font-medium ${
-                          timer === 0
-                            ? "text-[#367AFF] hover:underline"
-                            : "text-gray-400 cursor-not-allowed"
-                        }`}
-                      >
-                        Resend OTP
-                      </button>
+                      {timer === 0 ? (
+                        <button
+                          onClick={resendOtp}
+                          className="text-[#367AFF] font-medium"
+                        >
+                          Resend OTP
+                        </button>
+                      ) : (
+                        "Resend OTP"
+                      )}
                     </span>
                     <span className="font-medium text-black">
                       {timer > 0 ? `Resend OTP in ${timer}s` : ""}
@@ -581,7 +569,7 @@ const Signin = () => {
               </div>
 
               <p className="text-[14px] text-[#969696] text-center">
-                Need assistance?
+                Need assistance?{" "}
                 <a href="#" className="text-[#367AFF] font-medium">
                   Contact Us
                 </a>
@@ -589,18 +577,38 @@ const Signin = () => {
 
               <div className="flex flex-col justify-center items-center gap-2 mt-6 text-sm text-[#000000]">
                 <div className="flex flex-col justify-start items-start gap-4">
-                  <div className="flex items-center gap-2">
+                  {/* Phone */}
+                  <a
+                    href="tel:+916377959992"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={phonenew} alt="phone" />
                     <span>+91-6377959992</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </a>
+
+                  {/* Email */}
+                  <a
+                    href="mailto:Tushar@gmail.com"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={mailnew} alt="mail" />
                     <span>Tushar@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-2">
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a
+                    href="https://wa.me/916377959992"
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <img src={whatsappnew} alt="whatsapp" />
                     <span>+91-6377959992</span>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
