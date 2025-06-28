@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage.jsx";
 import Signin from "./pages/Signin.jsx";
 import DhanUI from "./pages/DhanUI.jsx";
 import Dhan from "./pages/Dhan.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const App = () => {
   return (
@@ -12,7 +13,14 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/dhanui" element={<DhanUI />} />
-        <Route path="/dhan" element={<Dhan />} />
+        <Route
+          path="/dhan"
+          element={
+            <ProtectedRoute>
+              <Dhan />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { TextField, Snackbar, Alert } from "@mui/material";
+import OtpInput from "react-otp-input";
 import mainlogo from "../assets/svg/mainlogo.svg";
 import whatsappnew from "../assets/svg/whatsappnew.svg";
 import mailnew from "../assets/svg/mailnew.svg";
@@ -10,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [step, setStep] = useState("mobile");
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otp, setOtp] = useState("");
   const [timer, setTimer] = useState(60);
   const [mobile, setMobile] = useState("");
   const [snackbar, setSnackbar] = useState({
@@ -18,11 +19,83 @@ const Signin = () => {
     message: "",
     severity: "info",
   });
-  const otpInputRefs = useRef([]);
   const navigate = useNavigate();
+  const otpContainerRef = useRef(null);
 
   // Regex for Indian mobile number
   const mobileRegex = /^(?:\+91)?[6-9]\d{9}$/;
+
+  // Function to extract OTP from text
+  const extractOTPFromText = (text) => {
+    const otpRegex = /\b\d{6}\b/;
+    const match = text.match(otpRegex);
+    return match ? match[0] : null;
+  };
+
+  // Handle paste event for OTP
+  const handleOTPPaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData("text");
+    const extractedOTP = extractOTPFromText(pastedData);
+
+    if (extractedOTP && extractedOTP.length === 6) {
+      setOtp(extractedOTP);
+      setSnackbar({
+        open: true,
+        message: "OTP pasted successfully",
+        severity: "success",
+      });
+    } else {
+      setSnackbar({
+        open: true,
+        message: "Invalid OTP format. Please paste a 6-digit OTP.",
+        severity: "error",
+      });
+    }
+  };
+
+  // Setup OTP autofill for mobile devices
+  useEffect(() => {
+    if (step === "otp" && "OTPCredential" in window) {
+      const abortController = new AbortController();
+
+      navigator.credentials
+        .get({
+          otp: { transport: ["sms"] },
+          signal: abortController.signal,
+        })
+        .then((otp) => {
+          if (otp && otp.code) {
+            setOtp(otp.code);
+            setSnackbar({
+              open: true,
+              message: "OTP auto-filled from SMS",
+              severity: "success",
+            });
+          }
+        })
+        .catch((err) => {
+          // Silently handle errors (user might have denied permission)
+          console.log("OTP autofill not available or denied:", err);
+        });
+
+      return () => {
+        abortController.abort();
+      };
+    }
+  }, [step]);
+
+  // Add paste event listener to OTP container
+  useEffect(() => {
+    if (step === "otp" && otpContainerRef.current) {
+      const container = otpContainerRef.current;
+      container.addEventListener("paste", handleOTPPaste);
+
+      return () => {
+        container.removeEventListener("paste", handleOTPPaste);
+      };
+    }
+  }, [step]);
 
   useEffect(() => {
     if (step === "otp" && timer > 0) {
@@ -32,70 +105,14 @@ const Signin = () => {
   }, [step, timer]);
 
   useEffect(() => {
-    // Web OTP API for autofill
-    if (step === "otp" && "OTPCredential" in window) {
-      const ac = new AbortController();
-      navigator.credentials
-        .get({
-          otp: { transport: ["sms"] },
-          signal: ac.signal,
-        })
-        .then((otp) => {
-          if (otp?.code) {
-            const otpArray = otp.code.split("");
-            setOtp(otpArray);
-            setSnackbar({
-              open: true,
-              message: "OTP filled automatically",
-              severity: "success",
-            });
-            // Auto-verify after autofill
-            verifyOtp(otpArray.join(""));
-          }
-        })
-        .catch((err) => {
-          console.error("OTP autofill error:", err);
-        });
-
-      return () => ac.abort();
+    // Auto-verify when OTP is complete
+    if (otp.length === 6) {
+      verifyOtp(otp);
     }
-  }, [step]);
+  }, [otp]);
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
-  };
-
-  const handleOtpChange = (e, index) => {
-    const value = e.target.value;
-    if (!/^\d*$/.test(value)) return;
-
-    const newOtp = [...otp];
-    newOtp[index] = value.slice(-1);
-    setOtp(newOtp);
-
-    // Focus next input
-    if (value && index < otp.length - 1) {
-      otpInputRefs.current[index + 1]?.focus();
-    }
-
-    // Auto-verify when all digits are entered
-    if (newOtp.every((digit) => digit !== "") && index === otp.length - 1) {
-      verifyOtp(newOtp.join(""));
-    }
-  };
-
-  const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace") {
-      if (otp[index] === "") {
-        if (index > 0) {
-          otpInputRefs.current[index - 1]?.focus();
-        }
-      } else {
-        const newOtp = [...otp];
-        newOtp[index] = "";
-        setOtp(newOtp);
-      }
-    }
   };
 
   const sendOtp = async () => {
@@ -128,7 +145,7 @@ const Signin = () => {
       if (response?.status) {
         setStep("otp");
         setTimer(60);
-        setOtp(["", "", "", "", "", ""]);
+        setOtp("");
         setSnackbar({
           open: true,
           message: response?.message || "OTP sent successfully",
@@ -156,7 +173,7 @@ const Signin = () => {
     await sendOtp();
   };
 
-  const verifyOtp = async (enteredOtp = otp.join("")) => {
+  const verifyOtp = async (enteredOtp = otp) => {
     if (enteredOtp.length !== 6) {
       setSnackbar({
         open: true,
@@ -166,46 +183,62 @@ const Signin = () => {
       return;
     }
 
+    const headers = {
+      "Content-Type": "application/json",
+      "api-key":
+        "KsVJNMSeLQjzsxtWvU5NjtaxsMUBLADb0w90jPEMpTv0PHrqX9qBaIXPUBQz8q2o",
+    };
+
     try {
-      const res = await fetch(
+      const verifyRes = await fetch(
         "https://devapi.stockwiz.in/api/v2/auth/verify-otp",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-key":
-              "KsVJNMSeLQjzsxtWvU5NjtaxsMUBLADb0w90jPEMpTv0PHrqX9qBaIXPUBQz8q2o",
-          },
-          body: JSON.stringify({
-            mobile_number: mobile,
-            otp: enteredOtp,
-          }),
+          headers,
+          body: JSON.stringify({ mobile_number: mobile, otp: enteredOtp }),
         }
       );
 
-      const data = await res.json();
+      const verifyData = await verifyRes.json();
 
-      if (data?.status) {
+      if (verifyData?.status) {
         setSnackbar({
           open: true,
-          message: data?.message || "OTP verified successfully",
+          message: verifyData?.message || "OTP verified successfully",
           severity: "success",
         });
-        navigate("/dhan");
+
+        const accessRes = await fetch(
+          "https://devapi.stockwiz.in/api/v2/auth/get-strykex-access",
+          {
+            method: "POST",
+            headers,
+            body: JSON.stringify({ mobile_number: mobile }),
+          }
+        );
+
+        const accessData = await accessRes.json();
+        if (accessData?.status) {
+          sessionStorage.setItem("hasAccess", "true");
+          navigate("/dhan");
+        } else {
+          sessionStorage.removeItem("hasAccess");
+          navigate("/#pricing");
+        }
       } else {
         setSnackbar({
           open: true,
-          message: data?.message || "OTP verification failed",
+          message: verifyData?.message || "OTP verification failed",
           severity: "error",
         });
       }
     } catch (error) {
+      console.error("OTP Verification Error:", error);
       setSnackbar({
         open: true,
         message: "Network error during OTP verification",
         severity: "error",
       });
-      console.error("OTP Verification Error:", error);
     }
   };
 
@@ -315,33 +348,52 @@ const Signin = () => {
                   Enter OTP
                 </h2>
                 <p className="text-[18px] text-[#969696] mb-6">
-                  We’ve sent it to +91 {mobile}
+                  We've sent it to {mobile}
                 </p>
 
                 <p className="text-[14px] text-[#000000] font-semibold leading-[20px] mb-2">
                   6-DIGIT
                 </p>
 
-                <div className="flex justify-between gap-2 mb-4">
-                  {otp.map((digit, index) => (
-                    <input
-                      key={index}
-                      id={`otp-${index}`}
-                      type="text"
-                      inputMode="numeric"
-                      maxLength={1}
-                      value={digit}
-                      onChange={(e) => handleOtpChange(e, index)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
-                      ref={(el) => (otpInputRefs.current[index] = el)}
-                      className="w-12 h-12 border border-gray-300 rounded-lg text-center text-2xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
-                    />
-                  ))}
+                <div className="mb-4" ref={otpContainerRef}>
+                  <OtpInput
+                    value={otp}
+                    onChange={setOtp}
+                    numInputs={6}
+                    renderSeparator={<span style={{ width: "8px" }}></span>}
+                    renderInput={(props) => (
+                      <input
+                        {...props}
+                        autoComplete="one-time-code"
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          border: "1px solid #D1D5DB",
+                          borderRadius: "8px",
+                          textAlign: "center",
+                          fontSize: "24px",
+                          outline: "none",
+                          transition: "border-color 0.2s",
+                        }}
+                        onFocus={(e) => {
+                          e.target.style.borderColor = "#367AFF";
+                          e.target.style.boxShadow =
+                            "0 0 0 2px rgba(54, 122, 255, 0.2)";
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = "#D1D5DB";
+                          e.target.style.boxShadow = "none";
+                        }}
+                      />
+                    )}
+                    shouldAutoFocus
+                    inputType="tel"
+                  />
                 </div>
 
                 <div className="flex justify-between text-sm mb-6">
                   <span className="text-[14px] text-[#000000] font-normal leading-[20px]">
-                    Didn’t get it?{" "}
+                    Didn't get it?{" "}
                     {timer === 0 ? (
                       <button
                         onClick={resendOtp}
@@ -363,6 +415,12 @@ const Signin = () => {
                   className="w-full bg-[#367AFF] hover:bg-[#1F50CC] text-white font-semibold py-3 rounded-lg text-[18px]"
                 >
                   Continue
+                </button>
+                <button
+                  className="w-full text-[#367AFF] font-medium text-[14px] mt-2"
+                  onClick={() => setStep("mobile")}
+                >
+                  Change Mobile Number
                 </button>
               </>
             )}
@@ -503,33 +561,52 @@ const Signin = () => {
                     Enter OTP
                   </h2>
                   <p className="text-[13px] text-[#969696] mb-4">
-                    We’ve sent it to +91 {mobile}
+                    We've sent it to +91 {mobile}
                   </p>
 
                   <p className="text-[12px] text-[#000000] font-semibold leading-[20px] mb-2">
                     6-DIGIT
                   </p>
 
-                  <div className="flex justify-between gap-2 mb-4">
-                    {otp.map((digit, index) => (
-                      <input
-                        key={index}
-                        id={`otp-${index}`}
-                        type="text"
-                        inputMode="numeric"
-                        maxLength={1}
-                        value={digit}
-                        onChange={(e) => handleOtpChange(e, index)}
-                        onKeyDown={(e) => handleKeyDown(e, index)}
-                        ref={(el) => (otpInputRefs.current[index] = el)}
-                        className="w-10 h-12 border border-gray-300 rounded-lg text-center text-xl focus:outline-none focus:ring-2 focus:ring-[#367AFF]"
-                      />
-                    ))}
+                  <div className="mb-4" ref={otpContainerRef}>
+                    <OtpInput
+                      value={otp}
+                      onChange={setOtp}
+                      numInputs={6}
+                      renderSeparator={<span style={{ width: "4px" }}></span>}
+                      renderInput={(props) => (
+                        <input
+                          {...props}
+                          autoComplete="one-time-code"
+                          style={{
+                            width: "40px",
+                            height: "48px",
+                            border: "1px solid #D1D5DB",
+                            borderRadius: "8px",
+                            textAlign: "center",
+                            fontSize: "20px",
+                            outline: "none",
+                            transition: "border-color 0.2s",
+                          }}
+                          onFocus={(e) => {
+                            e.target.style.borderColor = "#367AFF";
+                            e.target.style.boxShadow =
+                              "0 0 0 2px rgba(54, 122, 255, 0.2)";
+                          }}
+                          onBlur={(e) => {
+                            e.target.style.borderColor = "#D1D5DB";
+                            e.target.style.boxShadow = "none";
+                          }}
+                        />
+                      )}
+                      shouldAutoFocus
+                      inputType="tel"
+                    />
                   </div>
 
                   <div className="flex justify-between text-[12px] mb-4">
                     <span className="text-black">
-                      Didn’t get it?{" "}
+                      Didn't get it?{" "}
                       {timer === 0 ? (
                         <button
                           onClick={resendOtp}
