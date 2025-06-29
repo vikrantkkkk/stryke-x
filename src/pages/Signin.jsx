@@ -444,7 +444,7 @@ const Signin = () => {
           <div className="absolute bottom-0 flex flex-wrap justify-center gap-4 items-center text-xs text-gray-500 mb-4">
             {/* Phone */}
             <a
-              href="tel:+916377959992"
+              href="tel:+917850934748"
               className="flex items-center gap-1"
               target="_blank"
               rel="noopener noreferrer"
@@ -453,13 +453,13 @@ const Signin = () => {
                 <img src={phonenew} alt="phone" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
-                +91-6377959992
+                +91-7850934748
               </span>
             </a>
 
             {/* Email */}
             <a
-              href="mailto:Tushar@gmail.com"
+              href="mailto:help@stockwiz.in"
               className="flex items-center gap-1"
               target="_blank"
               rel="noopener noreferrer"
@@ -468,7 +468,7 @@ const Signin = () => {
                 <img src={mailnew} alt="mail" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
-                Tushar@gmail.com
+                help@stockwiz.in
               </span>
             </a>
 
@@ -483,7 +483,7 @@ const Signin = () => {
                 <img src={whatsappnew} alt="whatsapp" />
               </span>
               <span className="text-[14px] text-[#000000] font-normal leading-[150%]">
-                +91-6377959992
+                +91-80000030231
               </span>
             </a>
           </div>
@@ -656,35 +656,35 @@ const Signin = () => {
                 <div className="flex flex-col justify-start items-start gap-4">
                   {/* Phone */}
                   <a
-                    href="tel:+916377959992"
+                    href="tel:+917850934748"
                     className="flex items-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img src={phonenew} alt="phone" />
-                    <span>+91-6377959992</span>
+                    <span>+91-7850934748</span>
                   </a>
 
                   {/* Email */}
                   <a
-                    href="mailto:Tushar@gmail.com"
+                    href="mailto:help@stockwiz.in"
                     className="flex items-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img src={mailnew} alt="mail" />
-                    <span>Tushar@gmail.com</span>
+                    <span>help@stockwiz.in</span>
                   </a>
 
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/916377959992"
+                    href="https://wa.me/918000030231"
                     className="flex items-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img src={whatsappnew} alt="whatsapp" />
-                    <span>+91-6377959992</span>
+                    <span>+91-8000030231</span>
                   </a>
                 </div>
               </div>
