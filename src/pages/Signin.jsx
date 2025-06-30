@@ -275,7 +275,12 @@ const Signin = () => {
             alt=""
             className="absolute object-cover w-full h-full top-0 left-0 z-0"
           />
-          <img src={mainlogo} alt="Logo" className="h-[35px] z-10" />
+          <img
+            src={mainlogo}
+            alt="Logo"
+            className="h-[35px] z-10 cursor-pointer"
+            onClick={() => navigate("/")}
+          />
           <p className="font-semibold text-[28px] sm:text-[40px] md:text-[60px] lg:text-[85px] leading-[120%] text-left font-degular text-white z-10">
             Welcome <br /> To The Future <br />
             Of{" "}
@@ -508,7 +513,7 @@ const Signin = () => {
               onClick={() => navigate("/")}
               src={mainlogo}
               alt="mainlogo"
-              className="h-[21px]"
+              className="h-[21px] cursor-pointer"
             />
             <p className="font-semibold text-[38px] leading-[120%] text-left font-degular text-white mt-5">
               Welcome To The Future Of{" "}

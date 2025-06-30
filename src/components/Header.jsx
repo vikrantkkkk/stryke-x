@@ -10,6 +10,7 @@ const NAV_ITEMS = ["Home", "Features", "Algos", "Pricing", "Funded Accounts"];
 const getIdFromLabel = (label) => label.toLowerCase().replace(/\s/g, "");
 
 const Header = () => {
+  
   const [activeId, setActiveId] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,7 +87,12 @@ const Header = () => {
                       if (item === "Algos") {
                         navigate("/algos");
                       } else {
-                        scrollToSection(id);
+                        if (window.location.pathname !== "/") {
+                          navigate("/");
+                          setTimeout(() => scrollToSection(id), 100);
+                        } else {
+                          scrollToSection(id);
+                        }
                       }
                     }}
                     className={`text-[18px] leading-[100%] font-normal transition ${
@@ -183,7 +189,12 @@ const Header = () => {
                       if (item === "Algos") {
                         navigate("/algos");
                       } else {
-                        scrollToSection(id);
+                        if (window.location.pathname !== "/") {
+                          navigate("/");
+                          setTimeout(() => scrollToSection(id), 100);
+                        } else {
+                          scrollToSection(id);
+                        }
                       }
                     }}
                     className="text-white text-left text-[18px] font-medium"

@@ -293,8 +293,8 @@ const Footer = () => {
                           +91 - 8949800532
                         </a>{" "}
                         <span className="border-l border-[#FFFFFF4D] mx-2"></span>
-                        <a target="_blanck" href="tel:+91-9664221723">
-                          +91 - 9664221723
+                        <a target="_blanck" href="tel:+91-7850934748">
+                          +91 - 7850934748
                         </a>{" "}
                       </p>
                     </div>
