@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header.jsx";
 import Footer from "../components/Algo/Footer.jsx";
+import Header from "../components/Algo/Header.jsx";
 
 const AlgosLayout = ({ children }) => {
   return (
