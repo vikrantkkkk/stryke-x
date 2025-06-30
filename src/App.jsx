@@ -5,12 +5,14 @@ import Signin from "./pages/Signin.jsx";
 import DhanUI from "./pages/DhanUI.jsx";
 import Dhan from "./pages/Dhan.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import AlgoPage from "./pages/AlgoPage.jsx";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/algos" element={<AlgoPage />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/dhanui" element={<DhanUI />} />
         <Route

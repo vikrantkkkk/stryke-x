@@ -84,8 +84,7 @@ const Header = () => {
                     key={id}
                     onClick={() => {
                       if (item === "Algos") {
-                        window.location.href =
-                          "https://adorable-puffpuff-5ef849.netlify.app/";
+                        navigate("/algos");
                       } else {
                         scrollToSection(id);
                       }
@@ -182,8 +181,7 @@ const Header = () => {
                     key={id}
                     onClick={() => {
                       if (item === "Algos") {
-                        window.location.href =
-                          "https://adorable-puffpuff-5ef849.netlify.app/";
+                        navigate("/algos");
                       } else {
                         scrollToSection(id);
                       }
